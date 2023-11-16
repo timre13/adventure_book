@@ -3,6 +3,9 @@
 
     conditionHandler("vars['B'] = 'A'"); // létrehozok egy B változót A értékkel
     conditionHandler("vars['B'] == 'A'"); // True értéket ad vissza
+
+    //let parser = new DOMParser();
+    //let xmlDoc = parser.parseFromString("<game><pages><page/><page/></pages></game>", "text/xml");
 </script>
 
 <main>
