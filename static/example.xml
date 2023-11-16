@@ -1,0 +1,61 @@
+<game>
+
+    <bar>
+        <range name="Életerő" min="0" max="24" value="$karakter.health"/>
+        <range name="Ügyesség" min="0" max="24" value="$karakter.skill"/>
+        <range name="Szerencse" min="0" max="24" value="$karakter.luck"/>
+        <value name="Arany" value="$karakter.arany"/>
+    </bar>
+    <variables>
+        <group name="karakter">
+            <var name="health" type="number" value=""/>
+            <var name="skill" type="number" value=""/>
+            <var name="luck" type="number" value=""/>
+        </group>
+    </variables>
+
+    <pages>
+        <page id="1">
+            <text>Lorem ipsum dolor sit amet.</text>
+            <enemies>
+                <enemy hp="10" skill="5">Törpe</enemy>
+            </enemies>
+            <options>
+                <option dest="20">
+                    Fellrobbantom magam.
+                    <executions>
+                        <execute condition="'kard' in inventory">
+                            <next>2</next>
+                            <changeInt name="" command=""/>  <!--utasítások: a command első betűje: + - = -->
+                            <changeList name="" command=""/> <!-- utasítások: + -  -->
+                            <changeString name="" command=""/> <!-- utasítások: + - =  -->
+                            <changeBool name="" command=""/> <!-- utasítások: +1 -1 =1 =0  -->
+                        </execute>
+                    </executions>
+                </option>
+            </options>
+        </page>
+
+        <page id="2">
+            <text>Lorem ipsum dolor sit amet 2.</text>
+            <enemies>
+                <enemy hp="10" skill="5">Törpe</enemy>
+            </enemies>
+            <options>
+                <option dest="20">
+                    Fellrobbantom magam. 2
+                    <executions>
+                        <execute condition="'kard' in inventory">
+                            <next>1</next>
+                            <changeInt name="" command=""/>  <!--utasítások: a command első betűje: + - = -->
+                            <changeList name="" command=""/> <!-- utasítások: + -  -->
+                            <changeString name="" command=""/> <!-- utasítások: + - =  -->
+                            <changeBool name="" command=""/> <!-- utasítások: +1 -1 =1 =0  -->
+                        </execute>
+                    </executions>
+                </option>
+            </options>
+        </page>
+
+    </pages>
+</game>
