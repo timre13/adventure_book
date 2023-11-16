@@ -12,6 +12,4 @@ export let vars: { [id: string]: any } = {};
 
 export function conditionHandler(conString: string): void {
     console.log(eval(conString));
-
-
 }
