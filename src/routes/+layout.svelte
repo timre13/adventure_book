@@ -2,7 +2,7 @@
     //@ts-ignore
     let files: FileList = new Array();
 
-    let showForm = true;
+    let showForm = false;
     $: {
         if (files.length > 0 && files[0].name.endsWith(".xml")) {
             handleFileLoad();
