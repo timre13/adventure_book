@@ -15,11 +15,6 @@
 </main>
 
 <style lang="scss">
-    :global(*) {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
 
     main {
         display: grid;
