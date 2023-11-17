@@ -3,6 +3,7 @@
     import StatusNotepad from "../components/StatusNotepad.svelte";
     import { Stat } from "$lib/status";
     import { Button, Page } from "$lib/page";
+    import { createEventDispatcher } from "svelte";
 
     conditionHandler("vars['B'] = 'A'"); // létrehozok egy B változót A értékkel
     conditionHandler("vars['B'] == 'A'"); // True értéket ad vissza
@@ -27,7 +28,9 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     <div id="left-panel" />
     <div id="center-panel">
         <div class="page-text">
-            <p>{page.text}</p>
+            {#each page.text.split("\n") as par}
+                <p>{par}</p>
+            {/each}
         </div>
         <div id="page-buttons">
             {#each page.buttons as button}
