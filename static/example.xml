@@ -7,31 +7,40 @@
         <value name="Arany" value="$karakter.arany"/>
     </bar>
     <variables>
-        <group name="karakter">
+        <group name="kar">
             <var name="health" type="number" value=""/>
             <var name="skill" type="number" value=""/>
             <var name="luck" type="number" value=""/>
         </group>
+
+        
     </variables>
 
     <pages>
         <page id="1">
             <text>Lorem ipsum dolor sit amet.</text>
-            <enemies>
-                <enemy hp="10" skill="5">Törpe</enemy>
-            </enemies>
+
+            <fights>
+                <fight>
+                    <enemy name="Első denevér" hp="5" skill="6"/>
+                    <fleeCodition con="if fight.round.number > 1 &amp;&amp; fight.round.LastWin = false"/>
+                </fight>
+
+                <fight>
+                    <enemy name="Második denevér" hp="6" skill="5"/>
+                </fight>
+
+
+            </fights>
+
             <options>
                 <option dest="20">
-                    Fellrobbantom magam.
-                    <executions>
-                        <execute condition="'kard' in inventory">
-                            <next>2</next>
-                            <changeInt name="" command=""/>  <!--utasítások: a command első betűje: + - = -->
-                            <changeList name="" command=""/> <!-- utasítások: + -  -->
-                            <changeString name="" command=""/> <!-- utasítások: + - =  -->
-                            <changeBool name="" command=""/> <!-- utasítások: +1 -1 =1 =0  -->
-                        </execute>
-                    </executions>
+                    Fellłllrrrrrobbantom magam. 
+                    <paths>
+                        <next id="2" condition="fight(6,6)">
+                            kard += 1
+                        </next>
+                    </paths>
                 </option>
             </options>
         </page>
