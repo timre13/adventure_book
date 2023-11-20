@@ -41,7 +41,9 @@
         </page>
 
         <page id="1">
-            <text>Lorem ipsum dolor sit amet.</text>
+            <text>
+
+            </text>
 
             <fights>
                 <fight>
