@@ -4,9 +4,11 @@
     //@ts-ignore
     let files: FileList = new Array();
 
-    //let showForm = !dev;
-    let showForm = true;
-    let promise = new Promise(() => {});
+    let showForm = !dev;
+    //let showForm = true;
+    let promise = new Promise<void>((resolve, reject) => {
+        if (dev) resolve();
+    });
     $: {
         if (files.length > 0 && files[0].name.endsWith(".xml")) {
             promise = handleFileLoad();
