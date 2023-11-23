@@ -1,30 +1,38 @@
 <script lang="ts">
+    import { dev } from "$app/environment";
+    import { file } from "$lib/stores/file";
     //@ts-ignore
     let files: FileList = new Array();
 
-    let showForm = false;
+    //let showForm = !dev;
+    let showForm = true;
+    let promise = new Promise(() => {});
     $: {
         if (files.length > 0 && files[0].name.endsWith(".xml")) {
-            handleFileLoad();
+            promise = handleFileLoad();
             showForm = false;
         }
     }
 
     async function handleFileLoad() {
-        console.log(await files[0].text());
+        const text = await files[0].text();
+        console.log(text);
+        file.set(text);
     }
 </script>
 
 <div id="main-container">
     <slot />
 </div>
-<div id="form-container" class={showForm ? "show" : ""}>
-    <form action="">
-        <h1>Fálj betöltése</h1>
-        <input type="file" name="config" id="config" bind:files />
-        <span>*Csak a megfelelő XML fájl elfogadott</span>
-    </form>
-</div>
+{#await promise}
+    <div id="form-container" class={showForm ? "show" : ""}>
+        <form action="">
+            <h1>Fálj betöltése</h1>
+            <input type="file" name="config" id="config" bind:files />
+            <span>*Csak a megfelelő XML fájl elfogadott</span>
+        </form>
+    </div>
+{/await}
 
 <style lang="scss">
     #form-container {
