@@ -36,9 +36,11 @@
 
         <page id="1">
             <text>A Lorem Ipsum egy egyszerű szövegrészlete, szövegutánzata a betűszedő és nyomdaiparnak.</text>
-            
+            <initially>
+                <changeOption id="1" text="new-text" hidden="true/false" disabled="true"/>
+            </initially>
             <options>
-                <option>
+                <option id="1"  hidden="true" disabled="false">
                     <text>Első opció (Kapsz egy körtét és vesztesz egy életerőt, ha van nálad alma és szerencse)</text>
                     <execute>
                         <!--Conditions (ÉS kapcsolat van közöttük)-->
@@ -68,7 +70,12 @@
                     <execute>
                         <changePage id="3"/>
                     </execute>
-                    <!-- Rövidítési lehetőség: az execute mezők elhagyhatók, ha a parancs nincs feltételhez kötve-->
+                    <!-- Rövidítési lehetőség: • az execute mezők elhagyhatók, ha a parancs nincs feltételhez kötve
+                                               • ha mindegyik opció minden esetben ugyanarra az oldalra visz, írhatsz egy changPage="" tulajdonságot az options címkébe ahelyett, hogy mindenhova leírnád
+                                               • ha az opciónak mindegyik execute-ja ugyanarra a page-re repítene, vagy nincs egy execute sem az opcióban, akkor az opciónak is megadhatod a changePage tulajdonságot    
+                                            -->
+                    
+                    <!-- A játék újrakezdése: <restart/> -->
                 </option>
             </options>
         </page>
