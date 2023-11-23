@@ -63,15 +63,20 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
 </main>
 
 <style lang="scss">
+    @import "../lib/styles/variables.scss";
+
     main {
         display: grid;
         grid-template-columns: 1fr 50% 1fr;
         height: 100vh;
-        background-color: #e4d9bb;
+        background-color: $main-bg-color;
         font-family: Arial, Helvetica, sans-serif;
         position: relative;
 
         #left-panel {
+            background-image: url("wood-texture-bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         #center-panel {
@@ -82,14 +87,16 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             flex-direction: column;
             overflow-y: scroll;
             scrollbar-color: #71593c #b0a68a;
-            font-size: larger;
             scroll-snap-type: y mandatory;
             scroll-snap-stop: always;
+            background-image: url("old-paper-texture.jpg");
+            background-repeat: no-repeat;
+            background-position: 80%;
 
             #center-panel-overlay {
                 height: 200px;
                 width: 50%;
-                background-image: linear-gradient(#e4d9bb, transparent);
+                background-image: linear-gradient($main-bg-color, transparent);
                 mask-image: linear-gradient(black, transparent);
                 backdrop-filter: blur(5px);
                 position: absolute;
@@ -114,7 +121,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                     padding-bottom: 2rem;
 
                     button {
-                        font-size: larger;
+                        font-size: 1.2rem;
                         color: white;
                         background-color: #725738;
                         border: none;
@@ -131,7 +138,11 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
 
                 .page-text {
                     flex: 1;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    line-height: 120%;
                     text-align: justify;
+                    color: #422104;
                 }
             }
 
@@ -143,6 +154,11 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
         }
 
         #right-panel {
+            background-image: url("wood-texture-bg.jpg");
+            background-repeat: no-repeat;
+            background-position-x: right;
+            background-size: cover;
+
             display: flex;
             flex-direction: column;
         }
