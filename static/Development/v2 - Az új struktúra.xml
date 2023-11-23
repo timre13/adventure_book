@@ -10,7 +10,8 @@
         <stats>
             <stat name="Életerő" minValue="" maxValue="" value=""/>
             <stat name="Ügyesség" minValue="" maxValue="" value=""/>
-            <stat name="Szerencse" minValue="" maxValue="" value=""/>
+            <stat name="Szerencse" minValue="" maxValue="" value=""/> <!-- Adhatsz neki display nevet is, ha pl van benne szóköz -->
+            <!-- maxValue és value statikus leírása helyett adhatsz neki dice="2d6 minValue maxValue" tulajdonságot is -->
             <separator/>
 
             <stat name="Arany" minValue="" maxValue="" value=""/>
@@ -54,7 +55,7 @@
 
                         <!--To-do-->
                         <changeItem name="körte" amount="1"/> <!-- amount, decrease, increase -->
-                        <changeStat name="Életerő" decrease="1"/> <!-- amount, decrease, increase -->
+                        <changeStat name="Életerő" decrease="1"/> <!-- value, decrease, increase -->
                         <changePage id="2"/>
                     </execute>
                     <execute>

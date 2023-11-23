@@ -1,0 +1,248 @@
+<game>
+    <title>Az ítélet labirintusa</title>
+
+    <bar>
+        <range name="Életerő" min="0" max="$char.maxHealth" value="$char.health"/>
+        <range name="Ügyesség" min="0" max="$char.maxSkill" value="$char.skill"/>
+        <range name="Szerencse" min="0" max="$char.maxLuck" value="$char.luck"/>
+        <value name="Arany" value="$char.gold"/>
+        <value name="Ékkövek" value="$char.gems"/> <!--A value címkénél is lehet "max" tulajdonság-->
+        <field name="Felszerelés" value="$char.inventory" grouped="false"/>
+        <field name="Bájitalok" value="$char.potions" grouped="true"/>
+        <!--Grouped: ha egy elemből több van, akkor nem kétszer írja ki, hanem odaírja elé/mögé, hogy kettő van belőle -->
+    </bar>
+
+    <variables>
+        <group name="char">
+            <var name="health" type="number" value=""/>
+            <var name="skill" type="number" value=""/>
+            <var name="luck" type="number" value=""/>
+            <var name="gold" type="number" value=""/>
+            <var name="gems" type="number" value=""/>
+            <var name="maxHealth" type="number" value=""/>
+            <var name="maxSkill" type="number" value=""/>
+            <var name="maxLuck" type="number" value=""/>
+
+            <var name="inventory" type="hashSet" value=""/>
+            <var name="potions" type="list" value=""/>
+        </group>
+
+    </variables>
+
+    <pages>
+        <page id="0">
+            <text>
+            Az Osztriga-öböltől délre, nagyjából nyolcvan kilométerre terül el a Koponyák Sivataga. Forró, veszedelmes és mindent egybevetve igen kellemetlen hely, ám te kénytelen vagy átkelni rajta, hisz déli felén terül el a drágakőbányáiról messze földön híres és gazdag Zafirváros. Vonz a hatalmas vagyon, mely minden harcos számára elérhető, aki hajlandó akár a köveket, akár a pénzt kísérni egyik településből a másikba. A munka azonban nem veszélytelen.
+            Ahogy a sivatag felé közeledsz, segélykiáltásokat hallasz az utat szegélyező bozótos túloldaláról. Mikor közelebb lépsz, még épp látod, ahogy egy ocsmány Goblin tört márt egy igen fontosnak látszó Elf férfi szívébe, aki azonnal a földre roskad.
+            Egyből előre rontasz, hogy elkapd a gyilkost, ám pechedre megbotlasz, az aljas teremtmény pedig észrevesz téged, és eltűnik az aljnövényzetben.
+            Csak állsz, és a halott Elf tetemét bámulod. Amennyire meg tudod állapítani, az egyik helyi törzs vezetője lehetett. Kezében egy nagy, kék színű gyémántot szorongat. Hirtelen megrezzennek körülötted a bokrok! Arra gondolsz, talán a Goblin tért vissza, így előhúzod kardodat. Legnagyobb meglepetésedre azonban húsz vagy harminc Elf gyűrűjében találod magadat, akik megfeszített íjakkal vesznek körbe. Egyikük előre lép, és komoran megszólít.
+
+            - Ember! - kezdi. - Karddal a kezedben, apám, a Törzsfőnökünk meggyilkolt testével a lábad előtt találtunk rád.
+            Rájössz, hogy ezek azt hiszik, te vagy a gyilkos. Tiltakozni próbálnál, azonban az Elf egy intésére elhallgatsz. Az ítélet Labirintusához viszünk fejezi be mondanivalóját. Hátat fordít neked, és elsétál, te pedig kísérőid körében kénytelen vagy követni. Miközben az örök egymás közt vitatják meg a látottakat, megtudod, hogy a labirintus egy titkos hely, ahol a bűnösöket teszik próbára. Minden ..próba" előtt egy kis Aranyszobrot rejtenek el annak mélyén, a próba alanyának pedig meg kell találnia azt. Ha ez nem sikerül, bünösnek ítélik, ám ha rálel, és sikerül kijuttatnia odabentről, ártatlannak találják, és szabadon engedik.
+            A fak ritkulni kezdenek, a menet pedig egy hatalmas fa törzsénél megtorpan. A Főnök fia motyog pár szót, mire a kéreg egy része kinyílik, mögötte pedig feltűnik a labirintus bejárata...</text>
+
+            <options>
+                <option next="1">  <!--A next az opcióba is beírható, ha nincs neki semmi feltétele-->
+                    Játék indítása
+                </option>
+            </options>
+        </page>
+
+        <page id="1">
+            <text>
+            Belöknek a lenti alagútba, és rád zárják az ajtót, kizárva ezzel a nyíláson át beszűrődő természetes világosságot. Innentől kezdve kizárólag a falra rögzített fáklyáktól remélhetsz valamennyi fényt. Ahogy szemed hozzászokik a homályhoz, látod, hogy az alagút észak felé indul. Nagyot sóhajtasz a dolog igazságtalansága felett, majd elindulsz abba az irányba.
+            </text>
+
+
+            <options>
+                <option>
+                    Menj tovább
+                    <execute>
+                        <next id="41">
+                            
+                        </next>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="2">
+            <text>
+            A vízbe ugrasz, az áramlat azonban nagyon eros. Megpróbálsz a felszínen maradni, de ez nem könnyű.
+            </text>
+
+
+            <options>
+                <option>
+                    Menj tovább
+                    <execute>
+                        <next id="148">
+                            
+                        </next>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="3">
+            <text>
+            Ahogy óvatosan a drótok között lépkedve eléred a Szobrot, az hirtelen eltünik! A következő pillanatban vészjósló morajlás hangzik fel a fejed fölött, és ahogy arra nézel, látod, hogy hatalmas szikladarabok kezdenek feléd zuhanni. A hatalmas súly porrá örli csontjaidat. Kalandod itt véget ér.
+            </text>
+
+
+            <options>
+                <option>
+                    Újrakezdés
+                    <execute>
+                        <reset/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="4">
+            <text>
+            A kötél igen rossz állapotban van, és még félúton sem jársz, mikor elszakad... Kalandod itt véget ér.
+            </text>
+
+
+            <options>
+                <option>
+                    Újrakezdés
+                    <execute>
+                        <reset/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="5">
+            <text>
+            Az ajtó egy tágas terembe nyílik, melynek északi oldalán egy újabb kijárat van, egy lelógó kötél szomszédságában. Csapdának nem látod jelét, így áthaladsz a szobán és leveszed a kötelet. Lenyomod a kilincset, de így sem sikerül előrébb jutnod - alighanem zárva van.
+            </text>
+
+
+            <options>
+                <option>
+                    Kinyitom
+                    <execute>
+                        <next id="110" condition="itemCheck('Aranykulcs')">
+                            
+                        </next>
+                    </execute>
+                </option>
+                <option>
+                    Továbbállok
+                    <execute>
+                        <next id="14" condition="!itemCheck('Aranykulcs')">
+                            
+                        </next>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="6">
+            <text>
+            Az ajtó egy nyugat felé haladó alagútba nyílik. Követed, míg egy elágazáshoz nem érsz.
+            </text>
+
+
+            <options>
+                <option>
+                    Észak felé szeretnék fordulni
+                    <execute>
+                        <next id="172">
+                            
+                        </next>
+                    </execute>
+                </option>
+                <option>
+                    Továbbá is a járatot követem
+                    <execute>
+                        <next id="168">
+                            
+                        </next>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="7">
+            <text>
+            Mikor végül eléred a verem alját, semmit nem látsz. A falakat végigtapogatva annyit meg tudsz állapítani, hogy az alagút kelet felé megy tovább. 
+            </text>
+
+
+            <options>
+                <option>
+                    Észak felé szeretnék menni és visszafordulni
+                    <execute>
+                        <next id="96">
+                            
+                        </next>
+                    </execute>
+                </option>
+                <option>
+                    Továbbá is a járatot követem
+                    <execute>
+                        <next id="165">
+                            
+                        </next>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="8">
+            <text>
+            A dárdák, melyeket egy igen hatásos méreggel kentek be, mélyen a lábadba fúródnak. Dobj egy kockával, hogy megtudd, hány ÉLETERŐ pontot vesztettél. Lapozz a 65-re.
+
+            </text>
+
+
+            <options>
+                <option>
+                    Megyek tovább
+                    <execute>
+                        <next id="65">
+                            health -= diceRoll('2d6')
+                        </next>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+        
+        <page id="9">
+            <text>
+            Elsietsz a halott fenevad teteme mellett és gyorsan az északi járathoz lépsz.
+            </text>
+
+
+            <options>
+                <option>
+                    Megyek tovább
+                    <execute>
+                        <next id="52">
+                            
+                        </next>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+        <page id="10">
+            <text>
+            Az ajtó recsegve nyílik ki és fed fel egy helyiséget, mely alig szélesebb a folyosónál. Hosszában két részre van osztva. Az egyik oldalon egy cellát látsz, míg a másik egyenesen egy ajtóhoz tart az északi falon. A fogdában egy rongyos férfi áll, aki meredten néz téged és fenyegető mozdulatokat tesz. irányodba. Gyanítod, hogy szabadságáért cserébe esetleg hasznos információkkal tudna szolgálni számodra. Ha beszélni akarsz vele, lapozz a 149-re. Ha jobban éreznéd magad, ha holtan tudhatnád magad mögött, ezért a cella rácsai közt átnyúlva kardélre hánynád, lapozz a 24-re.
+
+            </text>
+
+
+            <options>
+                <option>
+                    Megyek tovább
+                    <execute>
+                        <next id="52">
+                            
+                        </next>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+    </pages>
+</game>
