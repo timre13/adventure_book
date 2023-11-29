@@ -10,6 +10,25 @@ export class Memory {
 }
 export let vars: { [id: string]: any } = {};
 
-export function conditionHandler(conString: string): void {
-    console.log(eval(conString));
+
+export function interpreter(XML: string){
+
+    const parser = new DOMParser()
+    let source = parser.parseFromString(XML, "text/xml");
+
+
+    let gameConditions = source.querySelector('game > gameConditions')?.childNodes;
+    let char_stats = source.querySelector('game > character > stats')?.childNodes;
+    let char_invetory = source.querySelector('game > character > inventory')?.childNodes;
+    let pages = source.querySelector('game > pages')?.childNodes;
+
+    if (pages){
+        for (let i = 0; i < pages.length; i++) {
+            console.log(pages[i].nodeName)
+            
+            }
+    }
+
+
+
 }
