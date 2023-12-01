@@ -16,15 +16,26 @@
     let pageHistory: Array<Page> = Array(10);
     pageHistory.fill(
         new Page(
-            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate, maxime? Officiis pariatur laborum cum aut totam quam tempore earum sequi non? Magni iure atque blanditiis impedit voluptatibus sunt quia distinctio!\n\
-Iure eligendi reprehenderit enim cum debitis vitae ullam quo quis sunt accusamus ducimus et, consequuntur soluta suscipit est, architecto aperiam nostrum quasi. Officiis possimus facere laudantium ad enim eos illo.\n\
-Tempore debitis odit beatae. Animi, autem rem voluptatibus modi corrupti enim iusto illo necessitatibus. Unde vitae dolor sed architecto, ex assumenda soluta natus iste cum culpa illum sequi magni modi.\n\
-Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem sint perspiciatis, nisi est rem vel nulla deserunt asperiores quas nihil beatae accusamus dolorum enim facilis obcaecati ipsum modi deleniti aut.\n\
+            "Lorem ipsum dolor sit, *amet consectetur* adipisicing elit. **Voluptate, maxime?** Officiis pariatur laborum cum aut totam quam tempore earum sequi non? Magni iure atque blanditiis impedit voluptatibus sunt quia distinctio!\n\n\
+Iure eligendi reprehenderit enim cum debitis vitae ullam quo quis sunt accusamus ducimus et, consequuntur soluta suscipit est, architecto aperiam nostrum quasi. Officiis possimus facere laudantium ad enim eos illo.\n\n\
+Tempore debitis odit beatae. Animi, autem rem voluptatibus modi corrupti enim iusto illo necessitatibus. Unde vitae dolor sed architecto, ex assumenda soluta natus iste cum culpa illum sequi magni modi.\n\n\
+Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem sint perspiciatis, nisi est rem vel nulla deserunt asperiores quas nihil beatae accusamus dolorum enim facilis obcaecati ipsum modi deleniti aut.\n\n\
 At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt suscipit eos ipsum maxime. Consequatur saepe cupiditate repellat omnis quaerat accusantium a, quidem, dolore vel enim ab eos tenetur?",
             [],
             [new Button("Első"), new Button("Második"), new Button("Harmadik")]
         )
     );
+
+    async function getPageTexts(): Promise<Array<String>> {
+        let pageTexts: Array<String> = [];
+        for (let i = 0; i < pageHistory.length; ++i) {
+            let result = await pageHistory[i].getTextAsHtml();
+            pageTexts.push(result);
+        }
+        return pageTexts;
+    }
+
+    let pageTexts = getPageTexts();
 
     function scrollToLatestPage() {
         document.querySelector(".page:last-of-type")?.scrollIntoView();
@@ -38,25 +49,25 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     <div id="center-panel">
         <div id="center-panel-overlay" />
         <div id="pages">
-            {#each pageHistory as page, pageI}
-                <div class="page">
-                    <div class="page-text">
-                        {#each page.text.split("\n") as par}
-                            <p>{par}</p>
-                        {/each}
-                    </div>
-                    {#if pageI == pageHistory.length - 1}
-                        <div id="page-buttons">
-                            {#each page.buttons as button}
-                                <button>{button.text}</button>
-                            {/each}
+            {#await pageTexts then pageTextsVal}
+                {#each pageHistory as page, pageI}
+                    <div class="page">
+                        <div class="page-text">
+                            <p>{@html pageTextsVal[pageI]}</p>
                         </div>
+                        {#if pageI == pageHistory.length - 1}
+                            <div id="page-buttons">
+                                {#each page.buttons as button}
+                                    <button>{button.text}</button>
+                                {/each}
+                            </div>
+                        {/if}
+                    </div>
+                    {#if pageI != pageHistory.length - 1}
+                        <hr class="page-separator" />
                     {/if}
-                </div>
-                {#if pageI != pageHistory.length - 1}
-                    <hr class="page-separator" />
-                {/if}
-            {/each}
+                {/each}
+            {/await}
         </div>
     </div>
     <div id="right-panel">
