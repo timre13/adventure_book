@@ -93,11 +93,21 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             background-repeat: no-repeat;
             background-position: 80%;
 
+            &::-webkit-scrollbar {
+                background: #b0a68a;
+                width: 0.5rem;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #71593c;
+            }
+
             #center-panel-overlay {
                 height: 200px;
                 width: 50%;
                 background-image: linear-gradient($main-bg-color, transparent);
                 mask-image: linear-gradient(black, transparent);
+                -webkit-mask-image: linear-gradient(black, transparent);
                 backdrop-filter: blur(5px);
                 position: absolute;
                 pointer-events: none;
