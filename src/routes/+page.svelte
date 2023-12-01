@@ -1,12 +1,9 @@
 <script lang="ts">
-    import { conditionHandler, vars } from "$lib/index";
+    import { vars } from "$lib/index";
     import StatusNotepad from "../components/StatusNotepad.svelte";
     import { Stat } from "$lib/status";
     import { Button, Page } from "$lib/page";
     import { onMount } from "svelte";
-
-    conditionHandler("vars['B'] = 'A'"); // létrehozok egy B változót A értékkel
-    conditionHandler("vars['B'] == 'A'"); // True értéket ad vissza
 
     //let parser = new DOMParser();
     //let xmlDoc = parser.parseFromString("<game><pages><page/><page/></pages></game>", "text/xml");
