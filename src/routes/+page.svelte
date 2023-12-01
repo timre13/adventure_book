@@ -37,25 +37,27 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     <div id="left-panel" />
     <div id="center-panel">
         <div id="center-panel-overlay" />
-        {#each pageHistory as page, pageI}
-            <div class="page">
-                <div class="page-text">
-                    {#each page.text.split("\n") as par}
-                        <p>{par}</p>
-                    {/each}
-                </div>
-                {#if pageI == pageHistory.length - 1}
-                    <div id="page-buttons">
-                        {#each page.buttons as button}
-                            <button>{button.text}</button>
+        <div id="pages">
+            {#each pageHistory as page, pageI}
+                <div class="page">
+                    <div class="page-text">
+                        {#each page.text.split("\n") as par}
+                            <p>{par}</p>
                         {/each}
                     </div>
+                    {#if pageI == pageHistory.length - 1}
+                        <div id="page-buttons">
+                            {#each page.buttons as button}
+                                <button>{button.text}</button>
+                            {/each}
+                        </div>
+                    {/if}
+                </div>
+                {#if pageI != pageHistory.length - 1}
+                    <hr class="page-separator" />
                 {/if}
-            </div>
-            {#if pageI != pageHistory.length - 1}
-                <hr class="page-separator" />
-            {/if}
-        {/each}
+            {/each}
+        </div>
     </div>
     <div id="right-panel">
         <StatusNotepad {stats} {inventory} />
@@ -89,9 +91,11 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             scrollbar-color: #71593c #b0a68a;
             scroll-snap-type: y mandatory;
             scroll-snap-stop: always;
-            background-image: url("old-paper-texture.jpg");
-            background-repeat: no-repeat;
-            background-position: 80%;
+
+            #pages {
+                background-image: url("tiled-paper.webp");
+                background-repeat: repeat;
+            }
 
             &::-webkit-scrollbar {
                 background: #b0a68a;
