@@ -13,11 +13,15 @@
             <stat name="Arany" value="20"/>
             <stat name="Ékkövek" minValue="" maxValue="" value=""/>
         </stats>
+        <effects>
+            
+        </effects>
 
         <inventory>
             <group name="Felszerelés">
                 <item name="kard"/>
-                <item name="bőrvért"/>
+                <item name="bőrvért" changeStats="Életerő -1 Szerencse -1"/>
+
             </group>
             <group name="Bájitalok">
                 <item name="viagra" amount="3"/>
@@ -121,15 +125,15 @@
             <options changePage="backGr">
                 <option>
                     <text>Ügyesség Itala</text>
-                    <changeItem name="Ügyesség Itala"/>
+                    <changeItem name="Ügyesség Itala" amount="2" group="Bájitalok"/>
                 </option>
                 <option>
                     <text>Életerő Itala</text>
-                    <changeItem name="Életerő Itala"/>
+                    <changeItem name="Életerő Itala" amount="2" group="Bájitalok"/>
                 </option>
                 <option>
                     <text>Szerencse Itala</text>
-                    <changeItem name="Szerencse Itala"/>
+                    <changeItem name="Szerencse Itala" amount="2" group="Bájitalok"/>
                 </option>
             </options>
         </page>
@@ -220,28 +224,82 @@
         </page>
 
 
-        <!-- Complex Page sablon for Gábor: -->
-        <page id="">
-            <text></text>
+        <page id="6">
+            <text>Az ajtó egy nyugat felé haladó alagútba nyílik. Követed, míg egy elágazáshoz nem érsz.</text>
             <options>
                 <option>
-                    <text>Opció</text>
-                    <execute>
-                        <!-- feltételek -->
-                        <!-- végrehajtandók -->
-                    </execute>
-                    <execute>
-                        <!-- feltételek -->
-                        <!-- végrehajtandók -->
-                    </execute>
+                    <text>Észak felé karok fordulni</text>
+                    <changePage id="172"/>
                 </option>
                 <option>
-                    <text>Rövidített opció (nincs feltétel, csak ugrás)</text>
-                    <changePage id=""/>
+                    <text>Nem akarook letérni az útról</text>
+                    <changePage id="168"/>
                 </option>
             </options>
         </page>
-
+        <page id="7">
+            <text>Mikor végül eléred a verem alját, semmit nem látsz. A falakat végigtapogatva annyit meg tudsz állapítani, hogy az alagút kelet felé megy tovább. </text>
+            <options>
+                <option>
+                    <text>Vállalom a járatot</text>
+                    <changePage id="165"/>
+                </option>
+                <option>
+                    <text>Visszatérek a fenti folyosóhoz</text>
+                    <changePage id="96"/>
+                </option>
+            </options>
+        </page>
+        <page id="8">
+            <text></text>
+            <options>
+                <option>
+                    <text>A dárdák, melyeket egy igen hatásos méreggel kentek be, mélyen a lábadba fúródnak.</text>
+                    <execute>
+                        <!-- feltételek -->
+                        <!-- végrehajtandók -->
+                        <changeStat name="Életerő" decrease="~1d6"/>
+                        <changePage id="96"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="9">
+            <text>Elsietsz a halott fenevad teteme mellett és gyorsan az északi járathoz lépsz. </text>
+            <options>
+                <option>
+                    <text>Megyek</text>
+                    <changePage id="52"/>
+                </option>
+            </options>
+        </page>
+        <page id="10">
+            <text>Az ajtó recsegve nyílik ki és fed fel egy helyiséget, mely alig szélesebb a folyosónál. Hosszában két részre van osztva. Az egyik oldalon egy cellát látsz, míg a másik egyenesen egy ajtóhoz tart az északi falon. A fogdában egy rongyos férfi áll, aki meredten néz téged és fenyegető mozdulatokat tesz. irányodba. Gyanítod, hogy szabadságáért cserébe esetleg hasznos információkkal tudna szolgálni számodra.</text>
+            <options>
+                <option>
+                    <text>Beszélni akarok vele</text>
+                    <changePage id="149"/>
+                </option>
+                <option>
+                    <text>Inkább megölném</text>
+                    <changePage id="24"/>
+                </option>
+            </options>
+        </page> 
+        <page id="11">
+            <text>Elérsz az alagút végére, de semmi feltünöt nem látsz.</text>
+            <options>
+                <option>
+                    <text>Tovább akarok keresgélni</text>
+                    <changePage id="38"/>
+                </option>
+                <option>
+                    <text>Visszamegyek az előző elágazáshoz, és keletre indulok</text>
+                    <changePage id="31"/>
+                </option>
+            </options>
+        </page>
+        
 
     </pages>
 

@@ -56,7 +56,7 @@
                         <!-- orField és andField (az execute eredendően andFieldként értelmezendő)-->
 
                         <!--To-do-->
-                        <changeItem name="körte" amount="1"/> <!-- amount, decrease, increase -->
+                        <changeItem name="körte" amount="1" group="Felszerelés"/> <!-- amount, decrease, increase -->
                         <changeStat name="Életerő" decrease="1"/> <!-- value, decrease, increase -->
                         <changePage id="2"/>
                     </execute>
@@ -76,6 +76,8 @@
                                             -->
                     
                     <!-- A játék újrakezdése: <restart/> -->
+
+                    <!-- Az optionöknek lehet egy disabled tagja is a hidden mellett. A disabled értéke már egyből maga a hibaüzenet, amit rámutatáskor kiír. -->
                 </option>
             </options>
         </page>
