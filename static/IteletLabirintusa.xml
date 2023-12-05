@@ -243,6 +243,43 @@
         </page>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <page id="20">
+            <text></text>
+            <options>
+                <option>
+                    <text>Opció</text>
+                    <execute>
+                        <!-- feltételek -->
+                        <!-- végrehajtandók -->
+                    </execute>
+                    <execute>
+                        <!-- feltételek -->
+                        <!-- végrehajtandók -->
+                    </execute>
+                </option>
+                <option>
+                    <text>Rövidített opció (nincs feltétel, csak ugrás)</text>
+                    <changePage id=""/>
+                </option>
+            </options>
+        </page>
+
+
     </pages>
 
 </game>
