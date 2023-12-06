@@ -415,14 +415,14 @@
                     <changePage id="5"/>
                 </option>
                 <option>
-                    <text>A tovább akarom folytatni az utat</text>
+                    <text>Tovább akarom folytatni az utat</text>
                     <changePage id="14"/>
                 </option>
             </options>
         </page>
         <page id="34">
             <text>
-                Az alagút egy ideig kanyarog, de végig észak felé megy. Hamarosan egy ajtó jelenik meg a jobb oldali falban. 
+                A fiola erős mentaillatot áraszt magából. 
             </text>
             <options>
                 <option>
@@ -430,11 +430,56 @@
                     <changePage id="102"/>
                 </option>
                 <option>
-                    <text>A tovább akarom folytatni az utat</text>
+                    <text>Itthagyom, inkább tovább akarom folytatni az utat</text>
                     <changePage id="169"/>
                 </option>
             </options>
         </page>
+        <page id="35">
+            <text>
+                Kétségbeesetten kaparod a falat, de képtelen vagy megakadályozni, hogy a tüz kellős közepébe ne zuhanj. Ahogy a csúszda végé hez közeledsz, már a láng pattanásait is hallod, és megpillantod a pokoli lángnyelveket. Lendületed miatt egy ideig még a levegőben repülsz, utána azonban, ahogy fejjel előre a tűzbe zuhansz, a szörnyű meleg egy pillanat alatt füstpamaccsá változtat. Kalandod itt véget ér.
+            </text>
+            <option>
+                <text>Újrakezdés</text>
+                <restart/>
+            </option>
+        </page>
+        <page id="36">
+            <text>
+                Semmit nem találsz, így északra folytatod az utad.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="98"/>
+            </option>
+        </page>
+        <page id="37">
+            <text>
+                A törmelékek közt kutatva belerúgsz valami fémes dologba. Miután eltakarítottad a környékéről a szemetet, egy masszív csapóajtó körvonalai rajzolódnak ki elötted a padlóban. Nem tudod megállapítani, hogy túl rozsdás-e ahhoz, hogy fel lehessen nyitni, te mindenesetre megpróbálod.
+            </text>
+            <option>
+                <execute>
+                    <!--Skillcheck-->
+                </execute>
+                <text>Menj tovább</text>
+                
+            </option>
+        </page>
+        <page id="38">
+            <text>
+                Átkutatod a zsákutcát, remélve, hogy találsz valamit.
+            </text>
+            <option>
+                <execute>
+                    <!--Skillcheck luck-->
+                </execute>
+                <text>Menj tovább</text>
+                
+            </option>
+        </page>
+        
+
+
 
     </pages>
 
