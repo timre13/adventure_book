@@ -230,10 +230,6 @@
                         <!-- feltételek -->
                         <!-- végrehajtandók -->
                     </execute>
-                    <execute>
-                        <!-- feltételek -->
-                        <!-- végrehajtandók -->
-                    </execute>
                 </option>
                 <option>
                     <text>Rövidített opció (nincs feltétel, csak ugrás)</text>
@@ -259,27 +255,142 @@
 
 
         <page id="20">
-            <text>Az alagút egy súlyos ajtóban ér véget, ami le van zárva. De nem kulccsal: három tekerő gombot látsz rajta. Ha ismered a kinyitásához szükséges kombinációt, add össze a számokat, és lapozz az így kapott fejezetpontra. Ha nem tudod, vissza kell térned a homokos folyópartra és valahol máshol kell próbálkoznod &#8211; lapozz a 76-ra.</text>
+            <text>Az alagút egy súlyos ajtóban ér véget, ami le van zárva. De nem kulccsal: három tekerő gombot látsz rajta. Ha nem tudod a kódot, vissza kell térned a homokos folyópartra és valahol máshol kell próbálkoznod &#8211;.</text>
             <options>
-                <option>
-                    <text></text>
+                <initially>
                     <execute>
-                        <!-- feltételek -->
-                        <!-- végrehajtandók -->
+                        <itemRequired name="Kódpapír"/>
+                        <changeOption id="1" text="Kinyitom az ajtót"/>
+                    </execute>
+                </initially>
+                <option>
+                    <text>Beírom a kódot</text>
+                    <execute>
+                        <itemRequired name="Kódpapír"/>
+                        <changePage id="47"/>
                     </execute>
                     <execute>
-                        <!-- feltételek -->
-                        <!-- végrehajtandók -->
+                        <alert text="Nem tudod a kódot."/>
                     </execute>
                 </option>
                 <option>
-                    <text>Rövidített opció (nincs feltétel, csak ugrás)</text>
-                    <changePage id=""/>
+                    <text>Folytatom az utamat</text>
+                    <changePage id="76"/>
+                </option>
+            </options>
+        </page>
+        <page id="21">
+            <text>
+                A számszerij beállítása pontos volt, esélyed sincs. A lövedék mélyen a nyakadba fúródik, átmetszi a gerincvelödet és a falhoz szegezi ernyedt testedet. Kalandod itt véget ér.
+            </text>
+            <option>
+                <text>Újrakezdés</text>
+                <restart/>
+            </option>
+        </page>
+        <page id="22">
+            <text>
+                Az ajtó egy kis terembe nyílik. Egyik sarkában, egy kosárban egy hatalmas, kutyaszerű teremtmény hever. A szemben lévő falon egy ajtót látsz, mely mellett szögre akasztva egy Bronz Kulcs lóg hívogatóan.
+            </text>
+            <options>
+                <option>
+                    <text>Megpróbálok átlopózni</text>
+                    <changePage id="81"/>
+                </option>
+                <option>
+                    <text>Inkább visszafordulok</text>
+                    <changePage id="108"/>
+                </option>
+            </options>
+        </page>
+        <page id="23">
+            <text>
+                Köpenyed hirtelen megremeg, és felfúvódik, mintha levegővel telne meg. Legnagyobb meglepetésedre elemelkedsz a talajtól. Óvatosan előre lebegsz, majd lágyan leereszkedsz a talajra, a sziklafal lába elé. Amint földet érsz, köpenyed leereszkedik, és ismét úgy csüng le rólad, mint bármelyik közönséges ruhadarab.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="27"/>
+            </option>
+        </page>
+        <page id="24">
+            <text>
+                Kardoddal átnyúlsz a rácsokon, a férfi pedig rémülten ugrik hátra. Ujra megpróbálod ezt, azonban nagyobb erővel. Eltalálod a torkát. a sebből bíborvörös vér folyik végig fegyvereden, egyenesen a kezedre. Értetlenül néz rád, majd ülő helyzetbe roskad a padlóra. Ahogy feje elöre esik, visszahúzod a fegyvered és megtisztítod véres kezed. Úgy döntesz, északi irányba folytatod az utad, úgyhogy az ajtón át távozol.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="72"/>
+            </option>
+        </page>
+        <page id="25">
+            <text>
+                Sikerül gond nélkül elérned a túloldalt, majd sietve távozol az északi nyíláson át. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="52"/>
+            </option>
+        </page>
+        <page id="26">
+            <text>
+                Vagy száz Elf áll körülötted, megfeszített nyilvesszőkkel, melyek feléd mutatnak. A halott Fönök fia előre lép és az idős férfire néz, aki alig észrevehetően megrázza a fejét. Az Elf komoran elmosolyodik. Bünös! &#8211; jelenti ki. Az utolsó dolog, amit hallasz, az a feléd suhanó nyílvesszők zaja. Kalandod itt véget ér.
+            </text>
+            <option>
+                <text>Újrakezdés</text>
+                <restart/>
+            </option>
+        </page>
+        <page id="27">
+            <text>
+                Egy hatalmas völgy lábánál állsz, melyet egy gyors folyású folyó vájt ki. Próbálsz valami megoldást találni az átkelésre. de csak egy kicsi, eléggé rozoga és korhadt hidat látsz. Ahogy megközelíted, a látod, amint két óriási termesz eszi a fát. Hófehér testükön igen nyugtalanítóan hat két vérvörös szemük. A lények bármelyike bármikor beléd marhatna. Ha sietsz, talán még sikerül átkelned rajta azelőtt, hogy végleg összeroskadna. A másik lehetőséged, hogy megpróbálsz átúszni a sebes folyón.            
+            </text>
+            <options>
+                <option>
+                    <text>Megpróbálok átrohanni</text>
+                    <changePage id="40"/>
+                </option>
+                <option>
+                    <text>Inkább úsznék</text>
+                    <changePage id="2"/>
+                </option>
+            </options>
+        </page>
+        <page id="28">
+            <text>
+                Egy idő után újabb elágazásba botlasz. A déli ágról úgy véled, az visszafelé vezetne, ezért északnak indulsz.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="67"/>
+            </option>
+        </page>
+        <page id="29">
+            <text>
+                Egy idő után újabb elágazásba botlasz. A déli ágról úgy véled, az visszafelé vezetne, ezért északnak indulsz.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="69"/>
+            </option>
+        </page>
+        <page id="30">
+            <text>
+                A járat nyugati irányba indul, ám hamarosan északnak fordul. Végül elérsz egy ajtóig. mely a keleti falban áll. 
+            </text>
+            <options>
+                <option>
+                    <text>Kinyitom az ajtót</text>
+                    <changePage id="124"/>
+                </option>
+                <option>
+                    <text>A folyosón akarom folytatni az utat</text>
+                    <changePage id="129"/>
                 </option>
             </options>
         </page>
 
 
+
     </pages>
+
 
 </game>
