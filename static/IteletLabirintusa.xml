@@ -387,8 +387,54 @@
                 </option>
             </options>
         </page>
-
-
+        <page id="31">
+            <text>
+                Végigsétálsz a járaton, mely elágazásban végződik. A déli folyosó visszafelé vezetne, úgyhogy északnak indulsz. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="99"/>
+            </option>
+        </page>
+        <page id="32">
+            <text>
+                Úgy döntesz, késlekedés nélkül elhagyod a szobát, így bezárod magad mögött az ajtót és keletnek indulsz.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="16"/>
+            </option>
+        </page>
+        <page id="33">
+            <text>
+                Az alagút egy ideig kanyarog, de végig észak felé megy. Hamarosan egy ajtó jelenik meg a jobb oldali falban. 
+            </text>
+            <options>
+                <option>
+                    <text>Megpróbálom kinyitni az ajtót</text>
+                    <changePage id="5"/>
+                </option>
+                <option>
+                    <text>A tovább akarom folytatni az utat</text>
+                    <changePage id="14"/>
+                </option>
+            </options>
+        </page>
+        <page id="34">
+            <text>
+                Az alagút egy ideig kanyarog, de végig észak felé megy. Hamarosan egy ajtó jelenik meg a jobb oldali falban. 
+            </text>
+            <options>
+                <option>
+                    <text>Megpróbálom, megiszom</text>
+                    <changePage id="102"/>
+                </option>
+                <option>
+                    <text>A tovább akarom folytatni az utat</text>
+                    <changePage id="169"/>
+                </option>
+            </options>
+        </page>
 
     </pages>
 
