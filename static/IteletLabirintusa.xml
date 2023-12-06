@@ -243,43 +243,6 @@
         </page>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <page id="20">
-            <text>Az alagút egy súlyos ajtóban ér véget, ami le van zárva. De nem kulccsal: három tekerő gombot látsz rajta. Ha ismered a kinyitásához szükséges kombinációt, add össze a számokat, és lapozz az így kapott fejezetpontra. Ha nem tudod, vissza kell térned a homokos folyópartra és valahol máshol kell próbálkoznod &#8211; lapozz a 76-ra.</text>
-            <options>
-                <option>
-                    <text></text>
-                    <execute>
-                        <!-- feltételek -->
-                        <!-- végrehajtandók -->
-                    </execute>
-                    <execute>
-                        <!-- feltételek -->
-                        <!-- végrehajtandók -->
-                    </execute>
-                </option>
-                <option>
-                    <text>Rövidített opció (nincs feltétel, csak ugrás)</text>
-                    <changePage id=""/>
-                </option>
-            </options>
-        </page>
-
-
     </pages>
 
 </game>
