@@ -4,6 +4,9 @@
     import { Stat } from "$lib/status";
     import { Button, Page } from "$lib/page";
     import { onMount } from "svelte";
+    import { Dice, createDice } from "$lib/dice";
+
+    let diceHandler: Dice;
 
     conditionHandler("vars['B'] = 'A'"); // létrehozok egy B változót A értékkel
     conditionHandler("vars['B'] == 'A'"); // True értéket ad vissza
@@ -42,10 +45,21 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     }
 
     onMount(scrollToLatestPage);
+    onMount(async () => {
+        diceHandler = await createDice("#dice-box");
+    });
+    function TestRoll() {
+        diceHandler.roll("2d6").then(res => {
+            console.log(res);
+        });
+    }
 </script>
 
 <main>
-    <div id="left-panel" />
+    <div id="left-panel">
+        <div id="dice-box" />
+        <button on:click={TestRoll}>Testroll</button>
+    </div>
     <div id="center-panel">
         <div id="center-panel-overlay" />
         <div id="pages">
@@ -90,6 +104,16 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             background-image: url("wood-texture-bg.jpg");
             background-repeat: no-repeat;
             background-size: cover;
+
+            #dice-box {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                pointer-events: none;
+                z-index: 10;
+            }
         }
 
         #center-panel {
