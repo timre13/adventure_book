@@ -24,7 +24,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             [],
             [
                 new Button("Első", "Ez az első gomb"),
-                new Button("Második", "Ez a második gomb"),
+                new Button("Második"),
                 new Button("Harmadik", "Ez a harmadik gomb", true),
                 new Button("Negyedik", "Ez a negyedik gomb")
             ]
@@ -72,8 +72,10 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                                 {#each page.buttons as button}
                                     <button disabled={button.disabled} on:mousemove={tooltipHover}
                                         >{button.text}
-                                        <div class="btn-tooltip">{button.tooltip}</div></button
-                                    >
+                                        {#if button.tooltip}
+                                            <div class="btn-tooltip">{button.tooltip}</div>
+                                        {/if}
+                                    </button>
                                 {/each}
                             </div>
                         {/if}
@@ -172,35 +174,45 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                         background-image: url("button-texture.jpg");
                         background-repeat: repeat;
                         background-size: cover;
+                        position: relative;
+                        filter: none;
 
                         .btn-tooltip {
                             display: none;
-                            position: fixed;
+                            position: absolute;
                             left: 0;
                             top: 0;
-                            z-index: 999;
+                            z-index: 9999;
                             pointer-events: none;
                             width: max-content;
                             margin: 15px;
                             padding: 0.5rem;
                             font-size: smaller;
-                            background-color: #b0a68a;
                             color: rgb(65, 53, 15);
                             border-radius: 5px;
+                            background-color: #b0a68a;
                         }
 
                         &:hover {
-                            background-color: #8d6a42;
-                            filter: brightness(120%) saturate(120%);
-
                             .btn-tooltip {
                                 display: inline;
                             }
+                            filter: brightness(120%) saturate(120%);
                         }
 
                         &:disabled {
-                            filter: saturate(60%) brightness(65%);
                             cursor: initial;
+
+                            &::before {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-color: #0007;
+                                border-radius: 15px;
+                                content: "";
+                            }
                         }
                     }
                 }
