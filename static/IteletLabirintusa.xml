@@ -20,7 +20,7 @@
         <inventory>
             <group name="Felszerelés">
                 <item name="kard"/>
-                <item name="bőrvért" changeStats="Életerő -1 Szerencse -1"/>
+                <item name="bőrvért"/>
 
             </group>
             <group name="Bájitalok">
@@ -299,13 +299,130 @@
                 </option>
             </options>
         </page>
-        
+        <page id="12">
+            <text>
+                A válladra csapod a köpenyt, de legnagyobb meglepetésedre semmi nem történik. Mivel egy kicsit azért hűvös van, nem dobod le. Bár nem tudod, de ez a Lebegés Köpenye.
+            </text>
+            <initially>
+                <execute>
+                    <itemRequired name="Gyűrű" max="0"/>
+                    <changeOption id="1" text="Felveszem a gyűrűt"/>
+                </execute>
+                <execute>
+                    <itemRequired name="Italeffect" max="0"/>
+                    <changeOption id="2" text="Megkóstolom a folyadékot"/>
+                </execute>
+            </initially>
+            <option>
+                <text>Felveszem a gyűrűt</text>
+                <execute>
+                    <itemRequired name="Gyűrű" max="0"/>
+                    <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
+                    <changePage id="119"/>
+                </execute>
+                <execute>
+                    <alert text="Már rajtad van."/>
+                </execute>
+            </option>
+            <option>
+                <text>Megkóstolom a folyadékot</text>
+                <execute>
+                    <itemRequired name="Italeffect" max="0"/>
 
-
-
-
-
-
+                    <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
+                    <changePage id="71"/>
+                </execute>
+                <execute>
+                    <alert text="Már üres."/>
+                </execute>
+            </option>
+            <option>
+                <text>Folytatom az utamat</text>
+                <execute>
+                    <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
+                    <changePage id="80"/>
+                </execute>
+                
+            </option>
+        </page>
+        <page id="13">
+            <text>
+                A zárba helyezed a kulcsot, de az sajnos nem illik bele, így nincs más választásod, minthogy megpróbáld betörni.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="196"/>
+            </option>
+        </page>
+        <page id="14">
+            <text>
+                Ahogy észak felé haladsz nyugatról egy alagutat látsz befutni. Úgy döntesz, inkább egyenesen mész tovább.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="67"/>
+            </option>
+        </page>
+        <page id="15">
+            <text>
+                Az áramlat túl erős, és tovább sodor egy hid alá. Magad elött megpillantasz egy sziklát, és megpróbálod elkapni.
+            </text>
+            <option>
+                <execute>
+                    <!--Skillcheck luck-->
+                </execute>
+                <text>Menj tovább</text>
+                
+            </option>
+        </page>
+        <page id="16">
+            <text>
+                Ahogy előre haladsz, elkerüli figyelmedet egy medvecsapda. Belelépsz, fogai mélyen a lábadba marnak. Valamivel később egy elágazáshoz érkezel. Úgy döntesz, a három lehetséges irány közül észak felé indulsz.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <execute>
+                    <changeStat name="Életerő" decrease="2"/> 
+                    <changePage id="195"/>
+                </execute>
+            </option>
+        </page>
+        <page id="17">
+            <text>
+                A férfi szívébe mártod kardod, szenvedő arckifejezésétől azonban lelkiismeret-furdalásod támad. Semmi értékeset nem találsz a szobában, így az északi ajtón át távozol.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <execute>
+                    <changeStat name="Szerencse" decrease="1"/> 
+                    <changePage id="180"/>
+                </execute>
+            </option>
+        </page>
+        <page id="18">
+            <text>
+                Amint belépsz a szobába, rémülten eszmélsz rá, hogy előbb alaposan szét kellett volna nézned a plafonon ugyanis egy hatalmas Pók kapaszkodik, ami minden szemével téged bámul. Négy ezüstszínű gubó lóg mellette, és összeszorul a szíved, mikor rájössz, hogy két ember, egy Törpe és egy Elf van beléjük csavarva, akik bizonyára leendő ellenfeled legutóbbi áldozatai voltak, és már csak arra várnak, hogy a bestia egy jót lakmározzon belőlük. A Pók némán a padlóra pottyan, csáprágói mohón feléd nyúlnak.
+            </text>
+            <option>
+                <execute>
+                    <!--fight-->
+                </execute>
+                <text>Menj tovább</text>
+                
+            </option>
+        </page>
+        <page id="19">
+            <text>
+                Igyekezeted, hogy szilárd talajra juss, hiábavalónak tűnik, ám teszel még egy utolsó, kétségbeesett próbálkozást a kijárat felé veted magad.
+            </text>
+            <option>
+                <execute>
+                    <!--Skillcheck luck-->
+                </execute>
+                <text>Menj tovább</text>
+                
+            </option>
+        </page>
 
 
 
@@ -521,7 +638,7 @@
             </text>
             <option>
                 <execute>
-                    <!--Skillcheck-->
+                    <!--Skillcheck luck-->
                 </execute>
                 <text>Menj tovább</text>
                 
