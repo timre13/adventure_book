@@ -13,7 +13,7 @@
 
     let stats: Array<Stat> = [new Stat("Életerő", 85, 100), new Stat("Szerencse", 40), new Stat("Ügyesség", 22)];
     let inventory: Record<string, number> = { Alma: 12, Kulcs: 3, Kard: 1 };
-    let pageHistory: Array<Page> = Array(10);
+    let pageHistory: Array<Page> = Array(1);
     pageHistory.fill(
         new Page(
             "Lorem ipsum dolor sit, *amet consectetur* adipisicing elit. **Voluptate, maxime?** Officiis pariatur laborum cum aut totam quam tempore earum sequi non? Magni iure atque blanditiis impedit voluptatibus sunt quia distinctio!\n\n\
@@ -22,7 +22,12 @@ Tempore debitis odit beatae. Animi, autem rem voluptatibus modi corrupti enim iu
 Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem sint perspiciatis, nisi est rem vel nulla deserunt asperiores quas nihil beatae accusamus dolorum enim facilis obcaecati ipsum modi deleniti aut.\n\n\
 At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt suscipit eos ipsum maxime. Consequatur saepe cupiditate repellat omnis quaerat accusantium a, quidem, dolore vel enim ab eos tenetur?",
             [],
-            [new Button("Első"), new Button("Második"), new Button("Harmadik", true), new Button("Negyedik")]
+            [
+                new Button("Első", "Ez az első gomb"),
+                new Button("Második", "Ez a második gomb"),
+                new Button("Harmadik", "Ez a harmadik gomb", true),
+                new Button("Negyedik", "Ez a negyedik gomb")
+            ]
         )
     );
 
@@ -42,6 +47,13 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     }
 
     onMount(scrollToLatestPage);
+
+    function tooltipHover(x: MouseEvent) {
+        let elem: HTMLElement = (x.currentTarget! as HTMLElement).querySelector(".btn-tooltip") as HTMLElement;
+        elem.style.left = x.offsetX + "px";
+        elem.style.top = x.offsetY + "px";
+        console.log(x.clientX, x.clientY);
+    }
 </script>
 
 <main>
@@ -58,7 +70,10 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                         {#if pageI == pageHistory.length - 1}
                             <div id="page-buttons">
                                 {#each page.buttons as button}
-                                    <button disabled={button.disabled}>{button.text}</button>
+                                    <button disabled={button.disabled} on:mousemove={tooltipHover}
+                                        >{button.text}
+                                        <div class="btn-tooltip">{button.tooltip}</div></button
+                                    >
                                 {/each}
                             </div>
                         {/if}
@@ -158,9 +173,29 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                         background-repeat: repeat;
                         background-size: cover;
 
+                        .btn-tooltip {
+                            display: none;
+                            position: fixed;
+                            left: 0;
+                            top: 0;
+                            z-index: 999;
+                            pointer-events: none;
+                            width: max-content;
+                            margin: 15px;
+                            padding: 0.5rem;
+                            font-size: smaller;
+                            background-color: #b0a68a;
+                            color: rgb(65, 53, 15);
+                            border-radius: 5px;
+                        }
+
                         &:hover {
                             background-color: #8d6a42;
                             filter: brightness(120%) saturate(120%);
+
+                            .btn-tooltip {
+                                display: inline;
+                            }
                         }
 
                         &:disabled {
