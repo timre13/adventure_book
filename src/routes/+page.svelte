@@ -22,7 +22,7 @@ Tempore debitis odit beatae. Animi, autem rem voluptatibus modi corrupti enim iu
 Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem sint perspiciatis, nisi est rem vel nulla deserunt asperiores quas nihil beatae accusamus dolorum enim facilis obcaecati ipsum modi deleniti aut.\n\n\
 At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt suscipit eos ipsum maxime. Consequatur saepe cupiditate repellat omnis quaerat accusantium a, quidem, dolore vel enim ab eos tenetur?",
             [],
-            [new Button("Első"), new Button("Második"), new Button("Harmadik")]
+            [new Button("Első"), new Button("Második"), new Button("Harmadik", true), new Button("Negyedik")]
         )
     );
 
@@ -58,7 +58,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                         {#if pageI == pageHistory.length - 1}
                             <div id="page-buttons">
                                 {#each page.buttons as button}
-                                    <button>{button.text}</button>
+                                    <button disabled={button.disabled}>{button.text}</button>
                                 {/each}
                             </div>
                         {/if}
@@ -154,9 +154,18 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                         padding: 1rem;
                         cursor: pointer;
                         border-radius: 15px;
+                        background-image: url("button-texture.jpg");
+                        background-repeat: repeat;
+                        background-size: cover;
 
                         &:hover {
                             background-color: #8d6a42;
+                            filter: brightness(120%) saturate(120%);
+                        }
+
+                        &:disabled {
+                            filter: saturate(60%) brightness(65%);
+                            cursor: initial;
                         }
                     }
                 }

@@ -2,7 +2,11 @@ import DOMPurify from "dompurify";
 import { Marked } from "marked";
 
 export class Button {
-    constructor(public text: string) {}
+    public disabled: boolean = false;
+
+    constructor(public text: string, disabled?: boolean) {
+        this.disabled = disabled ?? false;
+    }
 }
 
 export class Enemy {
