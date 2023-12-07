@@ -48,7 +48,6 @@ export class Dice {
             await new Promise(resolve => setTimeout(resolve, 100));
         }
         resultBox.parentElement!.removeChild(resultBox);
-        this.resultBox = null;
         this.currentRollComplete = false;
         this.buttonClicked = false;
         return this.currentRollResult;
