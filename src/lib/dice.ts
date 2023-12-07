@@ -3,8 +3,9 @@ import DiceBox from "@3d-dice/dice-box";
 export class Dice {
     private currentRollComplete = false;
     private currentRollResult: number = 0;
+    private buttonClicked = false;
 
-    constructor(private diceBox: DiceBox) {
+    constructor(private diceBox: DiceBox, private selector: string) {
         this.diceBox.onRollComplete = this.onRollComplete;
     }
     private onRollComplete = (result: any) => {
@@ -12,11 +13,44 @@ export class Dice {
         this.currentRollResult = result[0].value;
     };
     async roll(amount: string) {
+        const container = document.querySelector(this.selector)! as HTMLElement;
+        const prevResultBox = document.querySelector("#result-box");
+        if (prevResultBox != null && prevResultBox.parentElement != null) {
+            console.log("removing previous result box");
+            prevResultBox.parentElement.removeChild(prevResultBox);
+        }
         this.diceBox.roll(amount);
+
+        container.style.opacity = "1";
+        const button = document.createElement("button");
+        button.innerText = "Folytatás";
+        button.classList.add("accept-button");
+        button.onclick = () => {
+            // if (this.currentRollComplete) {
+            container.style.opacity = "0.5";
+            this.buttonClicked = true;
+            button.parentElement!.removeChild(button);
+            // }
+        };
+        if (!container.parentElement) {
+            throw new Error("Dice container has no parent");
+        }
+        container.parentElement.appendChild(button);
         while (!this.currentRollComplete) {
             await new Promise(resolve => setTimeout(resolve, 100));
         }
+        const resultBox = document.createElement("div");
+        resultBox.id = "result-box";
+        resultBox.classList.add("result-box");
+        resultBox.innerText = this.currentRollResult.toString();
+        container.parentElement.appendChild(resultBox);
+        while (!this.buttonClicked) {
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        resultBox.parentElement!.removeChild(resultBox);
+        this.resultBox = null;
         this.currentRollComplete = false;
+        this.buttonClicked = false;
         return this.currentRollResult;
     }
 }
@@ -40,5 +74,5 @@ export async function createDice(selector: string) {
         theme: "rock"
     });
     await diceBox.init();
-    return new Dice(diceBox);
+    return new Dice(diceBox, selector);
 }
