@@ -16,7 +16,7 @@
 
     let stats: Array<Stat> = [new Stat("Életerő", 85, 100), new Stat("Szerencse", 40), new Stat("Ügyesség", 22)];
     let inventory: Record<string, number> = { Alma: 12, Kulcs: 3, Kard: 1 };
-    let pageHistory: Array<Page> = Array(10);
+    let pageHistory: Array<Page> = Array(1);
     pageHistory.fill(
         new Page(
             "Lorem ipsum dolor sit, *amet consectetur* adipisicing elit. **Voluptate, maxime?** Officiis pariatur laborum cum aut totam quam tempore earum sequi non? Magni iure atque blanditiis impedit voluptatibus sunt quia distinctio!\n\n\
@@ -25,7 +25,12 @@ Tempore debitis odit beatae. Animi, autem rem voluptatibus modi corrupti enim iu
 Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem sint perspiciatis, nisi est rem vel nulla deserunt asperiores quas nihil beatae accusamus dolorum enim facilis obcaecati ipsum modi deleniti aut.\n\n\
 At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt suscipit eos ipsum maxime. Consequatur saepe cupiditate repellat omnis quaerat accusantium a, quidem, dolore vel enim ab eos tenetur?",
             [],
-            [new Button("Első"), new Button("Második"), new Button("Harmadik", true), new Button("Negyedik")]
+            [
+                new Button("Első", "Ez az **első** gomb"),
+                new Button("Második"),
+                new Button("Harmadik", "Ez a harmadik gomb", true),
+                new Button("Negyedik", "Ez a negyedik gomb")
+            ]
         )
     );
 
@@ -39,12 +44,29 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     }
 
     let pageTexts = getPageTexts();
+    let tooltip: Promise<String> = pageHistory[pageHistory.length - 1].buttons[0].getTooltipHtml();
 
     function scrollToLatestPage() {
         document.querySelector(".page:last-of-type")?.scrollIntoView();
     }
 
     onMount(scrollToLatestPage);
+
+    function buttonEnter(x: MouseEvent) {
+        console.log("Enter");
+        let btnI = parseInt((x.currentTarget! as HTMLElement).dataset.index || "0");
+        tooltip = pageHistory[pageHistory.length - 1].buttons[btnI].getTooltipHtml();
+        console.log(tooltip.then(x => console.log(x)));
+    }
+
+    function tooltipHover(x: MouseEvent) {
+        let elem: HTMLElement = (x.currentTarget! as HTMLElement).querySelector(".btn-tooltip") as HTMLElement;
+        if (!elem) return;
+        elem.style.left = x.offsetX + "px";
+        elem.style.top = x.offsetY + "px";
+        //console.log(x.clientX, x.clientY);
+    }
+  
     onMount(async () => {
         diceHandler = await createDice("#dice-box");
     });
@@ -71,8 +93,21 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                         </div>
                         {#if pageI == pageHistory.length - 1}
                             <div id="page-buttons">
-                                {#each page.buttons as button}
-                                    <button disabled={button.disabled}>{button.text}</button>
+                                {#each page.buttons as button, i}
+                                    <button
+                                        disabled={button.disabled}
+                                        on:mousemove={tooltipHover}
+                                        on:mouseenter={buttonEnter}
+                                        data-index={i}
+                                        >{button.text}
+                                        {#await tooltip then tooltipVal}
+                                            {#if tooltipVal}
+                                                <div class="btn-tooltip">
+                                                    {@html tooltipVal}
+                                                </div>
+                                            {/if}
+                                        {/await}
+                                    </button>
                                 {/each}
                             </div>
                         {/if}
@@ -181,15 +216,55 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                         background-image: url("button-texture.jpg");
                         background-repeat: repeat;
                         background-size: cover;
+                        position: relative;
+                        filter: none;
+
+                        .btn-tooltip {
+                            display: none;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            z-index: 9999;
+                            pointer-events: none;
+                            width: max-content;
+                            margin: 15px;
+                            padding: 0.5rem;
+                            font-size: smaller;
+                            color: rgb(65, 53, 15);
+                            border-radius: 5px;
+                            background-color: #b0a68a;
+                        }
 
                         &:hover {
-                            background-color: #8d6a42;
-                            filter: brightness(120%) saturate(120%);
+                            .btn-tooltip {
+                                display: inline;
+                            }
+
+                            &::before {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-color: #fff3;
+                                border-radius: 15px;
+                                content: "";
+                            }
                         }
 
                         &:disabled {
-                            filter: saturate(60%) brightness(65%);
                             cursor: initial;
+
+                            &::before {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-color: #0007;
+                                border-radius: 15px;
+                                content: "";
+                            }
                         }
                     }
                 }

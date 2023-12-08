@@ -2,10 +2,27 @@ import DOMPurify from "dompurify";
 import { Marked } from "marked";
 
 export class Button {
+    public tooltip: string = "";
     public disabled: boolean = false;
 
-    constructor(public text: string, disabled?: boolean) {
+    constructor(public text: string, tooltip?: string, disabled?: boolean) {
+        this.tooltip = tooltip ?? "";
         this.disabled = disabled ?? false;
+    }
+
+    getTooltipHtml() {
+        let tooltipHtml: Promise<string>;
+        let marked = new Marked();
+        let parsed = marked.parse(this.tooltip);
+        if (typeof parsed == "string") {
+            tooltipHtml = (async _ => DOMPurify.sanitize(parsed as string))();
+            // console.log("string", DOMPurify.sanitize(parsed as string));
+        } else {
+            tooltipHtml = new Promise(async _ => DOMPurify.sanitize(await parsed));
+            // console.log("promise");
+        }
+        // console.log(tooltipHtml);
+        return tooltipHtml;
     }
 }
 
