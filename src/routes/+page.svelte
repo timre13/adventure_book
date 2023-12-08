@@ -23,7 +23,7 @@ Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem s
 At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt suscipit eos ipsum maxime. Consequatur saepe cupiditate repellat omnis quaerat accusantium a, quidem, dolore vel enim ab eos tenetur?",
             [],
             [
-                new Button("Első", "Ez az első gomb"),
+                new Button("Első", "Ez az **első** gomb"),
                 new Button("Második"),
                 new Button("Harmadik", "Ez a harmadik gomb", true),
                 new Button("Negyedik", "Ez a negyedik gomb")
@@ -41,6 +41,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     }
 
     let pageTexts = getPageTexts();
+    let tooltip: Promise<String> = pageHistory[pageHistory.length - 1].buttons[0].getTooltipHtml();
 
     function scrollToLatestPage() {
         document.querySelector(".page:last-of-type")?.scrollIntoView();
@@ -48,11 +49,19 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
 
     onMount(scrollToLatestPage);
 
+    function buttonEnter(x: MouseEvent) {
+        console.log("Enter");
+        let btnI = parseInt((x.currentTarget! as HTMLElement).dataset.index || "0");
+        tooltip = pageHistory[pageHistory.length - 1].buttons[btnI].getTooltipHtml();
+        console.log(tooltip.then(x => console.log(x)));
+    }
+
     function tooltipHover(x: MouseEvent) {
         let elem: HTMLElement = (x.currentTarget! as HTMLElement).querySelector(".btn-tooltip") as HTMLElement;
+        if (!elem) return;
         elem.style.left = x.offsetX + "px";
         elem.style.top = x.offsetY + "px";
-        console.log(x.clientX, x.clientY);
+        //console.log(x.clientX, x.clientY);
     }
 </script>
 
@@ -69,12 +78,20 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                         </div>
                         {#if pageI == pageHistory.length - 1}
                             <div id="page-buttons">
-                                {#each page.buttons as button}
-                                    <button disabled={button.disabled} on:mousemove={tooltipHover}
+                                {#each page.buttons as button, i}
+                                    <button
+                                        disabled={button.disabled}
+                                        on:mousemove={tooltipHover}
+                                        on:mouseenter={buttonEnter}
+                                        data-index={i}
                                         >{button.text}
-                                        {#if button.tooltip}
-                                            <div class="btn-tooltip">{button.tooltip}</div>
-                                        {/if}
+                                        {#await tooltip then tooltipVal}
+                                            {#if tooltipVal}
+                                                <div class="btn-tooltip">
+                                                    {@html tooltipVal}
+                                                </div>
+                                            {/if}
+                                        {/await}
                                     </button>
                                 {/each}
                             </div>
@@ -197,7 +214,17 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                             .btn-tooltip {
                                 display: inline;
                             }
-                            filter: brightness(120%) saturate(120%);
+
+                            &::before {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-color: #fff3;
+                                border-radius: 15px;
+                                content: "";
+                            }
                         }
 
                         &:disabled {

@@ -9,6 +9,21 @@ export class Button {
         this.tooltip = tooltip ?? "";
         this.disabled = disabled ?? false;
     }
+
+    getTooltipHtml() {
+        let tooltipHtml: Promise<string>;
+        let marked = new Marked();
+        let parsed = marked.parse(this.tooltip);
+        if (typeof parsed == "string") {
+            tooltipHtml = (async _ => DOMPurify.sanitize(parsed as string))();
+            // console.log("string", DOMPurify.sanitize(parsed as string));
+        } else {
+            tooltipHtml = new Promise(async _ => DOMPurify.sanitize(await parsed));
+            // console.log("promise");
+        }
+        // console.log(tooltipHtml);
+        return tooltipHtml;
+    }
 }
 
 export class Enemy {
