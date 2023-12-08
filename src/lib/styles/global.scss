@@ -5,9 +5,24 @@
 }
 
 #left-panel {
-    #dice-box canvas {
+    #dice-box {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 100%;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 10;
+
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .dice-box-end {
+        background-color: #222a;
+        transition: background-color 1s;
     }
 
     .accept-button {

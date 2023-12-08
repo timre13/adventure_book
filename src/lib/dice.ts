@@ -23,23 +23,24 @@ export class Dice {
         container.style.pointerEvents = "all";
 
         container.style.opacity = "1";
+        if (!container.parentElement) {
+            throw new Error("Dice container has no parent");
+        }
+        while (!this.currentRollComplete) {
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
         const button = document.createElement("button");
         button.innerText = "Folytatás";
         button.classList.add("accept-button");
         button.onclick = () => {
             // if (this.currentRollComplete) {
-            container.style.opacity = "0.5";
+            container.style.opacity = "0";
             this.buttonClicked = true;
             button.parentElement!.removeChild(button);
             // }
         };
-        if (!container.parentElement) {
-            throw new Error("Dice container has no parent");
-        }
         container.parentElement.appendChild(button);
-        while (!this.currentRollComplete) {
-            await new Promise(resolve => setTimeout(resolve, 100));
-        }
+        container.classList.add("dice-box-end");
         const resultBox = document.createElement("div");
         resultBox.id = "result-box";
         resultBox.classList.add("result-box");
@@ -52,6 +53,7 @@ export class Dice {
         this.currentRollComplete = false;
         this.buttonClicked = false;
         container.style.pointerEvents = "none";
+        container.classList.remove("dice-box-end");
         return this.currentRollResult;
     }
 }

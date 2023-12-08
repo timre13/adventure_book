@@ -139,16 +139,6 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             background-image: url("wood-texture-bg.jpg");
             background-repeat: no-repeat;
             background-size: cover;
-
-            #dice-box {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                pointer-events: none;
-                z-index: 10;
-            }
         }
 
         #center-panel {
