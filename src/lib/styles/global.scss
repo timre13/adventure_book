@@ -22,6 +22,7 @@
         cursor: pointer;
         padding: 1rem;
         border-radius: 10px;
+        z-index: 9999999;
 
         &:hover {
             background-color: #eeeeee;

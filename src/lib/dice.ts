@@ -20,6 +20,7 @@ export class Dice {
             prevResultBox.parentElement.removeChild(prevResultBox);
         }
         this.diceBox.roll(amount);
+        container.style.pointerEvents = "all";
 
         container.style.opacity = "1";
         const button = document.createElement("button");
@@ -50,6 +51,7 @@ export class Dice {
         resultBox.parentElement!.removeChild(resultBox);
         this.currentRollComplete = false;
         this.buttonClicked = false;
+        container.style.pointerEvents = "none";
         return this.currentRollResult;
     }
 }
