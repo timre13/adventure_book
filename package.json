@@ -12,6 +12,7 @@
         "dev": "prettier --plugin-search-dir . --write . && vite dev"
     },
     "devDependencies": {
+        "@3d-dice/dice-box": "^1.0.10",
         "@sveltejs/adapter-auto": "^2.1.1",
         "@sveltejs/adapter-static": "^2.0.3",
         "@sveltejs/kit": "^1.20.4",
