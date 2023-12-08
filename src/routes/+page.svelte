@@ -66,7 +66,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
         elem.style.top = x.offsetY + "px";
         //console.log(x.clientX, x.clientY);
     }
-  
+
     onMount(async () => {
         diceHandler = await createDice("#dice-box");
     });
