@@ -47,6 +47,9 @@
                         <itemRequired name="alma" min="2"/> <!-- equals / min, max-->
                         <itemRequired name="körte" min="2" group="gyümölcsök"/>
                         <statRequired name="szerencse" min="1"/> <!-- equals / min, max-->
+                        <fight canflee="false"><!-- a canflee vagy false vagy a menekülés oldal idje-->
+							<enemy name="" health="" skill="" />
+						 </fight>
                         
                         <dice stat="szerencse" type="2d6" relationSD="="/>  <!-- relation lehet: {=, !=, >, <, >=, <=} -->
                         <!-- Azért SD, hogy jelezze, milyen sorrendben értelmezendő a két szám.
