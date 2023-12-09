@@ -16,7 +16,7 @@
 
     let stats: Array<Stat> = [new Stat("Életerő", 85, 100), new Stat("Szerencse", 40), new Stat("Ügyesség", 22)];
     let inventory: Record<string, number> = { Alma: 12, Kulcs: 3, Kard: 1 };
-    let pageHistory: Array<Page> = Array(1);
+    let pageHistory: Array<Page> = Array(5);
     pageHistory.fill(
         new Page(
             "Lorem ipsum dolor sit, *amet consectetur* adipisicing elit. **Voluptate, maxime?** Officiis pariatur laborum cum aut totam quam tempore earum sequi non? Magni iure atque blanditiis impedit voluptatibus sunt quia distinctio!\n\n\
@@ -46,11 +46,9 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     let pageTexts = getPageTexts();
     let tooltip: Promise<String> = pageHistory[pageHistory.length - 1].buttons[0].getTooltipHtml();
 
-    function scrollToLatestPage() {
-        document.querySelector(".page:last-of-type")?.scrollIntoView();
+    function scrollTo(node: HTMLElement) {
+        node.scrollIntoView();
     }
-
-    onMount(scrollToLatestPage);
 
     function buttonEnter(x: MouseEvent) {
         console.log("Enter");
@@ -87,7 +85,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
         <div id="pages">
             {#await pageTexts then pageTextsVal}
                 {#each pageHistory as page, pageI}
-                    <div class="page">
+                    <div class="page" use:scrollTo>
                         <div class="page-text">
                             <p>{@html pageTextsVal[pageI]}</p>
                         </div>
