@@ -638,22 +638,24 @@
             <text>
                 A törmelékek közt kutatva belerúgsz valami fémes dologba. Miután eltakarítottad a környékéről a szemetet, egy masszív csapóajtó körvonalai rajzolódnak ki elötted a padlóban. Nem tudod megállapítani, hogy túl rozsdás-e ahhoz, hogy fel lehessen nyitni, te mindenesetre megpróbálod.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <dice stat="Szerencse" type="2d6" relationSD="=>"/>
-                    <changePage id="199"/>
-                </execute>
-                <execute>
-                    <changePage id="130"/>
-                </execute>
-             </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="199"/>
+                    </execute>
+                    <execute>
+                        <changePage id="130"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="38">
             <text>
                 Átkutatod a zsákutcát, remélve, hogy találsz valamit.
             </text>
-            <option>
+            <options>
                 <option>
                     <text>Menj tovább</text>
                     <execute>
@@ -664,7 +666,7 @@
                         <changePage id="55"/>
                     </execute>
                  </option>
-            </option>
+            </options>
         </page>
         <page id="39">
             <text>
@@ -697,7 +699,7 @@
             <text>
                 Miközben a termeszektől nyüzsgő építményen haladsz, az baljósan recseg-ropog a talpad alatt. Minden egyes lépéssel újabb darabjai esnek bele a vizbe. Végül már csak egyetlen kötél marad épen, ami az utolsó deszkadarabot tartja.
             </text>
-            <option>
+            <options>
                 <option>
                     <text>Menj tovább</text>
                     <execute>
@@ -708,7 +710,7 @@
                         <changePage id="75"/>
                     </execute>
                  </option>
-            </option>
+            </options>
         </page>
         <page id="41">
             <text>
@@ -830,6 +832,156 @@
                 </execute>
             </option>
         </page>
+        <page id="51">
+            <text>
+                Egy kis helyiségbe nyitsz be, mely első ránézésre nem tartalmaz semmi mást, csak nagy halom törmeléket a padlón. Ahogy beljebb lépsz, kellemetlen szag csapja meg az orrodat, és egy éles, magas és amenynyire meg tudod állapítani &#8211; dühödt visitás kezd egyre erősödni. Végül egy rikoltás kiséretében két hatalmas Denevér ereszti el a plafont a szoba két sarkában, és feléd kezdenek repülni. Ahogy ösztönösen lebuksz, sikerül észrevenned a lények vicsorgó agyarait, melyek készek szétcincálni a torkodat.
+            </text>
+            <options>
+                <option>
+                    <text>Elmenekülök</text>
+                    <changePage id="80"/>
+                </option>
+                <option>
+                    <text>Szétcsapok köztük</text>
+                    <changePage id="140"/>
+                </option>
+            </options>
+        </page>
+        <page id="52">
+            <text>
+                A járat élesen keletre fordul, és végül egy ajtóba torkollik. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="45"/>
+            </option>
+        </page>
+        <page id="53">
+            <text>
+                A part teljesen kihaltnak tűnik, te pedig eléggé óvatlanul járkálsz, így a homokban bujkáló apró, bíbor rák minden gond nélkül csíp bele a lábadba. A három ajtó bármelyiken át távozhatsz.
+            </text>
+            <initially>
+                <execute>
+                    <changeStat  name="Életerő" decrease="2"/>
+                </execute>
+            </initially>
+            <options>
+                <option>
+                    <text>Észak</text>
+                    <changePage id="87"/>
+                </option>
+                <option>
+                    <text>Kelet</text>
+                    <changePage id="6"/>
+                </option>
+                <option>
+                    <text>Nyugat</text>
+                    <changePage id="111"/>
+                </option>
+            </options>
+        </page>
+        <page id="54">
+            <text>
+                Ahogy földet érsz, csúnyán beütöd a térded.
+            </text>
+            <initially>
+                <execute>
+                    <changeStat name="Életerő" decrease="2"/>
+                </execute>
+            </initially>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="27"/>
+            </option>
+        </page>
+        <page id="55">
+            <text>
+                Semmit nem találsz. Visszatérsz az elágazáshoz és keleti irányba folytatod az utad.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="31"/>
+            </option>
+        </page>
+        <page id="56">
+            <text>
+                Ahogy kilépsz az alagútból, elámulsz a szemed elé táruló látványtól. Egy keskeny sziklaszirten állsz, nagyjából félúton az óriási barlangüreg alja és teteje között. A tovaszaladó víz csillogása elárulja, hogy a völgy mélyén egy folyó halad. Jobbodon egy rövid átjáró végén egy lefelé vezető lépcsősort látsz. Mivel ez az egyetlen módja a lejutásnak, óvatosan ereszkedni kezdesz rajta. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="27"/>
+            </option>
+        </page>
+        <page id="57">
+            <text>
+                Egy alkov mellett vezet el az utad, melyben három kis üveget látsz. Az elsőben tiszta, átlátszó, szagtalan folyadékot látsz és szagolsz. A másodikban aranyszínű anyag van, melynek enyhén édeskés az illata, míg a harmadik tartalma faközöld színű és kesernyés, csípős szaga van. 
+            </text>
+            <options>
+                <option>
+                    <text>Megnézem az elsőt</text>
+                    <changePage id="139"/>
+                </option>
+                <option>
+                    <text>Megnézem a másodikat</text>
+                    <changePage id="150"/>
+                </option>
+                <option>
+                    <text>Megnézem a harmadikat</text>
+                    <changePage id="197"/>
+                </option>
+                <option>
+                    <text>Nem vagyok szomjas</text>
+                    <changePage id="29"/>
+                </option>
+            </options>
+        </page>
+        <page id="58">
+            <text>
+                Ahogy belépsz a szobába, a padlónak azon része, melyre ráléptél. lezuhan. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="176"/>
+                    </execute>
+                    <execute>
+                        <changePage id="19"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="59">
+            <text>
+                Felemeled a piros színű könyvet és átfutod a tartalmát, remélve, hogy találsz benne valami hasznosat, amit felhasználhatnál a labirintusból való kijutásra. A szöveg azonban sajnos ősi Elf nyelven íródott, igy egyetlen rúnáját sem érted. 
+            </text>
+            <options>
+                <option>
+                    <text>Megnézem a kéket</text>
+                    <changePage id="104"/>
+                </option>
+                <option>
+                    <text>Megnézem a zöldet</text>
+                    <changePage id="88"/>
+                </option>
+                <option>
+                    <text>Unom az olvasást</text>
+                    <changePage id="10"/>
+                </option>
+            </options>
+        </page>
+        <page id="60">
+            <text>
+                A hid épp elég ideig marad épen ahhoz, hogy átérj a túloldalra. Ahogy lelépsz róla, összeomlik. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="76"/>
+            </option>
+        </page>
+
+
 
 
     </pages>
