@@ -368,10 +368,15 @@
                 Az áramlat túl erős, és tovább sodor egy hid alá. Magad elött megpillantasz egy sziklát, és megpróbálod elkapni.
             </text>
             <option>
-                <execute>
-                    <!--Skillcheck luck-->
-                </execute>
                 <text>Menj tovább</text>
+                <execute>
+                    <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                    <changePage id="92"/>
+                </execute>
+                <execute>
+                    <changePage id="132"/>
+                </execute>
+                
                 
             </option>
         </page>
@@ -403,11 +408,15 @@
             <text>
                 Amint belépsz a szobába, rémülten eszmélsz rá, hogy előbb alaposan szét kellett volna nézned a plafonon ugyanis egy hatalmas Pók kapaszkodik, ami minden szemével téged bámul. Négy ezüstszínű gubó lóg mellette, és összeszorul a szíved, mikor rájössz, hogy két ember, egy Törpe és egy Elf van beléjük csavarva, akik bizonyára leendő ellenfeled legutóbbi áldozatai voltak, és már csak arra várnak, hogy a bestia egy jót lakmározzon belőlük. A Pók némán a padlóra pottyan, csáprágói mohón feléd nyúlnak.
             </text>
+            <execute>
+                <fight canflee="false">
+                    <enemy name="Óriáspók" health="5" skill="9" />
+                 </fight>
+            </execute>
             <option>
-                <execute>
-                    <!--fight-->
-                </execute>
+                
                 <text>Menj tovább</text>
+                <changePage id ="94"/>
                 
             </option>
         </page>
@@ -416,22 +425,16 @@
                 Igyekezeted, hogy szilárd talajra juss, hiábavalónak tűnik, ám teszel még egy utolsó, kétségbeesett próbálkozást a kijárat felé veted magad.
             </text>
             <option>
-                <execute>
-                    <!--Skillcheck luck-->
-                </execute>
                 <text>Menj tovább</text>
-                
-            </option>
+                <execute>
+                    <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                    <changePage id="176"/>
+                </execute>
+                <execute>
+                    <changePage id="151"/>
+                </execute>
+             </option>
         </page>
-
-
-
-
-
-
-
-
-
 
         <page id="20">
             <text>Az alagút egy súlyos ajtóban ér véget, ami le van zárva. De nem kulccsal: három tekerő gombot látsz rajta. Ha nem tudod a kódot, vissza kell térned a homokos folyópartra és valahol máshol kell próbálkoznod &#8211;.</text>
@@ -544,7 +547,7 @@
         </page>
         <page id="29">
             <text>
-                Egy idő után újabb elágazásba botlasz. A déli ágról úgy véled, az visszafelé vezetne, ezért északnak indulsz.
+                A járat, amiben most haladsz, egy észak-dél irányú, másik folyosóba torkollik bele. Úgy döntesz, balra fordulva haladsz tovább.
             </text>
             <option>
                 <text>Menj tovább</text>
@@ -637,27 +640,78 @@
                 A törmelékek közt kutatva belerúgsz valami fémes dologba. Miután eltakarítottad a környékéről a szemetet, egy masszív csapóajtó körvonalai rajzolódnak ki elötted a padlóban. Nem tudod megállapítani, hogy túl rozsdás-e ahhoz, hogy fel lehessen nyitni, te mindenesetre megpróbálod.
             </text>
             <option>
-                <execute>
-                    <!--Skillcheck luck-->
-                </execute>
                 <text>Menj tovább</text>
-                
-            </option>
+                <execute>
+                    <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                    <changePage id="199"/>
+                </execute>
+                <execute>
+                    <changePage id="130"/>
+                </execute>
+             </option>
         </page>
         <page id="38">
             <text>
                 Átkutatod a zsákutcát, remélve, hogy találsz valamit.
             </text>
             <option>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="144"/>
+                    </execute>
+                    <execute>
+                        <changePage id="55"/>
+                    </execute>
+                 </option>
+            </option>
+        </page>
+        <page id="39">
+            <text>
+                A szobába belépve az eddig látott legcivilizáltabb teremben találod magad. A falakat fa burkolólapok borítják, fáklyák helyett itt egy lágy fényt árasztó gömb biztosítja a világítást, mely a szoba közepén álló asztal felett lebeg. E mellett egy férfi görnyedt alakját veszed észre. Miközben becsukod magad mögött az ajtót, az öregember felemelkedik, és üdvözlően feléd nyújtja mindkét karját. Hangja vékony és remegő, és csak ekkor jössz rá, mennyire vén is lehet. Megtaláltad a Szobrot? kérdezi tőled. 
+            </text>
+            <initially>
                 <execute>
-                    <!--Skillcheck luck-->
+                    <itemRequired name="Szobor"/>
+                    <changeOption id="1" text="Meg mondom hogy nálam van."/>
                 </execute>
-                <text>Menj tovább</text>
-                
+                <execute>
+                    <changeOption id="1" text="Meg mondom hogy nincs nálam."/>
+                </execute>
+            </initially>
+            <option>
+                <execute>
+                    <itemRequired name="Szobor"/>
+                    <changePage id="91"/>
+                </execute>
+                <execute>
+                    <changePage id="77"/>
+                </execute>
+            </option>
+            <option>
+                <text>Folytatom az utamat</text>
+                <changePage id="14"/>
+            </option>
+        </page>
+        <page id="40">
+            <text>
+                Miközben a termeszektől nyüzsgő építményen haladsz, az baljósan recseg-ropog a talpad alatt. Minden egyes lépéssel újabb darabjai esnek bele a vizbe. Végül már csak egyetlen kötél marad épen, ami az utolsó deszkadarabot tartja.
+            </text>
+            <option>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="60"/>
+                    </execute>
+                    <execute>
+                        <changePage id="75"/>
+                    </execute>
+                 </option>
             </option>
         </page>
         
-
 
 
     </pages>
