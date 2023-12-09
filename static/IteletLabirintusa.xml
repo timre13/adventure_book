@@ -980,8 +980,32 @@
                 <changePage id="76"/>
             </option>
         </page>
-
-
+        <page id="61">
+            <text>
+                A hatalmas Galon tetemét melynek madárszerű karmai még mindig megfeszülnek és elernyednek, mintha még holtukban is szét akarnának tépni téged megkerülve kiutat keresel a helyiségből. E közben szépen lassan az oszlás büze tölti be a levegőt. A Madárember teste felé fordulsz, és még éppen megpillantod, amint bőrszárnyai eltünnek egy csapat vonagló lárva alatt. Néhány másodperccel később már csak a lerágott csontok maradnak meg egykori ellenfeledből. Amint elfogy élelmük, a férgek feled indulnak, te pedig ráébredsz, hogy halálos veszélyben vagy. Mivel a fura teremtmények közted és a bejárat között állnak, egy másik kiutat kell találnod.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="109"/>
+                    </execute>
+                    <execute>
+                        <changePage id="175"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="62">
+            <text>
+                Rájössz, hogy nincs rá mód, hogy lejuss innen, így visszatérsz az elágazáshoz.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="95"/>
+            </option>
+        </page>
 
 
     </pages>
