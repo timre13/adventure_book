@@ -5,9 +5,10 @@
 
     <character>
         <stats>
-            <stat name="Életerő" dice="2d6 value maxValue"/>
-            <stat name="Ügyesség" dice="2d6 value maxValue"/>
-            <stat name="Szerencse" dice="2d6 value maxValue"/>
+            <stat name="Életerő" dice="2d6 value" min="1" max="value"/>
+            <stat name="Ügyesség" dice="2d6 value" min="1" max="value"/>
+            <stat name="Szerencse" dice="2d6 value" min="1" max="value"/>
+
             <separator/>
 
             <stat name="Arany" value="20"/>
@@ -228,11 +229,11 @@
             <text>Az ajtó egy nyugat felé haladó alagútba nyílik. Követed, míg egy elágazáshoz nem érsz.</text>
             <options>
                 <option>
-                    <text>Észak felé karok fordulni</text>
+                    <text>Észak felé akarok fordulni</text>
                     <changePage id="172"/>
                 </option>
                 <option>
-                    <text>Nem akarook letérni az útról</text>
+                    <text>Nem akarok letérni az útról</text>
                     <changePage id="168"/>
                 </option>
             </options>
@@ -414,10 +415,8 @@
                  </fight>
             </execute>
             <option>
-                
                 <text>Menj tovább</text>
                 <changePage id ="94"/>
-                
             </option>
         </page>
         <page id="19">
@@ -711,7 +710,126 @@
                  </option>
             </option>
         </page>
-        
+        <page id="41">
+            <text>
+                Az alagút, bár folyamatosan jobbra-balra kanyarog, nagyjából mégis tartja az északi irányt, végül élesen oldalra kanyarodik, és ekkor majdnem belefutsz egy fekete köpenybe öltözött alakba. Tört tart a kezében, az arcán ülő tekintet rettegésről árulkodik! Rájössz, hogy nem te vagy az egyetlen, akit most próbára tesznek, és hogy mindketten ugyanazon Szobor után kutattok. A fickó rád veti magát, nyilvánvaló, hogy mielőbb végezni akar veled. Harcolnod kell!
+            </text>
+            <execute>
+                <fight canflee="false">
+                    <enemy name="Tolvaj" health="6" skill="7" />
+                 </fight>
+            </execute>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id ="85"/>
+            </option>
+        </page>
+        <page id="42">
+            <text>
+                A járat tovább szélesedik, végül egy hatalmas barlangüregben találod magad. Mindkét oldaladnál sztalagmitok és sztalaktitok meredeznek. Néhányuk hatalmas köoszloppá nőtt össze az idők folyamán, melyek mögött kimondhatatlan borzalmak lapulhatnak. Érzed, hogy a barlangban folyamatosan mozog a levegő, és rájössz, hogy ennek oka egy gyors folyású, igen veszedelmesnek tűnő folyó. Feltekintve szemeid követik a cseppköoszlopok vonalait, egészen addig, míg el nem tűnnek a plafont elrejtő végtelen sötétségben. Valahol a folyó mentén egy kis, nem túl bizalomgerjesztő híd körvonalát sikerül kivenni.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="27"/>
+            </option>
+        </page>
+        <page id="43">
+            <text>
+                Köpenyed hirtelen széttárul, és megszakad a zuhanás. Egy másodpercig mozdulatlanul lebegsz. Letekintesz, de még most sem látod az alját. Meglepetten és hálásan veszed tudomásul, hogy új szerzeményed óvatosan visszaszállít téged a bejárathoz. Mikor már kint vagy, megkönnyebbülten felsóhajtasz majd észak felé folytatod az utad.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="68"/>
+            </option>
+        </page>
+        <page id="44">
+            <text>
+                Döbbenetes előrelátásodtól vezérelve eleve gyanítottad, hogy itt egy csapda vár rád, így sikerül felreugranod anélkül, hogy a lövedékek eltalálnának, mindkettő ártalmatlanul hull a földre. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="65"/>
+            </option>
+        </page>
+        <page id="45">
+            <options>
+                <option>
+                    <text>Be akarok nyitni</text>
+                    <changePage id="90"/>
+                </option>
+                <option>
+                    <text>Tovább mennék</text>
+                    <changePage id="16"/>
+                </option>
+            </options>
+        </page>
+        <page id="46">
+            <text>
+                A kő igen értékes. A kiálló fadarabokat kerülgetve visszatérsz az elágazáshoz.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="184"/>
+            </option>
+        </page>
+        <page id="47">
+            <text>
+                Az ajtóhoz lépsz és kezelésbe veszed a hatalmas zárat: tekerni kezded a tárcsákat, míg a helyes kombinációt nem sikerül beállítanod rajta. Ahogy az utolsót is a megfelelő helyzetbe fordítod, az ajtó kinyilik és egy szoba tárul fel előtted, melynek falait könyvekkel megrakott polcok szegélyezik Egy könyvtárban találod magad. A középen álló asztalon három nyitott könyvet látsz.. 
+            </text>
+            <options>
+                <option>
+                    <text>Megnézem a pirosat</text>
+                    <changePage id="59"/>
+                </option>
+                <option>
+                    <text>Megnézem a kéket</text>
+                    <changePage id="104"/>
+                </option>
+                <option>
+                    <text>Megnézem a zöldet</text>
+                    <changePage id="88"/>
+                </option>
+                <option>
+                    <text>Nem tudok olvasni</text>
+                    <changePage id="10"/>
+                </option>
+            </options>
+        </page>
+        <page id="48">
+            <text>
+                Probléma nélkül eléred a verem alját. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="27"/>
+            </option>
+        </page>
+        <page id="49">
+            <text>
+                A növénykének valóban mágikus gyógyító tulajdonsága van, és még szerencsét is hoz. Nyersz 4 ÉLETERŐ pontot, SZERENCSE pontjaid pedig mostantól kezdve nem fognak 6 alá menni. Az északi ajtón át távozol. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <execute>
+                    <changeStat name="Életerő" increase="4"/>
+                    <changeStat name="Szerence.max" value="6"/>
+                   <changePage id="152"/>
+                </execute>
+            </option>
+        </page>
+        <page id="50">
+            <text>
+                A tetemet átkutatva 2 Aranytallért és egy darab pergament találsz, melyre három számot írtak. Fogalmad sincs, mit jelenthetnek. de úgy gondolod, egy zár kombinációja lehet talán éppen azé, amelyik a Szobrot védi. A számok rendre 15, 10 és 22. Úgy döntesz, jól megjegyzed öket, mert mindig fennáll a veszélye annak, hogy elveszted a papírdarabot. Északi irányba folytatod az utadat. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <execute>
+                    <changeStat name="Arany" increase="2"/>
+                    <changeItem name="Kódpapír" amount="1" group="Felszerelés"/>
+                   <changePage id="152"/>
+                </execute>
+            </option>
+        </page>
 
 
     </pages>

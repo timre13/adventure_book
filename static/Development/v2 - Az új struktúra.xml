@@ -61,6 +61,7 @@
                         <!--To-do-->
                         <changeItem name="körte" amount="1" group="Felszerelés"/> <!-- amount, decrease, increase -->
                         <changeStat name="Életerő" decrease="1"/> <!-- value, decrease, increase -->
+                        <changeStat name="Életerő.max" increase="1"/>
                         <changePage id="2"/>
                     </execute>
                     <execute>
