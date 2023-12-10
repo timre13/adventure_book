@@ -1107,7 +1107,88 @@
                 </option>
             </options>
         </page>
+        <page id="71">
+            <text>
+                Ajkadhoz emeled a kis fiolát és megiszod a tartalmát. Meglepve tapasztalod, hogy a folyadék teljesen íztelen, de egészen felfrissít. Szentelt Víz volt benne, amit egy ősi Druida áldott meg. Az ezután következő harcok során 1-el megnövelheted majd Támadóerődet. Nyersz 1 SZERENCSE pontot.
+            </text>
+            <initially>
+                <execute>
+                    <itemRequired name="Gyűrű" max="0"/>
+                    <changeOption id="1" text="Felveszem a gyűrűt"/>
+                </execute>
+                <execute>
+                    <itemRequired name="Lebegés köppenye" max="0"/>
+                    <changeOption id="2" text="Felveszem a köppenyt"/>
+                </execute>
+            </initially>
+            <option>
+                <text>Felveszem a gyűrűt</text>
+                <execute>
+                    <itemRequired name="Gyűrű" max="0"/>
+                    <changeItem name="Italeffect" amount="1" group="Felszerelés"/>
+                    <changePage id="119"/>
+                </execute>
+                <execute>
+                    <alert text="Már rajtad van."/>
+                </execute>
+            </option>
+            <option>
+                <text>Megnézem a köppenyt</text>
+                <execute>
+                    <itemRequired name="Lebegés köppenye" max="0"/>
 
+                    <changeItem name="Italeffect" amount="1" group="Felszerelés"/>
+                    <changePage id="71"/>
+                </execute>
+                <execute>
+                    <alert text="Már rajtad van."/>
+                </execute>
+            </option>
+            <option>
+                <text>Folytatom az utamat</text>
+                <execute>
+                    <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
+                    <changePage id="80"/>
+                </execute>
+                
+            </option>
+        </page>
+        <page id="72">
+            <text>
+                Az ajtó egy újabb alagútba nyílik, mely kelet-nyugati irányba halad. Tudod, hogy neked északra kellene továbbmenned, de most kénytelen vagy ezek közül választani és reménykedni, hogy jó helyen bukkansz majd ki. Nyugatra indulsz, és megkönnyebbülsz, mikor egy elágazáshoz érsz. Északra fordulsz, és sokkal nyugodtabban folytatod az utad. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="195"/>
+            </option>
+        </page>
+        <page id="73">
+            <text>
+                Továbbra is nyugati irányba haladva észreveszed, hogy a járat egy kisebb sziklahalomban ér véget. Csákány és ásó nélkül itt esélyed sem lenne átjutni. Ahogy megfordulsz, hogy visszatérj az előző elágazáshoz, egy sötétebb folt egy újabb észak felé vezető alagút jelenlétét árulja el. Úgy döntesz, erre mész tovább.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="174"/>
+            </option>
+        </page>
+        <page id="74">
+            <text>
+                Átlépsz a két Iszapsárkány tetemén és a szükségesnél óvatlanabbul végigsietsz a keskeny úton. Egy rémisztő pillanatra megbillensz az egyik medence irányába, mikor lábad megcsúszik egy ködarabon, de végül némi kapálózás segítségével sikerül egy újabb lépést tenned, és valamivel stabilabb talajt érned. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="63"/>
+            </option>
+        </page>
+        <page id="75">
+            <text>
+                Túl nehéz vagy az ingatag építménynek. ami összetörik a lábad alatt. Egyenesen a vízbe zuhansz, és kénytelen vagy kiúszni belőle, hogy meg ne fulladj. Az áramlat azonban nagyon erős.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="148"/>
+            </option>
+        </page>
 
 
 
