@@ -1,13 +1,27 @@
 import DOMPurify from "dompurify";
 import { Marked } from "marked";
+import type { OptionAction } from "./OptionAction";
+import type { OptionCheckGroup } from "./OptionCheck";
 
 export class Option {
-    public tooltip: string = "";
-    public disabled: boolean = false;
+    public text: string;
+    public tooltip: string;
+    public disabled: boolean;
+    public actions: Array<OptionAction>;
+    public checks: Array<OptionCheckGroup>;
 
-    constructor(public text: string, tooltip?: string, disabled?: boolean) {
+    constructor(
+        text: string,
+        tooltip?: string,
+        disabled?: boolean,
+        actions?: Array<OptionAction>,
+        checks?: Array<OptionCheckGroup>
+    ) {
+        this.text = text;
         this.tooltip = tooltip ?? "";
         this.disabled = disabled ?? false;
+        this.actions = actions ?? [];
+        this.checks = checks ?? [];
     }
 
     getTooltipHtml() {
@@ -30,8 +44,10 @@ export class Enemy {
     constructor(public name: string) {}
 }
 
+type PageInitAction = OptionAction;
+
 export class Page {
-    constructor(public text: string, public enemies: Array<Enemy>, public buttons: Array<Button>) {}
+    constructor(public text: string, public buttons: Array<Option>, public onInit?: PageInitAction) {}
 
     public async getTextAsHtml(): Promise<string> {
         let marked = new Marked();
