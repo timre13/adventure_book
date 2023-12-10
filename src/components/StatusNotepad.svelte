@@ -12,10 +12,14 @@
         <div id="stat-display">
             <p><b>Státusz</b></p>
             {#each stats as stat}
-                {#if stat.maxValue}
-                    <p>{stat.name}: {stat.value}/{stat.maxValue}</p>
+                {#if stat.isSeparator}
+                    <hr />
+                {:else if stat.maxValue}
+                    <p title="Érték: {stat.value}, min: {stat.minValue}, max: {stat.maxValue}">
+                        {stat.name}: {stat.value}/{stat.maxValue}
+                    </p>
                 {:else}
-                    <p>{stat.name}: {stat.value}</p>
+                    <p title="Érték: {stat.value}, min: {stat.minValue}">{stat.name}: {stat.value}</p>
                 {/if}
             {/each}
         </div>
