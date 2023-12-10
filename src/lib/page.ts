@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 import { Marked } from "marked";
 
-export class Button {
+export class Option {
     public tooltip: string = "";
     public disabled: boolean = false;
 

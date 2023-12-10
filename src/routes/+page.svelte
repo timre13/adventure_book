@@ -2,7 +2,7 @@
     import { conditionHandler, vars } from "$lib/index";
     import StatusNotepad from "../components/StatusNotepad.svelte";
     import { Stat, StatSeparator } from "$lib/status";
-    import { Button, Page } from "$lib/page";
+    import { Option, Page } from "$lib/page";
     import { onMount } from "svelte";
     import { Dice, createDice } from "$lib/dice";
     import { file } from "$lib/stores/file";
@@ -16,6 +16,24 @@
 
     let stats: Array<Stat> = [];
     let inventory: Inventory = new Inventory();
+    let pages: Record<string, Page> = {};
+
+    let pageHistory: Array<Page> = Array(5);
+    pageHistory.fill(
+        new Page(
+            "Lorem ipsum dolor sit, *amet consectetur* adipisicing elit. **Voluptate, maxime?** Officiis pariatur laborum cum aut totam quam tempore earum sequi non? Magni iure atque blanditiis impedit voluptatibus sunt quia distinctio!\n\n\
+Iure eligendi reprehenderit enim cum debitis vitae ullam quo quis sunt accusamus ducimus et, consequuntur soluta suscipit est, architecto aperiam nostrum quasi. Officiis possimus facere laudantium ad enim eos illo.\n\n\
+Tempore debitis odit beatae. Animi, autem rem voluptatibus modi corrupti enim iusto illo necessitatibus. Unde vitae dolor sed architecto, ex assumenda soluta natus iste cum culpa illum sequi magni modi.\n\n\
+Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem sint perspiciatis, nisi est rem vel nulla deserunt asperiores quas nihil beatae accusamus dolorum enim facilis obcaecati ipsum modi deleniti aut.\n\n\
+At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt suscipit eos ipsum maxime. Consequatur saepe cupiditate repellat omnis quaerat accusantium a, quidem, dolore vel enim ab eos tenetur?",
+            [
+                new Option("Első", "Ez az **első** gomb"),
+                new Option("Második"),
+                new Option("Harmadik", "Ez a harmadik gomb", true),
+                new Option("Negyedik", "Ez a negyedik gomb")
+            ]
+        )
+    );
 
     let xmlDoc: Document;
     file.subscribe(x => {
@@ -82,25 +100,31 @@
             inventory = inventory;
             console.log(inventory);
         }
-    });
 
-    let pageHistory: Array<Page> = Array(5);
-    pageHistory.fill(
-        new Page(
-            "Lorem ipsum dolor sit, *amet consectetur* adipisicing elit. **Voluptate, maxime?** Officiis pariatur laborum cum aut totam quam tempore earum sequi non? Magni iure atque blanditiis impedit voluptatibus sunt quia distinctio!\n\n\
-Iure eligendi reprehenderit enim cum debitis vitae ullam quo quis sunt accusamus ducimus et, consequuntur soluta suscipit est, architecto aperiam nostrum quasi. Officiis possimus facere laudantium ad enim eos illo.\n\n\
-Tempore debitis odit beatae. Animi, autem rem voluptatibus modi corrupti enim iusto illo necessitatibus. Unde vitae dolor sed architecto, ex assumenda soluta natus iste cum culpa illum sequi magni modi.\n\n\
-Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem sint perspiciatis, nisi est rem vel nulla deserunt asperiores quas nihil beatae accusamus dolorum enim facilis obcaecati ipsum modi deleniti aut.\n\n\
-At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt suscipit eos ipsum maxime. Consequatur saepe cupiditate repellat omnis quaerat accusantium a, quidem, dolore vel enim ab eos tenetur?",
-            [],
-            [
-                new Button("Első", "Ez az **első** gomb"),
-                new Button("Második"),
-                new Button("Harmadik", "Ez a harmadik gomb", true),
-                new Button("Negyedik", "Ez a negyedik gomb")
-            ]
-        )
-    );
+        // Oldal betöltés
+        {
+            pages = {};
+
+            let pageNodes = xmlDoc.querySelectorAll("game > pages page");
+            pageNodes.forEach(pageNode => {
+                let pageId = pageNode.getAttribute("id")!;
+                let pageText = pageNode.querySelector("text")?.innerHTML ?? "";
+                pageText = pageText.replaceAll(/^ +/gm, "");
+                console.log(pageText);
+
+                let page = new Page(pageText, []);
+                pages[pageId] = page;
+            });
+
+            pages = pages;
+            console.log(pages);
+
+            // Teszt
+            console.log(pages["init"]);
+            pageHistory.push(pages["init"]);
+            pageHistory = pageHistory;
+        }
+    });
 
     async function getPageTexts(): Promise<Array<String>> {
         let pageTexts: Array<String> = [];
@@ -112,7 +136,12 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     }
 
     let pageTexts = getPageTexts();
-    let tooltip: Promise<String> = pageHistory[pageHistory.length - 1].buttons[0].getTooltipHtml();
+    let tooltip: Promise<String> = new Promise(_ => "");
+
+    $: pageHistory &&
+        (() => {
+            pageTexts = getPageTexts();
+        })();
 
     function scrollTo(node: HTMLElement) {
         node.scrollIntoView();
@@ -154,9 +183,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             {#await pageTexts then pageTextsVal}
                 {#each pageHistory as page, pageI}
                     <div class="page" use:scrollTo>
-                        <div class="page-text">
-                            <p>{@html pageTextsVal[pageI]}</p>
-                        </div>
+                        <div class="page-text">{@html pageTextsVal[pageI]}</div>
                         {#if pageI == pageHistory.length - 1}
                             <div id="page-buttons">
                                 {#each page.buttons as button, i}
@@ -215,8 +242,8 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             flex-direction: column;
             overflow-y: scroll;
             scrollbar-color: #71593c #b0a68a;
-            scroll-snap-type: y mandatory;
-            scroll-snap-stop: always;
+            //scroll-snap-type: y mandatory;
+            //scroll-snap-stop: always;
 
             #pages {
                 background-image: url("tiled-paper.webp");
@@ -332,6 +359,16 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                     line-height: 120%;
                     text-align: justify;
                     color: #422104;
+
+                    :global(p) {
+                        margin-bottom: 1rem;
+                    }
+
+                    :global(h1) {
+                        font-size: 2rem;
+                        font-weight: normal;
+                        margin-bottom: 1rem;
+                    }
                 }
             }
 
