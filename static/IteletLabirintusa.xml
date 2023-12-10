@@ -409,11 +409,13 @@
             <text>
                 Amint belépsz a szobába, rémülten eszmélsz rá, hogy előbb alaposan szét kellett volna nézned a plafonon ugyanis egy hatalmas Pók kapaszkodik, ami minden szemével téged bámul. Négy ezüstszínű gubó lóg mellette, és összeszorul a szíved, mikor rájössz, hogy két ember, egy Törpe és egy Elf van beléjük csavarva, akik bizonyára leendő ellenfeled legutóbbi áldozatai voltak, és már csak arra várnak, hogy a bestia egy jót lakmározzon belőlük. A Pók némán a padlóra pottyan, csáprágói mohón feléd nyúlnak.
             </text>
-            <execute>
-                <fight canflee="false">
-                    <enemy name="Óriáspók" health="5" skill="9" />
-                 </fight>
-            </execute>
+            <initially>
+                <execute>
+                    <fight canflee="false">
+                        <enemy name="Óriáspók" health="5" skill="9" />
+                    </fight>
+                </execute>
+            </initially>
             <option>
                 <text>Menj tovább</text>
                 <changePage id ="94"/>
@@ -716,11 +718,14 @@
             <text>
                 Az alagút, bár folyamatosan jobbra-balra kanyarog, nagyjából mégis tartja az északi irányt, végül élesen oldalra kanyarodik, és ekkor majdnem belefutsz egy fekete köpenybe öltözött alakba. Tört tart a kezében, az arcán ülő tekintet rettegésről árulkodik! Rájössz, hogy nem te vagy az egyetlen, akit most próbára tesznek, és hogy mindketten ugyanazon Szobor után kutattok. A fickó rád veti magát, nyilvánvaló, hogy mielőbb végezni akar veled. Harcolnod kell!
             </text>
-            <execute>
-                <fight canflee="false">
-                    <enemy name="Tolvaj" health="6" skill="7" />
-                 </fight>
-            </execute>
+            <initially>
+                <execute>
+                    <fight canflee="false">
+                        <enemy name="Tolvaj" health="6" skill="7" />
+                    </fight>
+                </execute>
+            </initially>
+            
             <option>
                 <text>Menj tovább</text>
                 <changePage id ="85"/>
@@ -1035,6 +1040,76 @@
                 <changePage id="84"/>
             </option>
         </page>
+        <page id="66">
+            <text>
+                Az alagút, bár folyamatosan jobbra-balra kanyarog, nagyjából mégis tartja az északi irányt, végül élesen oldalra kanyarodik, és ekkor majdnem belefutsz egy fekete köpenybe öltözött alakba. Tört tart a kezében, az arcán ülő tekintet rettegésről árulkodik! Rájössz, hogy nem te vagy az egyetlen, akit most próbára tesznek, és hogy mindketten ugyanazon Szobor után kutattok. A fickó rád veti magát, nyilvánvaló, hogy mielőbb végezni akar veled. Harcolnod kell!
+            </text>
+            <initially>
+                <changeStat id="Életerő" decrease="1"/>
+                <execute>
+                    <fight canflee="false">
+                        <enemy name="Törpe" health="5" skill="8" />
+                    </fight>
+                </execute>
+            </initially>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id ="118"/>
+            </option>
+        </page>
+        <page id="67">
+            <text>
+                Az alagút hamarosan tágulni kezd és csodálatos látvány tárul a szemed elé. Egy földalatti völgyet határoló magas sziklafal kellös közepén, egy keskeny szirten találod magad. Nem látsz lefelé vezető utat, és nem mered megkockáztatni, hogy visszafordulj.
+            </text>
+            <option>
+                <text>Kinyitom az ajtót</text>
+                <execute>
+                    <itemRequired name="Lebegés köppenye"/>
+                    <changePage id="105"/>
+                </execute>
+                <execute>
+                    <changePage id="86"/>
+                </execute>
+            </option>
+        </page>
+        <page id="68">
+            <text>
+                Az alagút hamarosan jobbra fordul és egy ideig keletnek halad. Semmi akadályát nem látod annak, hogy te is ezt tedd. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="137"/>
+            </option>
+        </page>
+        <page id="69">
+            <text>Elérsz egy keletre letérő oldaljárathoz. Az előre haladó út, úgy tűnik, hirtelen véget ér, vagy élesen oldalra kanyarodik. </text>
+            <options>
+                <option>
+                    <text>Keletre mennék</text>
+                    <changePage id="31"/>
+                </option>
+                <option>
+                    <text>Északra megyek, a folyó végéig</text>
+                    <changePage id="11"/>
+                </option>
+            </options>
+        </page>
+        <page id="70">
+            <text>Az ajtó egy kis szobába nyílik. Ahogy a nyílásban állsz, a fáklyák ragyogó fényében valami tiszta, vérvörös szín csillan meg. Egy hatalmas rubin az, ami örök életedre gazdaggá tenne, ha ki tudnád juttatni a labirintusból. </text>
+            <options>
+                <option>
+                    <text>Elviszem a követ</text>
+                    <changePage id="18"/>
+                </option>
+                <option>
+                    <text>Nem akarom a nehéz követ cipelni</text>
+                    <changePage id="106"/>
+                </option>
+            </options>
+        </page>
+
+
+
 
 
     </pages>
