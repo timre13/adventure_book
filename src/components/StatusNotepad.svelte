@@ -1,8 +1,9 @@
 <script lang="ts">
+    import type { Inventory } from "$lib/Inventory";
     import type { Stat } from "$lib/status";
 
     export let stats: Array<Stat>;
-    export let inventory: Record<string, number>;
+    export let inventory: Inventory;
 </script>
 
 <!-- svelte-ignore a11y-missing-attribute -->
@@ -12,17 +13,27 @@
         <div id="stat-display">
             <p><b>Státusz</b></p>
             {#each stats as stat}
-                {#if stat.maxValue}
-                    <p>{stat.name}: {stat.value}/{stat.maxValue}</p>
+                {#if stat.isSeparator}
+                    <hr />
+                {:else if stat.maxValue}
+                    <p title="Érték: {stat.value}, min: {stat.minValue}, max: {stat.maxValue}">
+                        {stat.name}: {stat.value}/{stat.maxValue}
+                    </p>
                 {:else}
-                    <p>{stat.name}: {stat.value}</p>
+                    <p title="Érték: {stat.value}, min: {stat.minValue}">{stat.name}: {stat.value}</p>
                 {/if}
             {/each}
         </div>
+        <hr id="notepad-separator" />
         <div id="inventory-display">
             <p><b>Tárgyak</b></p>
-            {#each Object.entries(inventory) as [item, cnt]}
-                <p>{item}: {cnt} db</p>
+            {#each inventory.groups as group}
+                <p class="group-name">{group.name}</p>
+                <div class="group-content">
+                    {#each Object.entries(group.items) as [item, cnt]}
+                        <p>{item}: {cnt} db</p>
+                    {/each}
+                </div>
             {/each}
         </div>
     </div>
@@ -30,6 +41,11 @@
 
 <style lang="scss">
     @import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+
+    hr {
+        border: none;
+        border-bottom: 1px solid black;
+    }
 
     .status-notepad {
         position: relative;
@@ -56,6 +72,30 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+
+            #stat-display {
+                hr {
+                    width: 10rem;
+                }
+            }
+
+            #notepad-separator {
+                border-bottom: 2px solid black;
+            }
+
+            #inventory-display {
+                .group-name {
+                    text-decoration: underline;
+                }
+
+                .group-content {
+                    margin-left: 10px;
+
+                    p::first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+            }
         }
     }
 </style>

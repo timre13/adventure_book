@@ -1,21 +1,23 @@
 <script lang="ts">
     import { conditionHandler, vars } from "$lib/index";
     import StatusNotepad from "../components/StatusNotepad.svelte";
-    import { Stat } from "$lib/status";
-    import { Button, Page } from "$lib/page";
+    import { Stat, StatSeparator } from "$lib/status";
+    import { Option, Page } from "$lib/page";
     import { onMount } from "svelte";
     import { Dice, createDice } from "$lib/dice";
+    import { file } from "$lib/stores/file";
+    import { get } from "svelte/store";
+    import { Inventory, InventoryGroup } from "$lib/Inventory";
 
     let diceHandler: Dice;
 
     conditionHandler("vars['B'] = 'A'"); // létrehozok egy B változót A értékkel
     conditionHandler("vars['B'] == 'A'"); // True értéket ad vissza
 
-    //let parser = new DOMParser();
-    //let xmlDoc = parser.parseFromString("<game><pages><page/><page/></pages></game>", "text/xml");
+    let stats: Array<Stat> = [];
+    let inventory: Inventory = new Inventory();
+    let pages: Record<string, Page> = {};
 
-    let stats: Array<Stat> = [new Stat("Életerő", 85, 100), new Stat("Szerencse", 40), new Stat("Ügyesség", 22)];
-    let inventory: Record<string, number> = { Alma: 12, Kulcs: 3, Kard: 1 };
     let pageHistory: Array<Page> = Array(5);
     pageHistory.fill(
         new Page(
@@ -24,15 +26,113 @@ Iure eligendi reprehenderit enim cum debitis vitae ullam quo quis sunt accusamus
 Tempore debitis odit beatae. Animi, autem rem voluptatibus modi corrupti enim iusto illo necessitatibus. Unde vitae dolor sed architecto, ex assumenda soluta natus iste cum culpa illum sequi magni modi.\n\n\
 Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem sint perspiciatis, nisi est rem vel nulla deserunt asperiores quas nihil beatae accusamus dolorum enim facilis obcaecati ipsum modi deleniti aut.\n\n\
 At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt suscipit eos ipsum maxime. Consequatur saepe cupiditate repellat omnis quaerat accusantium a, quidem, dolore vel enim ab eos tenetur?",
-            [],
             [
-                new Button("Első", "Ez az **első** gomb"),
-                new Button("Második"),
-                new Button("Harmadik", "Ez a harmadik gomb", true),
-                new Button("Negyedik", "Ez a negyedik gomb")
+                new Option("Első", "Ez az **első** gomb"),
+                new Option("Második"),
+                new Option("Harmadik", "Ez a harmadik gomb", true),
+                new Option("Negyedik", "Ez a negyedik gomb")
             ]
         )
     );
+
+    let xmlDoc: Document;
+    file.subscribe(x => {
+        console.log("File has been loaded:");
+        let content = get(file);
+        if (!content) {
+            console.log("File is empty, ignoring");
+            return;
+        }
+        let parser = new DOMParser();
+        xmlDoc = parser.parseFromString(content, "text/xml");
+        console.log("File has been parsed:", xmlDoc);
+
+        // Stats betöltés
+        (async () => {
+            let stats_: Array<Stat> = [];
+            let statNodes = xmlDoc.querySelectorAll("game > character > stats *");
+            statNodes.forEach(async node => {
+                if (node.nodeName == "stat") {
+                    let name = node.getAttribute("name") || "";
+                    let value = 0;
+                    if (node.hasAttribute("value")) {
+                        value = parseInt(node.getAttribute("value")!) || 0;
+                    } else if (node.hasAttribute("dice")) {
+                        let diceVal = node.getAttribute("dice")?.split(" ")[0] ?? "";
+                        // FIXME
+                        //value = await diceHandler.roll(diceVal);
+                        // --- Workaround kezdete ---
+                        let diceMin = parseInt(diceVal.split("d")[0]);
+                        let diceMax = diceMin * parseInt(diceVal.split("d")[1]);
+                        value = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin);
+                        // --- Workaround vége ---
+                    }
+                    // Nyilván nem lehet konzisztens az elnevezés (min / minValue)
+                    let min = parseInt(node.getAttribute("min") || node.getAttribute("minValue") || "0") || 0;
+                    let maxStr = node.getAttribute("max") || node.getAttribute("maxValue");
+                    let max = maxStr == "value" || !maxStr ? value : parseInt(maxStr ?? "0") ?? 0;
+                    stats_.push(new Stat(name, value, min, max));
+                } else {
+                    stats_.push(new StatSeparator());
+                }
+            });
+            return stats_;
+        })().then(x => (stats = x));
+
+        // Inventory betöltés
+        {
+            let groupNodes = xmlDoc.querySelectorAll("game > character > inventory > group");
+            let groups: Array<InventoryGroup> = [];
+            groupNodes.forEach(groupNode => {
+                let groupName = groupNode.getAttribute("name") || "";
+                let group = new InventoryGroup(groupName);
+
+                let itemNodes = groupNode.querySelectorAll("item");
+                itemNodes.forEach(item => {
+                    let itemName = item.getAttribute("name") ?? "???";
+                    let itemCount = Math.max(parseInt(item.getAttribute("amount") ?? "1"), 1);
+                    group.items[itemName] = itemCount;
+                });
+
+                groups.push(group);
+            });
+            inventory.groups = groups;
+            inventory = inventory;
+            console.log(inventory);
+        }
+
+        // Oldal betöltés
+        {
+            pages = {};
+
+            let pageNodes = xmlDoc.querySelectorAll("game > pages page");
+            pageNodes.forEach(pageNode => {
+                let pageId = pageNode.getAttribute("id")!;
+                let pageText = pageNode.querySelector("text")?.innerHTML ?? "";
+                pageText = pageText.replaceAll(/^ +/gm, "");
+                console.log(pageText);
+
+                let options: Array<Option> = [];
+                let optionNodes = pageNode.querySelectorAll("options > option");
+                optionNodes.forEach(optionNode => {
+                    let optionText = optionNode.querySelector("text")?.innerHTML ?? "";
+                    // TODO: Execute betöltése
+                    options.push(new Option(optionText, undefined, undefined, []));
+                });
+
+                let page = new Page(pageText, options);
+                pages[pageId] = page;
+            });
+
+            pages = pages;
+            console.log(pages);
+
+            // Teszt
+            console.log(pages["init"]);
+            pageHistory.push(pages["init"]);
+            pageHistory = pageHistory;
+        }
+    });
 
     async function getPageTexts(): Promise<Array<String>> {
         let pageTexts: Array<String> = [];
@@ -44,7 +144,12 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
     }
 
     let pageTexts = getPageTexts();
-    let tooltip: Promise<String> = pageHistory[pageHistory.length - 1].buttons[0].getTooltipHtml();
+    let tooltip: Promise<String> = new Promise(_ => "");
+
+    $: pageHistory &&
+        (() => {
+            pageTexts = getPageTexts();
+        })();
 
     function scrollTo(node: HTMLElement) {
         node.scrollIntoView();
@@ -86,9 +191,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             {#await pageTexts then pageTextsVal}
                 {#each pageHistory as page, pageI}
                     <div class="page" use:scrollTo>
-                        <div class="page-text">
-                            <p>{@html pageTextsVal[pageI]}</p>
-                        </div>
+                        <div class="page-text">{@html pageTextsVal[pageI]}</div>
                         {#if pageI == pageHistory.length - 1}
                             <div id="page-buttons">
                                 {#each page.buttons as button, i}
@@ -147,8 +250,8 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             flex-direction: column;
             overflow-y: scroll;
             scrollbar-color: #71593c #b0a68a;
-            scroll-snap-type: y mandatory;
-            scroll-snap-stop: always;
+            //scroll-snap-type: y mandatory;
+            //scroll-snap-stop: always;
 
             #pages {
                 background-image: url("tiled-paper.webp");
@@ -264,6 +367,16 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                     line-height: 120%;
                     text-align: justify;
                     color: #422104;
+
+                    :global(p) {
+                        margin-bottom: 1rem;
+                    }
+
+                    :global(h1) {
+                        font-size: 2rem;
+                        font-weight: normal;
+                        margin-bottom: 1rem;
+                    }
                 }
             }
 
