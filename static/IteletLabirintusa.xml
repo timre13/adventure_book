@@ -1008,6 +1008,35 @@
         </page>
 
 
+
+        <page id="64">
+            <text>
+                Ahogy leugrasz, hátizsákod beleakad valamibe, te pedig egy pillanatra elveszted az egyensúlyod, épp mikor földet érsz. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="117"/>
+                    </execute>
+                    <execute>
+                        <changePage id="186"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="65">
+            <text>
+                Az ajtó egy nyirkos folyosóra vezet, mely először kelet felé fordul, végül pedig északra kanyarodik. Elindulsz. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="84"/>
+            </option>
+        </page>
+
+
     </pages>
 
 
