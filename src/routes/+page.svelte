@@ -112,7 +112,15 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                 pageText = pageText.replaceAll(/^ +/gm, "");
                 console.log(pageText);
 
-                let page = new Page(pageText, []);
+                let options: Array<Option> = [];
+                let optionNodes = pageNode.querySelectorAll("options > option");
+                optionNodes.forEach(optionNode => {
+                    let optionText = optionNode.querySelector("text")?.innerHTML ?? "";
+                    // TODO: Execute betöltése
+                    options.push(new Option(optionText, undefined, undefined, []));
+                });
+
+                let page = new Page(pageText, options);
                 pages[pageId] = page;
             });
 
