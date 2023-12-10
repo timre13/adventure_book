@@ -4,8 +4,15 @@
     //@ts-ignore
     let files: FileList = new Array();
 
+    if (dev) {
+        fetch("/IteletLabirintusa.xml").then(x => {
+            x.text().then(y => {
+                file.set(y);
+            });
+        });
+    }
+
     let showForm = !dev;
-    //let showForm = true;
     let promise = new Promise<void>((resolve, reject) => {
         if (dev) resolve();
     });
