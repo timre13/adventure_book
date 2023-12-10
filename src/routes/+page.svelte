@@ -7,14 +7,15 @@
     import { Dice, createDice } from "$lib/dice";
     import { file } from "$lib/stores/file";
     import { get } from "svelte/store";
+    import { Inventory, InventoryGroup } from "$lib/Inventory";
 
     let diceHandler: Dice;
 
     conditionHandler("vars['B'] = 'A'"); // létrehozok egy B változót A értékkel
     conditionHandler("vars['B'] == 'A'"); // True értéket ad vissza
 
-    //let stats: Promise<Array<Stat>> = new Promise(_ => []);
     let stats: Array<Stat> = [];
+    let inventory: Inventory = new Inventory();
 
     let xmlDoc: Document;
     file.subscribe(x => {
@@ -59,9 +60,30 @@
             });
             return stats_;
         })().then(x => (stats = x));
+
+        // Inventory betöltés
+        {
+            let groupNodes = xmlDoc.querySelectorAll("game > character > inventory > group");
+            let groups: Array<InventoryGroup> = [];
+            groupNodes.forEach(groupNode => {
+                let groupName = groupNode.getAttribute("name") || "";
+                let group = new InventoryGroup(groupName);
+
+                let itemNodes = groupNode.querySelectorAll("item");
+                itemNodes.forEach(item => {
+                    let itemName = item.getAttribute("name") ?? "???";
+                    let itemCount = Math.max(parseInt(item.getAttribute("amount") ?? "1"), 1);
+                    group.items[itemName] = itemCount;
+                });
+
+                groups.push(group);
+            });
+            inventory.groups = groups;
+            inventory = inventory;
+            console.log(inventory);
+        }
     });
 
-    let inventory: Record<string, number> = { Alma: 12, Kulcs: 3, Kard: 1 };
     let pageHistory: Array<Page> = Array(5);
     pageHistory.fill(
         new Page(
