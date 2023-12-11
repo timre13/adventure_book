@@ -22,13 +22,13 @@
             <group name="Felszerelés">
                 <item name="kard"/>
                 <item name="bőrvért"/>
-
             </group>
             <group name="Bájitalok">
                 <item name="viagra" amount="3"/>
             </group>
         </inventory>
     </character>
+
 
     <pages>
         <page id="init">
@@ -123,18 +123,27 @@
 
                 Melyik italt választod?
             </text>
-            <options changePage="backGr">
+            <options>
                 <option>
                     <text>Ügyesség Itala</text>
-                    <changeItem name="Ügyesség Itala" amount="2" group="Bájitalok"/>
+                    <execute>
+                        <changeItem name="Ügyesség Itala" amount="2" group="Bájitalok"/>
+                        <changePage id="backGr"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Életerő Itala</text>
-                    <changeItem name="Életerő Itala" amount="2" group="Bájitalok"/>
+                    <execute>
+                        <changeItem name="Életerő Itala" amount="2" group="Bájitalok"/>
+                        <changePage id="backGr"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Szerencse Itala</text>
-                    <changeItem name="Szerencse Itala" amount="2" group="Bájitalok"/>
+                    <execute>
+                        <changeItem name="Szerencse Itala" amount="2" group="Bájitalok"/>
+                        <changePage id="backGr"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -160,8 +169,7 @@
                         <changePage id="1"/>
                     </execute>
                 </option>
-            </options>
-               
+            </options>  
         </page>
 
         <page id="1">
@@ -176,9 +184,7 @@
                     </execute>
                 </option>
             </options>
-            
         </page>
-
         <page id="2">
             <text>
                 A vízbe ugrasz, az áramlat azonban nagyon eros. Megpróbálsz a felszínen maradni, de ez nem könnyű.
@@ -192,7 +198,6 @@
                 </option>
             </options>
         </page>
-
         <page id="3">
             <text>
                 Ahogy óvatosan a drótok között lépkedve eléred a Szobrot, az hirtelen eltünik! A következő pillanatban vészjósló morajlás hangzik fel a fejed fölött, és ahogy arra nézel, látod, hogy hatalmas szikladarabok kezdenek feléd zuhanni. A hatalmas súly porrá örli csontjaidat. Kalandod itt véget ér.
@@ -206,7 +211,6 @@
                 </option>
             </options>
         </page>
-
         <page id="4">
             <text>
                 A kötél igen rossz állapotban van, és még félúton sem jársz, mikor elszakad... Kalandod itt véget ér.
@@ -220,7 +224,6 @@
                 </option>
             </options>
         </page>
-
         <page id="5">
             <text>
                 Az ajtó egy tágas terembe nyílik, melynek északi oldalán egy újabb kijárat van, egy lelógó kötél szomszédságában. Csapdának nem látod jelét, így áthaladsz a szobán és leveszed a kötelet. Lenyomod a kilincset, de így sem sikerül előrébb jutnod &#8211; alighanem zárva van.
@@ -244,7 +247,6 @@
                 </option>
             </options>
         </page>
-
 
         <page id="6">
             <text>Az ajtó egy nyugat felé haladó alagútba nyílik. Követed, míg egy elágazáshoz nem érsz.</text>
@@ -320,6 +322,7 @@
                 </option>
             </options>
         </page> 
+
         <page id="11">
             <text>Elérsz az alagút végére, de semmi feltünöt nem látsz.</text>
             <options>
@@ -410,6 +413,7 @@
                 </option>
             </options>
         </page>
+
         <page id="16">
             <text>
                 Ahogy előre haladsz, elkerüli figyelmedet egy medvecsapda. Belelépsz, fogai mélyen a lábadba marnak. Valamivel később egy elágazáshoz érkezel. Úgy döntesz, a három lehetséges irány közül észak felé indulsz.
@@ -471,7 +475,6 @@
                 </option>
             </options>
         </page>
-
         <page id="20">
             <text>Az alagút egy súlyos ajtóban ér véget, ami le van zárva. De nem kulccsal: három tekerő gombot látsz rajta. Ha nem tudod a kódot, vissza kell térned a homokos folyópartra és valahol máshol kell próbálkoznod &#8211;.</text>
             <options>
@@ -493,6 +496,7 @@
                 </option>
             </options>
         </page>
+
         <page id="21">
             <text>
                 A számszerij beállítása pontos volt, esélyed sincs. A lövedék mélyen a nyakadba fúródik, átmetszi a gerincvelödet és a falhoz szegezi ernyedt testedet. Kalandod itt véget ér.
@@ -564,6 +568,8 @@
                 </option>
             </options>
         </page>
+
+
         <page id="26">
             <text>
                 Vagy száz Elf áll körülötted, megfeszített nyilvesszőkkel, melyek feléd mutatnak. A halott Fönök fia előre lép és az idős férfire néz, aki alig észrevehetően megrázza a fejét. Az Elf komoran elmosolyodik. Bünös! &#8211; jelenti ki. Az utolsó dolog, amit hallasz, az a feléd suhanó nyílvesszők zaja. Kalandod itt véget ér.
@@ -640,10 +646,10 @@
                     <execute>
                         <changePage id="129"/>
                     </execute>
-                    
                 </option>
             </options>
         </page>
+
         <page id="31">
             <text>
                 Végigsétálsz a járaton, mely elágazásban végződik. A déli folyosó visszafelé vezetne, úgyhogy északnak indulsz. 
@@ -719,6 +725,7 @@
                 </option>
             </options>
         </page>
+
         <page id="36">
             <text>
                 Semmit nem találsz, így északra folytatod az utad.
@@ -802,6 +809,7 @@
                  </option>
             </options>
         </page>
+
         <page id="41">
             <text>
                 Az alagút, bár folyamatosan jobbra-balra kanyarog, nagyjából mégis tartja az északi irányt, végül élesen oldalra kanyarodik, és ekkor majdnem belefutsz egy fekete köpenybe öltözött alakba. Tört tart a kezében, az arcán ülő tekintet rettegésről árulkodik! Rájössz, hogy nem te vagy az egyetlen, akit most próbára tesznek, és hogy mindketten ugyanazon Szobor után kutattok. A fickó rád veti magát, nyilvánvaló, hogy mielőbb végezni akar veled. Harcolnod kell!
@@ -873,6 +881,7 @@
                 </option>
             </options>
         </page>
+
         <page id="46">
             <text>
                 A kő igen értékes. A kiálló fadarabokat kerülgetve visszatérsz az elágazáshoz.
@@ -960,6 +969,8 @@
                 </option>
             </options>
         </page>
+
+
         <page id="51">
             <text>
                 Egy kis helyiségbe nyitsz be, mely első ránézésre nem tartalmaz semmi mást, csak nagy halom törmeléket a padlón. Ahogy beljebb lépsz, kellemetlen szag csapja meg az orrodat, és egy éles, magas és amenynyire meg tudod állapítani &#8211; dühödt visitás kezd egyre erősödni. Végül egy rikoltás kiséretében két hatalmas Denevér ereszti el a plafont a szoba két sarkában, és feléd kezdenek repülni. Ahogy ösztönösen lebuksz, sikerül észrevenned a lények vicsorgó agyarait, melyek készek szétcincálni a torkodat.
@@ -1039,6 +1050,7 @@
                 </option>
             </options>
         </page>
+
         <page id="56">
             <text>
                 Ahogy kilépsz az alagútból, elámulsz a szemed elé táruló látványtól. Egy keskeny sziklaszirten állsz, nagyjából félúton az óriási barlangüreg alja és teteje között. A tovaszaladó víz csillogása elárulja, hogy a völgy mélyén egy folyó halad. Jobbodon egy rövid átjáró végén egy lefelé vezető lépcsősort látsz. Mivel ez az egyetlen módja a lejutásnak, óvatosan ereszkedni kezdesz rajta. 
@@ -1130,6 +1142,7 @@
                 </option>
             </options>
         </page>
+
         <page id="61">
             <text>
                 A hatalmas Galon tetemét melynek madárszerű karmai még mindig megfeszülnek és elernyednek, mintha még holtukban is szét akarnának tépni téged megkerülve kiutat keresel a helyiségből. E közben szépen lassan az oszlás büze tölti be a levegőt. A Madárember teste felé fordulsz, és még éppen megpillantod, amint bőrszárnyai eltünnek egy csapat vonagló lárva alatt. Néhány másodperccel később már csak a lerágott csontok maradnak meg egykori ellenfeledből. Amint elfogy élelmük, a férgek feled indulnak, te pedig ráébredsz, hogy halálos veszélyben vagy. Mivel a fura teremtmények közted és a bejárat között állnak, egy másik kiutat kell találnod.
@@ -1204,6 +1217,7 @@
                 </option>
             </options>
         </page>
+
         <page id="66">
             <text>
                 Az alagút, bár folyamatosan jobbra-balra kanyarog, nagyjából mégis tartja az északi irányt, végül élesen oldalra kanyarodik, és ekkor majdnem belefutsz egy fekete köpenybe öltözött alakba. Tört tart a kezében, az arcán ülő tekintet rettegésről árulkodik! Rájössz, hogy nem te vagy az egyetlen, akit most próbára tesznek, és hogy mindketten ugyanazon Szobor után kutattok. A fickó rád veti magát, nyilvánvaló, hogy mielőbb végezni akar veled. Harcolnod kell!
@@ -1281,6 +1295,7 @@
                 </option>
             </options>
         </page>
+
         <page id="71">
             <text>
                 Ajkadhoz emeled a kis fiolát és megiszod a tartalmát. Meglepve tapasztalod, hogy a folyadék teljesen íztelen, de egészen felfrissít. Szentelt Víz volt benne, amit egy ősi Druida áldott meg. Az ezután következő harcok során 1-el megnövelheted majd Támadóerődet. Nyersz 1 SZERENCSE pontot.
@@ -1369,6 +1384,8 @@
                 </option>
             </options>
         </page>
+
+
         <page id="76">
             <text>
                 Homokos parton találod magad, melynek félhold alakja van. Az elötted lévő sziklafal egy kis alkóvot alkot, és három ajtót foglal magában. Ezek közül választhatsz majd, mikor eljön a távozás ideje, előtte azonban még el kell döntened, át akarod-e kutatni a folyópartot ékkövek vagy aranyérmék után.
@@ -1455,6 +1472,7 @@
                 </option>
             </options>
         </page>
+
         <page id="80">
             <text>
                 Észak felé haladsz. Megszenvedsz az úttal, hisz eléggé hepchupás. Hamarosan elérsz egy elágazáshoz. A nyugat felé továbbinduló szakasz még rosszabb állapotúnak tűnik, mint az, ahol most jársz, ezért úgy döntesz. továbbra is tartod az irányt.
@@ -1560,6 +1578,7 @@
                 </option>
             </options>
         </page>
+
         <page id="86">
             <text>
                 Ahogy körbenézel, észreveszel egy kötelet, amit egy nagyméretű sziklához kötöztek. Amennyire elnézed, nincs túl jó állapotban. és azt sem látod. milyen mélyen ér le a szakadékba, de úgy tűnik, ez az egyetlen lehetőséged a lejutásra. 
@@ -1640,6 +1659,7 @@
                 </option>
             </options>
         </page>
+
         <page id="90">
             <text>
                 Az ajtón benyitva vaksötét fogad.
@@ -1724,6 +1744,7 @@
                 </option>
             </options>
         </page>
+        
         <page id="96">
             <text>
                 Az alagút kanyarulata mögül túlvilági ragyogás árad. Ahogy a falra vetült játékot nézed, úgy érzed, a fény magától lüktet és változtatja a színét. Nagyon óvatosan fordulsz be a kanyarban, amin túl igen bizarr látvány fogad. Három nagyon alacsony, ezüstszínű, lebegő köpenybe öltözött alak táncol valamilyen rituális táncot a fény forrása körül. Az üreg falát itt mindenhol tükrök borítják, és a változó színek oda-vissza ugrálnak ezek közt, a lüktető ragyogástól erős szédülés tör rád. A forrás egy hatalmas kristály, mely egy magas talapzaton nyugszik, és képtelen vagy megállapítani, pontosan miféle kö is ez. Egyébként sincs idöd sokat spekulálni ezen, mivel az ezernyi tükörképnek köszönhetően az alakok felfigyelnek egy óvatlan mozdulatodra.
@@ -1811,6 +1832,91 @@
         </page>
 
 
+        <page id="101">
+            <text>
+                A sár felszíne domborodni kezd, és tompa pukkanás kíséretében egy óriási gázbuborék emelkedik ki belöle. Ahogy a felszín kisimulna, apró, zöld színü, cikázó fények jelennek meg rajta. A foltocskák kiemelkednek, aljukból csápok nőnek ki, melyek percről percre hosszabbodnak. Végül egy Iszapsárkány óriási feje bukkan elő félig a nyálkás folyadék mélyéből! Most már látod, hogy a zöld fények, amiket korábban láttál, valójában a lény fejéből kinövő csápok, melyek egészen addig szabadon lengeni látszanak, míg hirtelen mindegyik rád nem szegeződik. A hatalmas száj kinyílik, förtelmes szagú gáz tör elő belőle, ezután ellenfeled duzzadni kezd, ahogy levegővel szívja meg magát. Egyre csak nő és nő, míg végül kezded úgy érezni, hogy teljesen betölti a termet. Meg kell küzdened vele. Előhúzod kardodat, mely hirtelen elégtelennek tűnik ellenfeleddel szemben.
+            </text>
+            <enemies>
+                <enemy name="Iszapsárkány" health="6" skill="10" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                         <changePage id ="82"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="102">
+            <text>
+                Miután felhajtod az üvegcsében lévő italt, megdöbbenve tapasztalod, mennyivel jobban érzed most magad. Az üvegben a Szerencse Italának egy adagja volt. Folytatod a kúszást észak felé. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Szerencse.max" increase="1"/>
+                        <changeStat name="Szerencse" value="Szerencse.max"/>
+                        <changePage id="169"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="103">
+            <text>
+                Bár a víz mély és elég gyors folyású, van annyi erő benned, hogy folyásirányba úszva jóval lentebb kievickélj a partra. Miután kifüjtad magad, visszatérsz a hídhoz és folytatod utad az ösvényen. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="169"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="104">
+            <text>
+                A kék könyv térképeket tartalmaz, és bár minden nevet Elfül írtak bele, a képen felismerni véled Analandot. Úgy tűnik, ez a mű tartalmazza azon városok, falvak, és ami még fontosabb, bányák helyzetét, melyekben drágakövet vagy nemesfémet találhatsz. Ha sikerülne magaddal vinned ezt a kötetet a felszínre, futármunkád sokkal jövedelmezöbbé és biztonságosabbá válhatna. Biztonságba helyezed hát kabátod egyik belső zsebébe.
+            </text>
+            <options>
+                <option>
+                    <text>Megnézem a pirosat</text>
+                    <execute>
+                        <changeItem name="Kék könyv" amount="1" group="Felszerelés"/>
+                        <changePage id="59"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Megnézem a zöldet</text>
+                     <execute>
+                        <changeItem name="Kék könyv" amount="1" group="Felszerelés"/>
+                        <changePage id="88"/>
+                     </execute>                   
+                </option>
+                <option>
+                    <text>Nem akarok olvasni</text>
+                    <execute>
+                        <changeItem name="Kék könyv" amount="1" group="Felszerelés"/>
+                        <changePage id="10"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="105">
+            <text>
+                Döbbenten veszed észre, hogy köpenyed felfúvódik és felemel a lábadról. Lassan lebegsz le a talajra, és könnyedén érsz földet. Alig mered elhinni, mekkora szerencséd van. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="27"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
 
 
 
