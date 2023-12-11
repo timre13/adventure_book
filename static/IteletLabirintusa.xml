@@ -1823,7 +1823,198 @@
 
 
 		<!--MikloSection-->
+
+        <page id="">
+            <text>
+                
+            </text>
+            <options>
+
+                <option>
+                    <text></text>
+                    <execute>
+                        <changePage id=""/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+
+        <page id="">
+            <text>
+                
+            </text>
+            <options>
+
+                <option>
+                    <text></text>
+                    <execute>
+                        <changePage id=""/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+
+        <page id="">
+            <text>
+                
+            </text>
+            <options>
+
+                <option>
+                    <text></text>
+                    <execute>
+                        <changePage id=""/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+
+        <page id="">
+            <text>
+                
+            </text>
+            <options>
+
+                <option>
+                    <text></text>
+                    <execute>
+                        <changePage id=""/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+
+        <page id="">
+            <text>
+                
+            </text>
+            <options>
+
+                <option>
+                    <text></text>
+                    <execute>
+                        <changePage id=""/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+
+        <page id="">
+            <text>
+                
+            </text>
+            <options>
+
+                <option>
+                    <text></text>
+                    <execute>
+                        <changePage id=""/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+
+        <page id="196">
+            <text>
+                
+            </text>
+            <options>
+
+                <option>
+                    <text></text>
+                    <execute>
+                        <changePage id=""/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+
+        <page id="197">
+            <text>
+                A folyadékot elfogyasztva nem érzel semmi különlegeset. Tudtodon kívül azonban elfogyasztottad a Szerencse Elixírjét. Mostantól kezdve valahányszor próbára teszed a SZERENCSÉDET, a dobás értékét megnövelheted 1-el.
+            </text>
+            <options>
+                <option>
+                    <text>Belekóstolok az első üvegbe</text>
+                    <execute>
+                        <changePage id="139"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>A másdikat szeretném meginni</text>
+                    <execute>
+                        <changePage id="150"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Folytatom az utamat keleti irányba</text>
+                    <execute>
+                        <changePage id="29"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
+        <page id="198">
+            <text>
+                A két lénynél összesen 5 Aranytallért találsz, meg egy érdekes növénykét.
+            </text>
+            <options>
+                <option>
+                    <text>Megeszem, mert éhes vagyok, vagy mert úgy sejtem, valamilyen mágikus tulajdonsággal rendelkezik</text>
+                    <execute>
+                        <changePage id="49"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Inkább hagyom, ahol van és az északi ajtón át távozom</text>
+                    <execute>
+                        <changePage id="152"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
         
+        <page id="199">
+            <text>
+                A csapóajtó eléggé megszorult, végül azonban sikerül kinyitnod. Alatta egy kis üreget találsz, abban pedig három tárgyat: egy gyürüt, egy kis fiolányi folyadékot és egy összehajtogatott köpenyt.
+            </text>
+            <options>
+                <option>
+                    <text>Felpróbálom a gyűrűt</text>
+                    <execute>
+                        <changePage id="119"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Felveszem a köpenyt</text>
+                    <execute>
+                        <changePage id="12"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Felhajtom az italt</text>
+                    <execute>
+                        <changePage id="71"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>A tárgyakat a következő utazónak hagyom hátra, bezárom a csapóajtót és az ajtón kilépve észak felé távozom</text>
+                    <execute>
+                        <changePage id="80"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
+
 	    <page id="200">
             <text>
                 Az odafenn álló Elfek serege várakozóan néz rád, íjaikat megfeszítve tartják maguk elött, egyenesen rád célozva. A Főnök fia előre lép és kérdően az öregre tekint, aki alig észrevehetően bólint. Az ifjú kifejezéstelen arccal feléd fordul. Ember, ártatlannak ítéltettél, így szabadon távozhatsz. Megtarthatsz bármit, amit az Ítélet Labirintusában találtál. Távozz.-Kábán lépsz le az emelvényről. Az Elfek utat nyitnak neked, miközben elhaladsz mellettük. Mikor végre nyílt terepre érsz, megfordulsz és legnagyobb meglepetésedre már csak az öreget látod. Búcsúzóul feléd biccent, a következő pillanatban pedig a szemed elött oszlik szét ragyogó fénnyé. Vállat vonsz és folytatod a hosszú sétautat Zafirvárosba.
