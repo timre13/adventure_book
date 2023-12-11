@@ -153,29 +153,44 @@
                 Rájössz, hogy ezek azt hiszik, te vagy a gyilkos. Tiltakozni próbálnál, azonban az Elf egy intésére elhallgatsz. Az ítélet Labirintusához viszünk fejezi be mondanivalóját. Hátat fordít neked, és elsétál, te pedig kísérőid körében kénytelen vagy követni. Miközben az örök egymás közt vitatják meg a látottakat, megtudod, hogy a labirintus egy titkos hely, ahol a bűnösöket teszik próbára. Minden ..próba" előtt egy kis Aranyszobrot rejtenek el annak mélyén, a próba alanyának pedig meg kell találnia azt. Ha ez nem sikerül, bünösnek ítélik, ám ha rálel, és sikerül kijuttatnia odabentről, ártatlannak találják, és szabadon engedik.
                 A fak ritkulni kezdenek, a menet pedig egy hatalmas fa törzsénél megtorpan. A Főnök fia motyog pár szót, mire a kéreg egy része kinyílik, mögötte pedig feltűnik a labirintus bejárata...
             </text>
-            <option changePage="1">
-                <text>Játék indítása</text>
-            </option>   
+            <options>
+                <option>
+                    <text>Játék indítása</text>
+                    <execute>
+                        <changePage id="1"/>
+                    </execute>
+                </option>
+            </options>
+               
         </page>
 
         <page id="1">
             <text>
                 Belöknek a lenti alagútba, és rád zárják az ajtót, kizárva ezzel a nyíláson át beszűrődő természetes világosságot. Innentől kezdve kizárólag a falra rögzített fáklyáktól remélhetsz valamennyi fényt. Ahogy szemed hozzászokik a homályhoz, látod, hogy az alagút észak felé indul. Nagyot sóhajtasz a dolog igazságtalansága felett, majd elindulsz abba az irányba.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="42"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="42"/>
+                    </execute>
+                </option>
+            </options>
+            
         </page>
 
         <page id="2">
             <text>
                 A vízbe ugrasz, az áramlat azonban nagyon eros. Megpróbálsz a felszínen maradni, de ez nem könnyű.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="148"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="148"/>
+                    </execute>
+                </option>
+            </options>
         </page>
 
         <page id="3">
@@ -190,17 +205,20 @@
                     </execute>
                 </option>
             </options>
-            
         </page>
 
         <page id="4">
             <text>
                 A kötél igen rossz állapotban van, és még félúton sem jársz, mikor elszakad... Kalandod itt véget ér.
             </text>
-            <option>
-                <text>Újrakezdés</text>
-                <restart/>
-            </option>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
         </page>
 
         <page id="5">
@@ -233,11 +251,15 @@
             <options>
                 <option>
                     <text>Észak felé akarok fordulni</text>
-                    <changePage id="172"/>
+                    <execute>
+                        <changePage id="172"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Nem akarok letérni az útról</text>
-                    <changePage id="168"/>
+                    <execute>
+                        <changePage id="168"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -246,11 +268,15 @@
             <options>
                 <option>
                     <text>Vállalom a járatot</text>
-                    <changePage id="165"/>
+                    <execute>
+                        <changePage id="165"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Visszatérek a fenti folyosóhoz</text>
-                    <changePage id="96"/>
+                    <execute>
+                        <changePage id="96"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -260,8 +286,6 @@
                 <option>
                     <text>A dárdák, melyeket egy igen hatásos méreggel kentek be, mélyen a lábadba fúródnak.</text>
                     <execute>
-                        <!-- feltételek -->
-                        <!-- végrehajtandók -->
                         <changeStat name="Életerő" decrease="~1d6"/>
                         <changePage id="96"/>
                     </execute>
@@ -273,7 +297,9 @@
             <options>
                 <option>
                     <text>Megyek</text>
-                    <changePage id="52"/>
+                    <execute>
+                        <changePage id="52"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -282,11 +308,15 @@
             <options>
                 <option>
                     <text>Beszélni akarok vele</text>
-                    <changePage id="149"/>
+                    <execute>
+                        <changePage id="149"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Inkább megölném</text>
-                    <changePage id="24"/>
+                    <execute>
+                        <changePage id="24"/>
+                    </execute>
                 </option>
             </options>
         </page> 
@@ -295,11 +325,15 @@
             <options>
                 <option>
                     <text>Tovább akarok keresgélni</text>
-                    <changePage id="38"/>
+                    <execute>
+                        <changePage id="38"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Visszamegyek az előző elágazáshoz, és keletre indulok</text>
-                    <changePage id="31"/>
+                    <execute>
+                        <changePage id="31"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -307,16 +341,6 @@
             <text>
                 A válladra csapod a köpenyt, de legnagyobb meglepetésedre semmi nem történik. Mivel egy kicsit azért hűvös van, nem dobod le. Bár nem tudod, de ez a Lebegés Köpenye.
             </text>
-            <initially>
-                <execute>
-                    <itemRequired name="Gyűrű" max="0"/>
-                    <changeOption id="1" text="Felveszem a gyűrűt"/>
-                </execute>
-                <execute>
-                    <itemRequired name="Italeffect" max="0"/>
-                    <changeOption id="2" text="Megkóstolom a folyadékot"/>
-                </execute>
-            </initially>
             <option>
                 <text>Felveszem a gyűrűt</text>
                 <execute>
@@ -332,7 +356,6 @@
                 <text>Megkóstolom a folyadékot</text>
                 <execute>
                     <itemRequired name="Italeffect" max="0"/>
-
                     <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
                     <changePage id="71"/>
                 </execute>
@@ -346,7 +369,6 @@
                     <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
                     <changePage id="80"/>
                 </execute>
-                
             </option>
         </page>
         <page id="13">
@@ -355,7 +377,9 @@
             </text>
             <option>
                 <text>Menj tovább</text>
-                <changePage id="196"/>
+                <execute>
+                    <changePage id="196"/>
+                </execute>
             </option>
         </page>
         <page id="14">
@@ -364,49 +388,55 @@
             </text>
             <option>
                 <text>Menj tovább</text>
-                <changePage id="67"/>
+                <execute>
+                    <changePage id="67"/>
+                </execute>
             </option>
         </page>
         <page id="15">
             <text>
                 Az áramlat túl erős, és tovább sodor egy hid alá. Magad elött megpillantasz egy sziklát, és megpróbálod elkapni.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <dice stat="Szerencse" type="2d6" relationSD="=>"/>
-                    <changePage id="92"/>
-                </execute>
-                <execute>
-                    <changePage id="132"/>
-                </execute>
-                
-                
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="92"/>
+                    </execute>
+                    <execute>
+                        <changePage id="132"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="16">
             <text>
                 Ahogy előre haladsz, elkerüli figyelmedet egy medvecsapda. Belelépsz, fogai mélyen a lábadba marnak. Valamivel később egy elágazáshoz érkezel. Úgy döntesz, a három lehetséges irány közül észak felé indulsz.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <changeStat name="Életerő" decrease="2"/> 
-                    <changePage id="195"/>
-                </execute>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Életerő" decrease="2"/> 
+                        <changePage id="195"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="17">
             <text>
                 A férfi szívébe mártod kardod, szenvedő arckifejezésétől azonban lelkiismeret-furdalásod támad. Semmi értékeset nem találsz a szobában, így az északi ajtón át távozol.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <changeStat name="Szerencse" decrease="1"/> 
-                    <changePage id="180"/>
-                </execute>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Szerencse" decrease="1"/> 
+                        <changePage id="180"/>
+                    </execute>
+                </option>
+            </options>   
         </page>
         <page id="18">
             <text>
@@ -428,27 +458,23 @@
             <text>
                 Igyekezeted, hogy szilárd talajra juss, hiábavalónak tűnik, ám teszel még egy utolsó, kétségbeesett próbálkozást a kijárat felé veted magad.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <dice stat="Szerencse" type="2d6" relationSD="=>"/>
-                    <changePage id="176"/>
-                </execute>
-                <execute>
-                    <changePage id="151"/>
-                </execute>
-             </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="176"/>
+                    </execute>
+                    <execute>
+                        <changePage id="151"/>
+                    </execute>
+                </option>
+            </options>
         </page>
 
         <page id="20">
             <text>Az alagút egy súlyos ajtóban ér véget, ami le van zárva. De nem kulccsal: három tekerő gombot látsz rajta. Ha nem tudod a kódot, vissza kell térned a homokos folyópartra és valahol máshol kell próbálkoznod &#8211;.</text>
             <options>
-                <initially>
-                    <execute>
-                        <itemRequired name="Kódpapír"/>
-                        <changeOption id="1" text="Kinyitom az ajtót"/>
-                    </execute>
-                </initially>
                 <option>
                     <text>Beírom a kódot</text>
                     <execute>
@@ -461,7 +487,9 @@
                 </option>
                 <option>
                     <text>Folytatom az utamat</text>
-                    <changePage id="76"/>
+                    <execute>
+                        <changePage id="76"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -1028,19 +1056,21 @@
                 <changePage id="95"/>
             </option>
         </page>
-    </page>
-    <page id="63">
-        <text>
-            Megbillentél. Vesztesz 1 SZERENCSE pontot. Az északi járaton át folytatod az utad. 
-        </text>
-        <option>
-            <text>Menj tovább</text>
-            <execute>
-                <changeStat id="Szerencse" decrease="1"/>
-                <changePage id="95"/>
-            </execute>
-            
-        </option>
+    
+        <page id="63">
+            <text>
+                Megbillentél. Vesztesz 1 SZERENCSE pontot. Az északi járaton át folytatod az utad. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat id="Szerencse" decrease="1"/>
+                        <changePage id="95"/>
+                    </execute>
+                </option>
+            </options>
+        
     </page>
 
 
