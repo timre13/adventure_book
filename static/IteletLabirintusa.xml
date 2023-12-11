@@ -3306,6 +3306,45 @@
             </options>
         </page>
 
+        <page id="183">
+            <text>
+                Az egyik keringö cölöp váratlanul elfordul, és könnyedén felhasítja a börödet.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="194"/>
+                    </execute>
+                    <execute>
+                        <changePage id="170"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
+        <page id="184">
+            <text>
+                Keleti irányba haladva elérsz a központi elágazáshoz.
+            </text>
+            <options>
+                <option>
+                    <text>Megpróbálok északra menni</text>
+                    <execute>
+                        <changePage id="161"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Továbbmegyek keletnek</text>
+                    <execute>
+                        <changePage id="136"/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+
         <page id="196">
             <text>
                 
