@@ -3190,16 +3190,65 @@
             </options>
         </page>
 
-        <page id="">
+        <page id="176">
             <text>
-                
+                Sikerül szilárd talajra jutnod. Megkönnyebbülten felsóhajtasz. 
             </text>
             <options>
 
                 <option>
-                    <text></text>
+                    <text>Menj tovább</text>
                     <execute>
-                        <changePage id=""/>
+                        <changePage id="32"/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+
+        <page id="177">
+            <text>
+                Bedőltél a cselnek! Ahogy átlépsz a falak között, egy csapdát aktiválsz, mely elsüt egy megtöltött számszerijat. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="78"/>
+                    </execute>
+                    <execute>
+                        <changePage id="21"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        
+        <page id="178">
+            <text>
+                Az alagút egyre alacsonyabbá és szűkebbé válik, így nehéz nem észrevenni az itt heverő kis, kék folyadékot tartalmazó üvegcsét. 
+            </text>
+            <options>
+
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="34"/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+        <page id="179">
+            <text>
+                Az alagút egyre alacsonyabbá és szűkebbé válik, így nehéz nem észrevenni az itt heverő kis, kék folyadékot tartalmazó üvegcsét. 
+            </text>
+            <options>
+
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="34"/>
                     </execute>
                 </option>
 
