@@ -3255,6 +3255,57 @@
             </options>
         </page>
 
+        <page id="180">
+            <text>
+                A járat olyan meredeken emelkedik fölfelé, hogy végül egy kéménnyé változik. Itt már csak úgy tudsz haladni, ha a hátaddal és lábaddal nekifeszülsz két szemben álló falnak, és centinként araszolva mászol felfelé. Mikor végül feljutsz, egy széles szirten találod magad. 
+            </text>
+            <options>
+
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Életerő" decrease="1"/>
+                        <changePage id="56"/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+        <page id="181">
+            <text>
+                Ahogy megkerülöd a medencét, látod, amint a sár bugyogni kezd. Hatalmas gázbuborékok emelkednek ki belőle és robbannak fel, rothadó hús szagával töltve be a levegőt. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="192"/>
+                    </execute>
+                    <execute>
+                        <changePage id="188"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="182">
+            <text>
+                A sárból két Iszapsárkány feje emelkedik ki. A szemöldökükből kinövő csápok zöld fénnyel izzanak, miközben áldozatuk után kutatnak. Óriási szájuk kinyílik, és bűzös gázfelhő ölel körbe. A szörnyek mély levegőt vesznek, közben pedig eredeti méretük kétszeresére nőnek meg. Elöhúzod kardodat és reméled, elég szerencsés, erős és ügyes vagy, hogy megóvd magad a rád leselkedő veszélytől.
+            </text>
+            <enemies>
+                <enemy name="Első Iszapsárkány" health="5" skill="9" />
+                <enemy name="Második Iszapsárkány" health="6" skill="10" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                         <changePage id ="74"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
         <page id="196">
             <text>
                 
