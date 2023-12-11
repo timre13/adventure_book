@@ -3481,8 +3481,73 @@
 
             </options>
         </page>
-        
+        <page id="193">
+            <text>
+                Ahogy megkerülöd a medencét, látod, ahogy mocorogni kezd a felszín. Apró, zöld fények nönek ki a sár felszínéből. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="25"/>
+                    </execute>
+                    <execute>
+                        <changePage id="101"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="194">
+            <text>
+                Visszanyered egyensúlyod és a rubinért nyúlsz.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Ékkövek" increase="1"/>
+                        <changeStat name="Életerő" decrease="2"/>
+                        <changePage id ="46"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="195">
+            <text>
+                A járatot egy hatalmas tölgyfa ajtó zárja el, melyen gyönyörűen megmunkált csuklópántok és egy hatalmas, sodort fémkilincs van. Két oldalán fáklyák égnek, melyek táncoló fénybe borítják az alagút ezen részét. Egy pergamenlapot látsz az ajtóra szögezve, amin több nyelven is egy szöveg olvasható. Gyorsan keresel egy olyat, amit te is megértesz. A szöveg a következő:
+                Ha idáig eljutottál igen båtor lehetsz. Bátorságod most vagy életet hoz rád, vagy halált. Kopogj és lépj be.
+                Bekopogsz az ajtón, és elfordítod a kilincset.
+            </text>
+            <options>
 
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="39"/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+        <page id="196">
+            <text>
+                Amennyire csak tudod, puha ruhadarabokkal béleled ki a vállad, behúzod a nyakad és az ajtónak rontasz.
+            </text>
+            <options>
+                <option>
+                    <text>Megpróbálom</text>
+                    <execute>
+                        <dice stat="4" type="1d6" relationSD="=>"/>
+                        <changePage id="158"/>
+                    </execute>
+                    <execute>
+                        <changeStat name="Életerő" decrease="2"/>
+                        <alert text="Nem sikerült"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
         <page id="197">
             <text>
                 A folyadékot elfogyasztva nem érzel semmi különlegeset.
