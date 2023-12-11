@@ -182,10 +182,15 @@
             <text>
                 Ahogy óvatosan a drótok között lépkedve eléred a Szobrot, az hirtelen eltünik! A következő pillanatban vészjósló morajlás hangzik fel a fejed fölött, és ahogy arra nézel, látod, hogy hatalmas szikladarabok kezdenek feléd zuhanni. A hatalmas súly porrá örli csontjaidat. Kalandod itt véget ér.
             </text>
-            <option>
-                <text>Újrakezdés</text>
-                <restart/>
-            </option>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
+            
         </page>
 
         <page id="4">
@@ -202,26 +207,24 @@
             <text>
                 Az ajtó egy tágas terembe nyílik, melynek északi oldalán egy újabb kijárat van, egy lelógó kötél szomszédságában. Csapdának nem látod jelét, így áthaladsz a szobán és leveszed a kötelet. Lenyomod a kilincset, de így sem sikerül előrébb jutnod &#8211; alighanem zárva van.
             </text>
-            <initially>
-                <execute>
-                    <itemRequired name="Aranykulcs"/>
-                    <changeOption id="1" text="Kinyitom az ajtót"/>
-                </execute>
-            </initially>
-            <option>
-                <text>Kinyitom az ajtót</text>
-                <execute>
-                    <itemRequired name="Aranykulcs"/>
-                    <changePage id="110"/>
-                </execute>
-                <execute>
-                    <alert text="Nincs nálad Aranykulcs."/>
-                </execute>
-            </option>
-            <option>
-                <text>Folytatom az utamat</text>
-                <changePage id="14"/>
-            </option>
+            <options>
+                <option>
+                    <text>Kinyitom az ajtót</text>
+                    <execute>
+                        <itemRequired name="Aranykulcs"/>
+                        <changePage id="110"/>
+                    </execute>
+                    <execute>
+                        <alert text="Nincs nálad Aranykulcs."/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Folytatom az utamat</text>
+                    <execute>
+                        <changePage id="14"/>
+                    </execute>
+                </option>
+            </options>
         </page>
 
 
@@ -409,17 +412,17 @@
             <text>
                 Amint belépsz a szobába, rémülten eszmélsz rá, hogy előbb alaposan szét kellett volna nézned a plafonon ugyanis egy hatalmas Pók kapaszkodik, ami minden szemével téged bámul. Négy ezüstszínű gubó lóg mellette, és összeszorul a szíved, mikor rájössz, hogy két ember, egy Törpe és egy Elf van beléjük csavarva, akik bizonyára leendő ellenfeled legutóbbi áldozatai voltak, és már csak arra várnak, hogy a bestia egy jót lakmározzon belőlük. A Pók némán a padlóra pottyan, csáprágói mohón feléd nyúlnak.
             </text>
-            <initially>
-                <execute>
-                    <fight canflee="false">
-                        <enemy name="Óriáspók" health="5" skill="9" />
-                    </fight>
-                </execute>
-            </initially>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id ="94"/>
-            </option>
+            <enemies>
+                <enemy name="Óriáspók" health="5" skill="9" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                         <changePage id ="94"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="19">
             <text>
@@ -1504,7 +1507,156 @@
                 </option>
             </options>
         </page>
-
+        <page id="91">
+            <text>
+                Előveszed hátizsákodból a Szobrot, és miután megdörzsölöd a kabátod ujjával, az öregember felé tartod. Elveszi tőled és közömbösen az íróasztal fiókjába helyezi. Még csak arra sem veszi a fáradtságot, hogy rázárja a kulcsot. Int neked, hogy kövesd, és egy csigalépcsőn elindul fölfelé. A lépcső egy széles pódiumon ér véget, és boldogsággal tölt el, hogy ismét bőrödön érezheted a nap meleg sugarait, a szellőt. Mintha egy éve nem jártál volna a felszinen. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="200"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="92">
+            <text>
+                Elkapod a követ és egy pillanatra megpihensz, miközben a folyó megpróbál magával ragadni életmentő horgonyodról. Végül felkapaszkodsz a sziklára és lihegve elterülsz rajta. Ekkor valami arany csillogás vonja magára a figyelmedet. Előre mászol, és legnagyobb örömödre megpillantod az Aranyszobrot, melynek keresésére indultál, pihenőhelyed egyik mélyedésében! Teljesen megfeledkezel kimerültségedről, magadhoz veszed és a túlpartra ugrasz. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="76"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="93">
+            <text>
+                Már félúton jársz lefelé, mikor vérfagyasztó üvöltés csapja meg a füledet. Ahogy feltekintesz egy hatalmas madarat pillantasz meg, ami egy, a sziklafalon lévő ágról tekint le rád. Széles szárnyai egyetlen csapásával a levegőbe emelkedik, tesz egy kört a folyó felett, majd megindul feléd. Érzed, ahogy tenyered izzadni kezd a félelemtől. A kötél kicsúszik a kezeid közül, te pedig zuhanni kezdesz a talaj felé. A hatalmas madár diadalmas rikoltással kap el téged a levegőben, majd felrepül a fészkéhez és érzed, hogy esel... esel... egyenesen ocsmány kicsinyei közé, akik már türelmetlenül várják a következő etetést. Egyesével tépik ki végtagjaidat, majd mohon befalják. Kalandod itt véget ér.
+            </text>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="94">
+            <text>
+                Betekered ellenfeled saját ezüstszínü hálójába. Ezután megragadod a rubint és az ajtó felé indulsz. Már alig várod, hogy kikerülj ebből a selyemmel bevont kriptából! A Pók hatalmas teteme, melyet ragacsos selyemszálak borítanak, az út kellős közepén hever. Kénytelen vagy átmászni rajta, és az enyves massza érintésétől valósággal rosszul leszel. Mikor végre eléred a kijáratot, meghemperegsz a porban, hogy megszabadulj a ragacsos érzéstől. Koszos vagy és fáradt. Magad mögött hagyod a helyet és északnak indulsz. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="106"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="95">
+            <text>
+                Nyugati irányba mész, le egy lejtős járaton, míg el nem érsz egy újabb elágazást. Úgy gondolod, a déli út visszafelé vezetne, így észak felé indulsz.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="153"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="96">
+            <text>
+                Az alagút kanyarulata mögül túlvilági ragyogás árad. Ahogy a falra vetült játékot nézed, úgy érzed, a fény magától lüktet és változtatja a színét. Nagyon óvatosan fordulsz be a kanyarban, amin túl igen bizarr látvány fogad. Három nagyon alacsony, ezüstszínű, lebegő köpenybe öltözött alak táncol valamilyen rituális táncot a fény forrása körül. Az üreg falát itt mindenhol tükrök borítják, és a változó színek oda-vissza ugrálnak ezek közt, a lüktető ragyogástól erős szédülés tör rád. A forrás egy hatalmas kristály, mely egy magas talapzaton nyugszik, és képtelen vagy megállapítani, pontosan miféle kö is ez. Egyébként sincs idöd sokat spekulálni ezen, mivel az ezernyi tükörképnek köszönhetően az alakok felfigyelnek egy óvatlan mozdulatodra.
+            </text>
+            <enemies>
+                <enemy name="Fényimádók" health="11" skill="9" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                         <changePage id ="191"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="97">
+            <text>
+                Kezed egyből a kardod markolatára teszed, hogy elállítsd a csengő hangot. A kutya mocorog egy kicsit, de nem ébred fel. Szíved a torkodban dobog, ahogy haladsz, de végül gond nélkül elérsz a túloldalra, leemeled a kulcsot a szögről, csendesen kinyitod az ajtót és becsapod magad mögött. Miközben odakinn ráfordítod a kulcsot, a túloldalról félelmetes morgást és repedő fa hangja szűrődik át, ahogy az állat újra és újra nekiugrik. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeItem name="Bronzkulcs" amount="1" group="Felszerelés"/>
+                        <changePage id="30"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="98">
+            <text>
+                Az ajtó ugyan zárva van, de a korábban talált kulccsal gond nélkül sikerül kinyitnod. Ahogy belépsz, két dárda repül elő az ajtóban lévő egyik lyukból. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="44"/>
+                    </execute>
+                    <execute>
+                        <changePage id="8"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="99">
+            <text>
+                A fáklyák halovány fényében súlyos vasrácsot látsz a fal jobb oldalán. Zárva van, és bármennyire is erölködsz, semmit nem látsz mögötte. 
+            </text>
+            <options>
+                <option>
+                    <text>Kinyitom az ajtót</text>
+                    <execute>
+                        <itemRequired name="Bronzkulcs"/>
+                        <changePage id="159"/>
+                    </execute>
+                    <execute>
+                        <alert text="Nincs nálad Bronzkulcs."/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Folytatom az utamat</text>
+                    <execute>
+                        <changePage id="68"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="100">
+            <text>
+                A szörnyeteg holtan hever elötted. Nyáladzó pofájának tartalmát gyorsan magába szívja a poros talaj. Karmai színaranyak; egyesével letéped öket a hatalmas mancsról, majd zsebre vágod öket. Ezután leemeled a kulcsot a szegről, kinyitod az ajtót és távozol. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeItem name="Bronzkulcs" amount="1" group="Felszerelés"/>
+                        <changeItem name="Színarany Xalia karmok" amount="1" group="Felszerelés"/>
+                        <changePage id="30"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
 
 
     </pages>
