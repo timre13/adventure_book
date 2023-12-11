@@ -43,7 +43,7 @@ export class Option {
                             fail = true;
                             break;
                         }
-                        let result = this.dice.roll(child.getAttribute("sides") ?? "6");
+                        let result = await this.dice.roll(child.getAttribute("type") ?? "1d6");
                         break;
                     case "restart":
                         break;
