@@ -1306,6 +1306,9 @@
                     <execute>
                         <itemRequired name="Gyűrű" max="0"/>
                         <changeItem name="Italeffect" amount="1" group="Felszerelés"/>
+                        <changeStat name="Szerencse" increase="1"/>
+                        <changeStat name="Ügyesség.max" increase="1"/>
+                        <changeStat name="Ügyesség" increase="1"/>
                         <changePage id="119"/>
                     </execute>
                     <execute>
@@ -1316,6 +1319,9 @@
                     <text>Megnézem a köppenyt</text>
                     <execute>
                         <itemRequired name="Lebegés köppenye" max="0"/>
+                        <changeStat name="Szerencse" increase="1"/>
+                        <changeStat name="Ügyesség.max" increase="1"/>
+                        <changeStat name="Ügyesség" increase="1"/>
                         <changeItem name="Italeffect" amount="1" group="Felszerelés"/>
                         <changePage id="71"/>
                     </execute>
@@ -1918,13 +1924,339 @@
             </options> 
         </page>
 
+        <page id="106">
+            <text>
+                A járat továbbra is északnak tart, de hamarosan egy leágazást találsz, mely keletre tér le.            </text>
+            <options>
+                <option>
+                    <text>Tovább mennék a sötétben</text>
+                    <execute>
+                        <changePage id="179"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Elmegyek</text>
+                    <execute>
+                        <changePage id="153"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="107">
+            <text>
+                Mivel az ajtó túloldaláról hangokat hallasz átszűrődni, óvatosan nyitsz be. Ahogy bekukucskálsz a túloldalon, két csevegő Orkot veszel észre. Remélve, hogy nem fogod érdekelni őket, megpróbálsz elsétálni mellettük, ám mikor észrevesznek, mindketten kardot húznak elő. Egyesével kell megküzdened velük.
+            </text>
+            <enemies>
+                <enemy name="Első Ork" health="6" skill="5" />
+                <enemy name="Második Ork" health="5" skill="6" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                         <changePage id ="198"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="108">
+            <text>
+                Északi irányba követed az átjárót. Hamarosan elérsz egy keleti leágazáshoz. 
+            </text>
+            <options>
+                <option>
+                    <text>Tovább mennék egyenesen</text>
+                    <execute>
+                        <changePage id="146"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Elmegyek jobbra</text>
+                    <execute>
+                        <changePage id="79"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="109">
+            <text>
+                Elhátrálsz a férgek elöl, míg kinyújtott kezeiddel meg nem érzed az északi falat. Megfordulsz és próbálsz valamilyen lábtartót keresni a padló szintje fölött. Egy keskeny szegély fut végig nagyjából fél méter magasan. Kapaszkodót keresve végül megmarkolsz egy kiálló ködarabot és fellépsz... Majdnem elveszted a fogódzkodódat, mikor a falszakasz, amin kapaszkodsz, befordul és téged is kimenekít szorult helyzetedből. A szobán kívül találod magad, egy észak felé haladó folyosón. Megkönnyebbülten fellélegzel, lelépsz a falról és elöre indulsz. Egy elágazáshoz érkezel, melyen szintén egyenesen haladsz tovább. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="195"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
+        <page id="110">
+            <text>
+                Az Aranykulcs illik a zárba, és egy észak felé haladó folyosót fed fel elötted. A járat élesen jobbra kanyarodik, majd vissza balra. A második sarok után egy tükörrel kerülsz szembe, ami teljesen elállja az utadat. Egy pillanatig saját tükörképed néz veled farkasszemet, a következőben pedig &#8211; legnagyobb megrökönyödésedre &#8211; már ki is lép belőle, előhúzza kardját és rád támad! Mivel ez a valami a tökéletes tükörképed, ugyanolyan ÜGYESSÉGGEL rendelkezik, mint te, ám miután a síkból térbe való kilépés eléggé kimerítette, ÉLETEREJE 2-vel kevesebb lesz a tiédnél. Ez ígérkezik a legnehezebb harcodnak, mivel nem vagy meggyőződve arról, hogy meg tudod-e nyerni. Az biztos, hogy ö végezni tud veled, abban azonban már kevésbé vagy biztos, hogy ellenfeled legyőzése nem fog-e öngyilkosságnak minősülni?
+             </text>
+            <enemies>
+                <enemy name="Te" health="Életerő-2" skill="Ügyesség" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                         <changePage id ="82"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
+        <page id="111">
+            <text>
+                Az alagút elkeskenyedik, és egyre nehezebben tudsz csak előre haladni. A plafon meredeken lefelé indul, így először le kell hajolnod, végül négykézlábra kényszerülsz. Valamennyire látod magad előtt az utat a szük járaton át. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="20"/>
+                    </execute>
+                    <execute>
+                        <changePage id="116"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="112">
+            <text>
+                Ahogy a folyosón haladsz, furcsa hangot hallasz. Megállsz hallgatózni. Csoszogó léptek zaja üti meg a füledet. Nincs hová bújnod, így valamiféle szörnyeteg felbukkanását várva előhúzod kardodat. Ehelyett egy öregember bukkan fel elötted. Fegyveredre pillant, és esdekelni kezd. &#8211; Kímélj meg! Csak egy vén, egyszerü fickó vagyok. aki elmenekült a cellájából. Hüvelyébe dugod a kardod, a férfi pedig elmondja, hogy már évek óta itt él, mióta fiatal korában beküldték az Ítélet Labirintusába. Az egyik szörny elleni harc során súlyos sebet szerzett, és bár túlélte az összecsapást, elvesztette a fegyvereit és így képtelen volt folytatni az utat. Régóta bujkál már idelenn. most pedig már túl öreg ahhoz, hogy visszatérjen a fenti világba, ahol egyébként is végeznének vele, mivel nem tudja a Szobor bemutatásával bizonyítani ártatlanságát. Így inkább idelenn maradt a végtelen éjszakában, és abból élt, amivel az utazók megszánták. Miközben beszél, úgy dönt, még egy utolsó kísérletet tesz a kijutásra, így megkérdezi tőled, merre találja a bejáratot.
+            </text>
+            <options>
+                <option>
+                    <text>Meg mondom neki a jó utat</text>
+                    <execute>
+                        <changePage id="187"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Elmondok neki egy helytelen utat</text>
+                    <execute>
+                        <changePage id="156"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="113">
+            <text>
+                Ahogy felrázod, a fickó szemei felpattannak, és mikor megpillant téged, rettegés tölti el. &#8211; Ne, ne! Kérem, ne öljön meg! &#8211; könyörög. Ha életben hagy, minden eldugott pénzemet magának adom!
+            </text>
+            <options>
+                <option>
+                    <text>Megölöm</text>
+                    <execute>
+                        <changePage id="17"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Elfogadom</text>
+                    <execute>
+                        <changePage id="83"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="114">
+            <text>
+                Kitartóan kutatsz, de semmit nem találsz.. Végül leülsz egy nagy, négyzet alakú köre, hogy megpihenj, azonban amint teljes súlyoddal ránehezedsz, csikorgó hang üti meg a füledet, és a fal egy része kinyílik. Minden korábbi fáradtságodat feledve talpra ugrasz és folytatod az utad.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="177"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
+        <page id="115">
+            <text>
+                Lezuhansz a verembe, és felkészülsz rá, hogy talpad mindjárt a sziklás padlóba ütközik. Az azonban csak nem jön, és beletelik egy kis időbe, hogy rádöbbenj: a lyuknak nincs is alja! A súlytalanság érzése kerít hatalmába, te pedig csak esel... és esel... és esel... Kalandod itt véget ér.
+            </text>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
+        <page id="116">
+            <text>
+                Hátizsákod beszorul az egyre keskenyedo járatban. Képtelen vagy kibújni belőle, és bármennyire is próbálkozol, meglazítani sem vagy képes. Egy pillanatig megpihensz., majd újult elszántsággal teszel még egy utolsó próbát. Mély, remegő hangot hallasz és a levegőt por tölti meg, miközben mögötted a plafon egy része az alagútba zuhan. Immáron teljes sötétségbe vagy zárva. Tudod, hogy nem fogsz megfulladni, mivel hüvös szellő simogatja az arcod az elötted magasodó fal egy keskeny repedésén át. Rájössz, hogy éhés szomjhalál vár rád, így imádkozni kezdesz egy újabb plafonbeomlásért, ami meggyorsíthatná végedet. Kalandod itt véget ér.
+            </text>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="117">
+            <text>
+                Sikerül oldalra gurulnod, és így csak kicsit sérülsz meg. Vesztesz 1 ÉLETERŐ pontot. Nem vesztegeted az időt, északnak indulsz. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="126"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
+        <page id="118">
+            <text>
+                Egy három ajtós terembe lépsz be. Azon kívül, amin át beléptél, látsz még egyet a szemközti falon és egyet magad mellett, mely valószínűleg arra megy vissza, amerröl jöttél, csak esetleg egy másik szintre.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="145"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
+        <page id="119">
+            <text>
+                Ajkadhoz emeled a kis fiolát és megiszod a tartalmát. Meglepve tapasztalod, hogy a folyadék teljesen íztelen, de egészen felfrissít. Szentelt Víz volt benne, amit egy ősi Druida áldott meg. Az ezután következő harcok során 1-el megnövelheted majd Támadóerődet. Nyersz 1 SZERENCSE pontot.
+            </text>
+            <options>
+                <option>
+                    <text>Megkóstolom a folyadékot</text>
+                    <execute>
+                        <itemRequired name="Italeffect" max="0"/>
+                        <changeStat name="Életerő" decrease="2"/>
+                        <changeStat name="Szerencse" decrease="1"/>
+                        <changeItem name="Gyűrű" amount="1" group="Felszerelés"/>
+                        <changePage id="71"/>
+                    </execute>
+                    <execute>
+                        <alert text="Már üres."/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Megnézem a köppenyt</text>
+                    <execute>
+                        <itemRequired name="Lebegés köppenye" max="0"/>
+                        <changeStat name="Életerő" decrease="2"/>
+                        <changeStat name="Szerencse" decrease="1"/>
+                        <changeItem name="Gyűrű" amount="1" group="Felszerelés"/>
+                        <changePage id="71"/>
+                    </execute>
+                    <execute>
+                        <alert text="Már rajtad van."/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="120">
+            <text>
+                Ahogy kinyitod az ajtót, meglepetten pillantod meg a csillogó Aranyszobrot egy emelvény tetején! Éppen úgy néz ki, mint amilyennek leírták. Hogy elérd, át kell jutnod a szobán, melynek padlóját kifeszített drótok futják be össze-vissza, és amik a falban nagyjából mellkas magasságban lévő számszerijakhoz csatlakoznak. 
+            </text>
+            <options>
+                <option>
+                    <text>Megpróbálom elvenni</text>
+                    <execute>
+                        <changePage id="3"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Elmegyek keletre</text>
+                    <execute>
+                        <changePage id="28"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        
+        <page id="121">
+            <text>
+                Nincs más választásod, minthogy a válladdal ronts neki az ajtónak. Nem lesz egy egyszerű feladat, mivel a szegecsek igen hosszúak és hegyesek. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="196"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
+        <page id="122">
+            <text>
+                Az alagút egy ideig kelet felé folytatódik. végül északra fordul. Ahogy a kanyar felé közeledsz, a szemben lévő falon egy lüktető fényfoltot veszel észre. Óvatosan nézel be balra.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="144"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
+        <page id="123">
+            <text>
+                Nagy nehezen bemászol a lyukba és ereszkedni kezdesz. A levegő hőmérséklete rohamosan növekedni kezd, és rájössz, hogy nagy hibát követtél el. Egyenesen egy földalatti kemence felé tartasz. Lángnyelvek csapnak feléd, ahogy próbálsz visszamászni a lejtőn.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="35"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
+        <page id="124">
+            <text>
+                Az ajtó egy teljesen üres szobába nyílik. A padlón egy nagy lyuk tátong. Ahogy a szélére lépsz és letekintesz, látod, hogy nem túl mély. Egy folyosó indul odalenn, mely szintén északi irányba halad tovább. 
+            </text>
+            <options>
+                <option>
+                    <text>Itthagyom a helyiséget, folytatom az utat</text>
+                    <execute>
+                        <changePage id="129"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Lentebb ereszkedem</text>
+                    <execute>
+                        <changePage id="64"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="125">
+            <text>
+                Nagy nehezen bemászol a lyukba és ereszkedni kezdesz. A levegő hőmérséklete rohamosan növekedni kezd, és rájössz, hogy nagy hibát követtél el. Egyenesen egy földalatti kemence felé tartasz. Lángnyelvek csapnak feléd, ahogy próbálsz visszamászni a lejtőn.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Szerencse" increase="1"/>
+                        <changePage id="35"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
 
 
-
-
-
-
-
+        
 
 
 
