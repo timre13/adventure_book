@@ -786,19 +786,27 @@
             <options>
                 <option>
                     <text>Megnézem a pirosat</text>
-                    <changePage id="59"/>
+                    <execute>
+                        <changePage id="59"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Megnézem a kéket</text>
-                    <changePage id="104"/>
+                    <execute>
+                        <changePage id="104"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Megnézem a zöldet</text>
-                    <changePage id="88"/>
+                     <execute>
+                        <changePage id="88"/>
+                     </execute>                   
                 </option>
                 <option>
                     <text>Nem tudok olvasni</text>
-                    <changePage id="10"/>
+                    <execute>
+                        <changePage id="10"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -964,15 +972,21 @@
             <options>
                 <option>
                     <text>Megnézem a kéket</text>
-                    <changePage id="104"/>
+                    <execute>
+                        <changePage id="104"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Megnézem a zöldet</text>
-                    <changePage id="88"/>
+                    <execute>
+                        <changePage id="88"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Unom az olvasást</text>
-                    <changePage id="10"/>
+                    <execute>
+                        <changePage id="10"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -1274,11 +1288,15 @@
             <options>
                 <option>
                     <text>Tovább mennék Északra</text>
-                    <changePage id="141"/>
+                    <execute>
+                        <changePage id="141"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Egyenesen mennék</text>
-                    <changePage id="122"/>
+                    <execute>
+                        <changePage id="122"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -1286,12 +1304,206 @@
             <text>
                 Észak felé haladsz. Megszenvedsz az úttal, hisz eléggé hepchupás. Hamarosan elérsz egy elágazáshoz. A nyugat felé továbbinduló szakasz még rosszabb állapotúnak tűnik, mint az, ahol most jársz, ezért úgy döntesz. továbbra is tartod az irányt.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="89"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="89"/>
+                    </execute>
+                </option>
+            </options>
+           
         </page>
-
+        <page id="81">
+            <text>
+                Olyan csendben lopakodsz előre, amennyire csak tudsz, ám kardod véletlenül nekicsapódik a kőnek, és éles, csengő hangot ad ki.             
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="97"/>
+                    </execute>
+                    <execute>
+                        <changePage id="138"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="82">
+            <text>
+                Sikerül levágnod az Iszapsárkány fejét, mely előtted hever, elzárva az utat a keskeny párkányon. Nem mered kézzel ellökni, mert a fején lévő nyúlványok még mindig azzal a furcsa, zöld színnel izzanak, amit korábban is láttál. Ennélfogva kardodat emelőként aládugva megemeled egy kicsit hogy leguritsd a szegélyről. Belecsobban a sárba, ahol végső haláltusájában ismét püffedni kezd. Gyorsan elsietsz mellette, még mielőtt megint elzárná az utat, de már csak leeresztésének sípolását hallod, amint végleg távozik az élők sorából.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="52"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="83">
+            <text>
+                Az öreg arcra megkönnyebbülés ül ki. Kinyitja a fal egyik titkos rekeszét és elővesz egy börerszényt. Előrenyújtott kezeidbe önti annak tartalmát &#8211; 27 Aranytallért és egy Gyémántot, amiket azonnal a hátizsákodba pakolsz.             </text>
+            <options>
+                <option>
+                    <text>Tovább mennék Északra</text>
+                    <execute>
+                        <changeStat name="Arany" increase="27"/>
+                        <changeStat name="Ékkövek" increase="1"/>
+                        <changePage id="180"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Először megölöm</text>
+                    <execute>
+                        <changeStat name="Arany" increase="27"/>
+                        <changeStat name="Ékkövek" increase="1"/>
+                        <changePage id="17"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="84">
+            <text>
+                Balodon egy masszív tölgyfa ajtót látsz, melyet acélszegecsek hada tarkit. Kilincse, mely az ajtólap közepéből mered kifelé, leginkább egy hatalmas madárra emlékeztet. Könnyen megeshet, hogy ez a díszes kapu a Szobrot őrzi!            </text>
+            <options>
+                <option>
+                    <text>Tovább mennék Északra, ez csapdának tűbnik</text>
+                    <execute>
+                        <changePage id="157"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Bemegyek</text>
+                    <execute>
+                        <changePage id="125"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="85">
+            <text>
+                A Tolvajnál mindössze 3 Aranytallért és egy háromszög alakú, penészes gyümölcsöt találsz. Még soha nem láttál ehhez hasonlót, de gyanítod, hogy ez lehet a Xentos, a hosszú élet gyümölcse. Ha nem lenne ilyen borzalmas állapotban, gond nélkül megkockáztatnád, hogy belekóstolj, igy azonban úgy döntesz, hogy itt hagyod és folytatod az utad észak felé. Hamarosan egy útelágazáshoz érsz. 
+            </text>
+            <options>
+                <option>
+                    <text>Tovább mennék Északra</text>
+                    <execute>
+                        <changeStat name="Arany" increase="3"/>
+                        <changePage id="108"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Nyugatra mennék</text>
+                    <execute>
+                        <changeStat name="Arany" increase="3"/>
+                        <changePage id="147"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="86">
+            <text>
+                Ahogy körbenézel, észreveszel egy kötelet, amit egy nagyméretű sziklához kötöztek. Amennyire elnézed, nincs túl jó állapotban. és azt sem látod. milyen mélyen ér le a szakadékba, de úgy tűnik, ez az egyetlen lehetőséged a lejutásra. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="109"/>
+                    </execute>
+                    <execute>
+                        <changePage id="4"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="87">
+            <text>
+                Az alagutat egy jókora, vasveretes ajtó zárja le. Megpróbálod lenyomni a kilincset, de zárva van. A méretes kulcslyukon átnézve nem sokat tudsz kivenni a túloldalból. Mikor a füledet hozzászorítod, tollak suhogását és fütyülés-szerű sóhajtást hallasz. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <itemRequired name="Aranykulcs"/>
+                        <changePage id="13"/>
+                    </execute>
+                    <execute>
+                        <changePage id="121"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="88">
+            <text>
+                A zöld könyvet kézzel írták, és valamiféle naplóra emlékeztet. Az utolsó bejegyzés, legnagyobb döbbenetedre, a te nevedet tartalmazza. Ez a próbára küldött bünözök listája. Szerencsére egyelőre nem látsz ítéletet beleírva. Sikerül megállapítanod, hogy mióta te beléptél, azóta nem küldtek újabb embert a próbára, ám elötted egy nappal korábban egy tolvaj lépett be, és az ő neve mellett már ott szerepel a döntés: bünös! 
+            </text>
+            <options>
+                <option>
+                    <text>Megnézem a pirosat</text>
+                    <execute>
+                        <changePage id="59"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Megnézem a kéket</text>
+                    <execute>
+                        <changePage id="104"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Nem akarok olvasni</text>
+                    <execute>
+                        <changePage id="10"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="89">
+            <text>
+                A járat meredeken emelkedik, te pedig gyorsan fáradni kezdesz. Figyelmed ellankad, és nem veszed észre a padlóban lévő, meglazult kõdarabot. Megbotlasz és elesel, közben pajzsod a fal egyik repedésébe ékelődik. Miközben próbálod kiszabadítani, elferdül. Sérült pajzsod miatt a soron következő csatákban 2-vel csökkentened kell majd Támadóerődet.
+            </text>
+            <options>
+                <option>
+                    <text>Tovább mennék egyenesen</text>
+                    <execute>
+                        <changeStat name="Ügyesség" decrease="2"/>
+                        <changePage id="127"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Nyugatra mennék</text>
+                    <execute>
+                        <changeStat name="Ügyesség" decrease="2"/>
+                        <changePage id="95"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="90">
+            <text>
+                Az ajtón benyitva vaksötét fogad.
+            </text>
+            <options>
+                <option>
+                    <text>Tovább mennék a sötétben</text>
+                    <execute>
+                        <changePage id="167"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Elmegyek</text>
+                    <execute>
+                        <changePage id="154"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
 
 
 
