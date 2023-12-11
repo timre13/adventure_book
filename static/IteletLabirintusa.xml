@@ -12,7 +12,7 @@
             <separator/>
 
             <stat name="Arany" value="20"/>
-            <stat name="Ékkövek" minValue="" maxValue="" value=""/>
+            <stat name="Ékkövek" value=""/>
         </stats>
         <effects>
             
@@ -2907,6 +2907,189 @@
                     <text>Szétnézek</text>
                     <execute>
                         <changePage id="37"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
+        <page id="161">
+            <text>
+                A járat egy négyzet alakú szobában ér véget, melyet a rothadó hús szaga tölt meg. A padló nagy részét két óriási, bugyborékoló sármedence teszi ki. Egy keskeny kifutó mely nem sokkal szélesebb, mint a lábfejed halad középen, a terem széleit pedig hasonlóan keskeny szegélyek futják körbe. Mindhárom út egy nyilásban fut össze az északi falon. 
+            </text>
+            <options>
+                <option>
+                    <text>Jobbra megyek</text>
+                    <execute>
+                        <changePage id="181"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Balra mennék</text>
+                    <execute>
+                        <changePage id="193"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Az arany középút tűnik ideálisnak</text>
+                    <execute>
+                        <changePage id="171"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="162">
+            <text>
+                Visszanyered egyensúlyod és a rubinért nyúlsz.
+            </text>
+            <enemies>
+                <enemy name="Galon" health="8" skill="12" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Ékkövek" increase="1"/>
+                         <changePage id ="61"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="163">
+            <text>
+                Követed az alagutat, mely szinte azonnal egy újabb szobába torkollik. Ennek a padlója jóval lentebb áll, mint a bejárat, ahol most állsz, padlóját és kör alakú falát pedig elég magasan kölapok borítják. Ezekre különös, egymásba fonódó mintákat festettek, melyek mintha valamilyen mágikus vagy misztikus jelentőséggel rendelkeznének. A helyiség színültig van telve kristálytiszta vízzel, és mivel eléggé mocskos vagy, meg meleged is van, nem tudsz ellenállni a kísértésnek. Levetkőzöl, és miután a biztonság kedvéért a fa ajtófélfába állítod a kardodat, elmerülsz a vízben. Miután percekig boldogan pancsolsz idelenn, és teljesen felfrissülsz, megfordulsz, hogy kimássz. Ekkor veszed észre a víz alatt lévő másik kijáratot. Lemerülsz, hogy alaposabban is szemügyre vedd. A kilincset nem tudod lenyomni, ami azért szerencse, mert ha leeresztenéd a vizet, akkor elég bajos lenne kijutnod a medencéből. Nem találsz itt semmi más érdekeset, így felöltözöl és távozol. Visszatérsz a vermes ajtóhoz.
+            </text>
+            <options>
+                <option>
+                    <text>Leugrok</text>
+                    <execute>
+                        <changePage id="185"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Visszamegyek az elágazáshoz, és nyugatnak indulok</text>
+                    <execute>
+                        <changePage id="168"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="164">
+            <text>
+                Ahogy lenyomod a kilincset, az ajtó kicsapódik, mintha valami hatalmas súly nyomná ki a túloldalon. Azonnal rájössz, hogy nagy hibát vétettél, mikor vízsugarak kezdenek el kispriccelni az apró réseken. Kétségbeesetten próbálod újra bezárni a kitörni készülő víztömeget ám hamar rájössz, hogy erre semmi esélyed, így más választásod nem lévén menekülni próbálsz. Az ajtó kicsapódik, a szűk járatban pedig esélyed sincs rá, hogy túléld a dolgot. A víz teljes tömege rád zúdul, te pedig azon nyomban megfulladsz. Kalandod itt véget ér.
+            </text>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="165">
+            <text>
+                Visszanyered egyensúlyod és a rubinért nyúlsz.
+            </text>
+            <enemies>
+                <enemy name="Galon" health="8" skill="12" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeItem name="Aranykulcs" amount="1"/>
+                        <changeStat name="Életerő" decrease="~1d6"/>
+                        <changePage id ="96"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
+        <page id="166">
+            <text>
+                Alaposan átkutatod a szobát, a férfi azonban &#8211; talán épp a hangos horkolása miatt nem ébred fel. Elég ártalmatlannak tűnik, de nem egyszer történt már meg korábbi kalandjaid során, hogy életben hagytál egy látszólag veszélytelen ellenfelet, aki aztán egy rejtett tört előkapva hálálta meg a dolgot. Talán az lenne a legjobb, ha egyszerüen végeznél vele. 
+            </text>
+            <options>
+                <option>
+                    <text>Megölöm</text>
+                    <execute>
+                        <changePage id="17"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>felébresztem és kikérdezem</text>
+                    <execute>
+                        <changePage id="113"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="167">
+            <text>
+                Rajtad van az Ügyesség Gyürüje?
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <itemRequired name="Gyűrű"/>
+                        <changePage id="134"/>
+                    </execute>
+                    <execute>
+                        <changePage id="58"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="168">
+            <text>
+                Egy újabb elágazáshoz érkezel.
+            </text>
+            <options>
+                <option>
+                    <text>Északra folytatmám az utat</text>
+                    <execute>
+                        <changePage id="161"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Nyugatra megyek</text>
+                    <execute>
+                        <changePage id="73"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="169">
+            <text>
+                A folyosó végén egy kicsiny ajtót találsz. Ahogy figyelsz, különös, csobogó hangot hallasz átszűrődni rajta. Érintésedre különösen hűvösnek tűnik az anyaga. 
+            </text>
+            <options>
+                <option>
+                    <text>Benyitok</text>
+                    <execute>
+                        <changePage id="164"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Visszamegyek</text>
+                    <execute>
+                        <changePage id="172"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="170">
+            <text>
+                Visszanyered egyensúlyod és a rubinért nyúlsz.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Ékkövek" increase="1"/>
+                        <changeStat name="Életerő" decrease="3"/>
+                        <changePage id ="46"/>
                     </execute>
                 </option>
             </options>
