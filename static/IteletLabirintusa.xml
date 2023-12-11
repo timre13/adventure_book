@@ -497,10 +497,14 @@
             <text>
                 A számszerij beállítása pontos volt, esélyed sincs. A lövedék mélyen a nyakadba fúródik, átmetszi a gerincvelödet és a falhoz szegezi ernyedt testedet. Kalandod itt véget ér.
             </text>
-            <option>
-                <text>Újrakezdés</text>
-                <restart/>
-            </option>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="22">
             <text>
@@ -509,11 +513,15 @@
             <options>
                 <option>
                     <text>Megpróbálok átlopózni</text>
-                    <changePage id="81"/>
+                    <execute>
+                        <changePage id="81"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Inkább visszafordulok</text>
-                    <changePage id="108"/>
+                    <execute>
+                        <changePage id="108"/>
+                    </execute>                 
                 </option>
             </options>
         </page>
@@ -521,37 +529,53 @@
             <text>
                 Köpenyed hirtelen megremeg, és felfúvódik, mintha levegővel telne meg. Legnagyobb meglepetésedre elemelkedsz a talajtól. Óvatosan előre lebegsz, majd lágyan leereszkedsz a talajra, a sziklafal lába elé. Amint földet érsz, köpenyed leereszkedik, és ismét úgy csüng le rólad, mint bármelyik közönséges ruhadarab.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="27"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="27"/>
+                    </execute>
+                </option>
+            </options> 
         </page>
         <page id="24">
             <text>
                 Kardoddal átnyúlsz a rácsokon, a férfi pedig rémülten ugrik hátra. Ujra megpróbálod ezt, azonban nagyobb erővel. Eltalálod a torkát. a sebből bíborvörös vér folyik végig fegyvereden, egyenesen a kezedre. Értetlenül néz rád, majd ülő helyzetbe roskad a padlóra. Ahogy feje elöre esik, visszahúzod a fegyvered és megtisztítod véres kezed. Úgy döntesz, északi irányba folytatod az utad, úgyhogy az ajtón át távozol.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="72"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="72"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="25">
             <text>
                 Sikerül gond nélkül elérned a túloldalt, majd sietve távozol az északi nyíláson át. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="52"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="52"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="26">
             <text>
                 Vagy száz Elf áll körülötted, megfeszített nyilvesszőkkel, melyek feléd mutatnak. A halott Fönök fia előre lép és az idős férfire néz, aki alig észrevehetően megrázza a fejét. Az Elf komoran elmosolyodik. Bünös! &#8211; jelenti ki. Az utolsó dolog, amit hallasz, az a feléd suhanó nyílvesszők zaja. Kalandod itt véget ér.
             </text>
-            <option>
-                <text>Újrakezdés</text>
-                <restart/>
-            </option>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="27">
             <text>
@@ -560,11 +584,17 @@
             <options>
                 <option>
                     <text>Megpróbálok átrohanni</text>
-                    <changePage id="40"/>
+                    <execute>
+                        <changePage id="40"/>
+                    </execute>
+                    
                 </option>
                 <option>
                     <text>Inkább úsznék</text>
-                    <changePage id="2"/>
+                    <execute>
+                        <changePage id="2"/>
+                    </execute>
+                    
                 </option>
             </options>
         </page>
@@ -572,19 +602,27 @@
             <text>
                 Egy idő után újabb elágazásba botlasz. A déli ágról úgy véled, az visszafelé vezetne, ezért északnak indulsz.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="67"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="67"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="29">
             <text>
                 A járat, amiben most haladsz, egy észak-dél irányú, másik folyosóba torkollik bele. Úgy döntesz, balra fordulva haladsz tovább.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="69"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="69"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="30">
             <text>
@@ -593,11 +631,16 @@
             <options>
                 <option>
                     <text>Kinyitom az ajtót</text>
-                    <changePage id="124"/>
+                    <execute>
+                        <changePage id="124"/>
+                    </execute>
                 </option>
                 <option>
                     <text>A folyosón akarom folytatni az utat</text>
-                    <changePage id="129"/>
+                    <execute>
+                        <changePage id="129"/>
+                    </execute>
+                    
                 </option>
             </options>
         </page>
@@ -605,10 +648,14 @@
             <text>
                 Végigsétálsz a járaton, mely elágazásban végződik. A déli folyosó visszafelé vezetne, úgyhogy északnak indulsz. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="99"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="99"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="32">
             <text>
@@ -616,7 +663,9 @@
             </text>
             <option>
                 <text>Menj tovább</text>
-                <changePage id="16"/>
+                <execute>
+                    <changePage id="16"/>
+                </execute>
             </option>
         </page>
         <page id="33">
@@ -626,11 +675,15 @@
             <options>
                 <option>
                     <text>Megpróbálom kinyitni az ajtót</text>
-                    <changePage id="5"/>
+                    <execute>
+                        <changePage id="5"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Tovább akarom folytatni az utat</text>
-                    <changePage id="14"/>
+                    <execute>
+                        <changePage id="14"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -641,11 +694,15 @@
             <options>
                 <option>
                     <text>Megpróbálom, megiszom</text>
-                    <changePage id="102"/>
+                    <execute>
+                        <changePage id="102"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Itthagyom, inkább tovább akarom folytatni az utat</text>
-                    <changePage id="169"/>
+                    <execute>
+                        <changePage id="169"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -653,19 +710,27 @@
             <text>
                 Kétségbeesetten kaparod a falat, de képtelen vagy megakadályozni, hogy a tüz kellős közepébe ne zuhanj. Ahogy a csúszda végé hez közeledsz, már a láng pattanásait is hallod, és megpillantod a pokoli lángnyelveket. Lendületed miatt egy ideig még a levegőben repülsz, utána azonban, ahogy fejjel előre a tűzbe zuhansz, a szörnyű meleg egy pillanat alatt füstpamaccsá változtat. Kalandod itt véget ér.
             </text>
-            <option>
-                <text>Újrakezdés</text>
-                <restart/>
-            </option>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="36">
             <text>
                 Semmit nem találsz, így északra folytatod az utad.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="98"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="98"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="37">
             <text>
@@ -705,27 +770,19 @@
             <text>
                 A szobába belépve az eddig látott legcivilizáltabb teremben találod magad. A falakat fa burkolólapok borítják, fáklyák helyett itt egy lágy fényt árasztó gömb biztosítja a világítást, mely a szoba közepén álló asztal felett lebeg. E mellett egy férfi görnyedt alakját veszed észre. Miközben becsukod magad mögött az ajtót, az öregember felemelkedik, és üdvözlően feléd nyújtja mindkét karját. Hangja vékony és remegő, és csak ekkor jössz rá, mennyire vén is lehet. Megtaláltad a Szobrot? kérdezi tőled. 
             </text>
-            <initially>
-                <execute>
-                    <itemRequired name="Szobor"/>
-                    <changeOption id="1" text="Meg mondom hogy nálam van."/>
-                </execute>
-                <execute>
-                    <changeOption id="1" text="Meg mondom hogy nincs nálam."/>
-                </execute>
-            </initially>
             <option>
+                <text>Megmondom az igazat</text>
                 <execute>
                     <itemRequired name="Szobor"/>
                     <changePage id="91"/>
                 </execute>
                 <execute>
-                    <changePage id="77"/>
+                    <changePage id="131"/>
                 </execute>
             </option>
             <option>
-                <text>Folytatom az utamat</text>
-                <changePage id="14"/>
+                <text>Megtámadom</text>
+                <changePage id="77"/>
             </option>
         </page>
         <page id="40">
@@ -749,55 +806,70 @@
             <text>
                 Az alagút, bár folyamatosan jobbra-balra kanyarog, nagyjából mégis tartja az északi irányt, végül élesen oldalra kanyarodik, és ekkor majdnem belefutsz egy fekete köpenybe öltözött alakba. Tört tart a kezében, az arcán ülő tekintet rettegésről árulkodik! Rájössz, hogy nem te vagy az egyetlen, akit most próbára tesznek, és hogy mindketten ugyanazon Szobor után kutattok. A fickó rád veti magát, nyilvánvaló, hogy mielőbb végezni akar veled. Harcolnod kell!
             </text>
-            <initially>
-                <execute>
-                    <fight canflee="false">
-                        <enemy name="Tolvaj" health="6" skill="7" />
-                    </fight>
-                </execute>
-            </initially>
-            
-            <option>
-                <text>Menj tovább</text>
-                <changePage id ="85"/>
-            </option>
+            <enemies>
+                <enemy name="Tolvaj" health="6" skill="7" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="85"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="42">
             <text>
                 A járat tovább szélesedik, végül egy hatalmas barlangüregben találod magad. Mindkét oldaladnál sztalagmitok és sztalaktitok meredeznek. Néhányuk hatalmas köoszloppá nőtt össze az idők folyamán, melyek mögött kimondhatatlan borzalmak lapulhatnak. Érzed, hogy a barlangban folyamatosan mozog a levegő, és rájössz, hogy ennek oka egy gyors folyású, igen veszedelmesnek tűnő folyó. Feltekintve szemeid követik a cseppköoszlopok vonalait, egészen addig, míg el nem tűnnek a plafont elrejtő végtelen sötétségben. Valahol a folyó mentén egy kis, nem túl bizalomgerjesztő híd körvonalát sikerül kivenni.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="27"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="27"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="43">
             <text>
                 Köpenyed hirtelen széttárul, és megszakad a zuhanás. Egy másodpercig mozdulatlanul lebegsz. Letekintesz, de még most sem látod az alját. Meglepetten és hálásan veszed tudomásul, hogy új szerzeményed óvatosan visszaszállít téged a bejárathoz. Mikor már kint vagy, megkönnyebbülten felsóhajtasz majd észak felé folytatod az utad.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="68"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="68"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="44">
             <text>
                 Döbbenetes előrelátásodtól vezérelve eleve gyanítottad, hogy itt egy csapda vár rád, így sikerül felreugranod anélkül, hogy a lövedékek eltalálnának, mindkettő ártalmatlanul hull a földre. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="65"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="65"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="45">
             <options>
                 <option>
                     <text>Be akarok nyitni</text>
-                    <changePage id="90"/>
+                    <execute>
+                        <changePage id ="90"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Tovább mennék</text>
-                    <changePage id="16"/>
+                    <execute>
+                        <changePage id ="16"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -805,10 +877,14 @@
             <text>
                 A kő igen értékes. A kiálló fadarabokat kerülgetve visszatérsz az elágazáshoz.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="184"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="184"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="47">
             <text>
@@ -845,36 +921,44 @@
             <text>
                 Probléma nélkül eléred a verem alját. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="27"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="27"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="49">
             <text>
                 A növénykének valóban mágikus gyógyító tulajdonsága van, és még szerencsét is hoz. Nyersz 4 ÉLETERŐ pontot, SZERENCSE pontjaid pedig mostantól kezdve nem fognak 6 alá menni. Az északi ajtón át távozol. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <changeStat name="Életerő" increase="4"/>
-                    <changeStat name="Szerence.max" value="6"/>
-                   <changePage id="152"/>
-                </execute>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Életerő" increase="4"/>
+                        <changeStat name="Szerence.max" value="6"/>
+                        <changePage id="143"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="50">
             <text>
                 A tetemet átkutatva 2 Aranytallért és egy darab pergament találsz, melyre három számot írtak. Fogalmad sincs, mit jelenthetnek. de úgy gondolod, egy zár kombinációja lehet talán éppen azé, amelyik a Szobrot védi. A számok rendre 15, 10 és 22. Úgy döntesz, jól megjegyzed öket, mert mindig fennáll a veszélye annak, hogy elveszted a papírdarabot. Északi irányba folytatod az utadat. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <changeStat name="Arany" increase="2"/>
-                    <changeItem name="Kódpapír" amount="1" group="Felszerelés"/>
-                   <changePage id="152"/>
-                </execute>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Arany" increase="2"/>
+                        <changeItem name="Kódpapír" amount="1" group="Felszerelés"/>
+                       <changePage id="152"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="51">
             <text>
@@ -883,11 +967,15 @@
             <options>
                 <option>
                     <text>Elmenekülök</text>
-                    <changePage id="80"/>
+                    <execute>
+                        <changePage id ="80"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Szétcsapok köztük</text>
-                    <changePage id="140"/>
+                    <execute>
+                        <changePage id ="140"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -928,33 +1016,41 @@
             <text>
                 Ahogy földet érsz, csúnyán beütöd a térded.
             </text>
-            <initially>
-                <execute>
-                    <changeStat name="Életerő" decrease="2"/>
-                </execute>
-            </initially>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="27"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Életerő" decrease="2"/>
+                        <changePage id ="27"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="55">
             <text>
                 Semmit nem találsz. Visszatérsz az elágazáshoz és keleti irányba folytatod az utad.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="31"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="31"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="56">
             <text>
                 Ahogy kilépsz az alagútból, elámulsz a szemed elé táruló látványtól. Egy keskeny sziklaszirten állsz, nagyjából félúton az óriási barlangüreg alja és teteje között. A tovaszaladó víz csillogása elárulja, hogy a völgy mélyén egy folyó halad. Jobbodon egy rövid átjáró végén egy lefelé vezető lépcsősort látsz. Mivel ez az egyetlen módja a lejutásnak, óvatosan ereszkedni kezdesz rajta. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="27"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="27"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="57">
             <text>
@@ -1025,10 +1121,14 @@
             <text>
                 A hid épp elég ideig marad épen ahhoz, hogy átérj a túloldalra. Ahogy lelépsz róla, összeomlik. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="76"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="76"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="61">
             <text>
@@ -1051,12 +1151,15 @@
             <text>
                 Rájössz, hogy nincs rá mód, hogy lejuss innen, így visszatérsz az elágazáshoz.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="95"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="95"/>
+                    </execute>
+                </option>
+            </options>
         </page>
-    
         <page id="63">
             <text>
                 Megbillentél. Vesztesz 1 SZERENCSE pontot. Az északi járaton át folytatod az utad. 
@@ -1070,10 +1173,7 @@
                     </execute>
                 </option>
             </options>
-        
-    </page>
-
-
+        </page>
         <page id="64">
             <text>
                 Ahogy leugrasz, hátizsákod beleakad valamibe, te pedig egy pillanatra elveszted az egyensúlyod, épp mikor földet érsz. 
@@ -1095,62 +1195,76 @@
             <text>
                 Az ajtó egy nyirkos folyosóra vezet, mely először kelet felé fordul, végül pedig északra kanyarodik. Elindulsz. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="84"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="84"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="66">
             <text>
                 Az alagút, bár folyamatosan jobbra-balra kanyarog, nagyjából mégis tartja az északi irányt, végül élesen oldalra kanyarodik, és ekkor majdnem belefutsz egy fekete köpenybe öltözött alakba. Tört tart a kezében, az arcán ülő tekintet rettegésről árulkodik! Rájössz, hogy nem te vagy az egyetlen, akit most próbára tesznek, és hogy mindketten ugyanazon Szobor után kutattok. A fickó rád veti magát, nyilvánvaló, hogy mielőbb végezni akar veled. Harcolnod kell!
             </text>
-            <initially>
-                <changeStat id="Életerő" decrease="1"/>
-                <execute>
-                    <fight canflee="false">
-                        <enemy name="Törpe" health="5" skill="8" />
-                    </fight>
-                </execute>
-            </initially>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id ="118"/>
-            </option>
+            <enemies>
+                <enemy name="Törpe" health="5" skill="8" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="118"/>
+                    </execute>
+                </option>
+            </options>
+            
         </page>
         <page id="67">
             <text>
                 Az alagút hamarosan tágulni kezd és csodálatos látvány tárul a szemed elé. Egy földalatti völgyet határoló magas sziklafal kellös közepén, egy keskeny szirten találod magad. Nem látsz lefelé vezető utat, és nem mered megkockáztatni, hogy visszafordulj.
             </text>
-            <option>
-                <text>Kinyitom az ajtót</text>
-                <execute>
-                    <itemRequired name="Lebegés köppenye"/>
-                    <changePage id="105"/>
-                </execute>
-                <execute>
-                    <changePage id="86"/>
-                </execute>
-            </option>
+            <options>
+                <option>
+                    <text>Kinyitom az ajtót</text>
+                    <execute>
+                        <itemRequired name="Lebegés köppenye"/>
+                        <changePage id="105"/>
+                    </execute>
+                    <execute>
+                        <changePage id="86"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="68">
             <text>
                 Az alagút hamarosan jobbra fordul és egy ideig keletnek halad. Semmi akadályát nem látod annak, hogy te is ezt tedd. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="137"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="137"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="69">
             <text>Elérsz egy keletre letérő oldaljárathoz. Az előre haladó út, úgy tűnik, hirtelen véget ér, vagy élesen oldalra kanyarodik. </text>
             <options>
                 <option>
                     <text>Keletre mennék</text>
-                    <changePage id="31"/>
+                    <execute>
+                        <changePage id="31"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Északra megyek, a folyó végéig</text>
-                    <changePage id="11"/>
+                    <execute>
+                        <changePage id="11"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -1171,83 +1285,89 @@
             <text>
                 Ajkadhoz emeled a kis fiolát és megiszod a tartalmát. Meglepve tapasztalod, hogy a folyadék teljesen íztelen, de egészen felfrissít. Szentelt Víz volt benne, amit egy ősi Druida áldott meg. Az ezután következő harcok során 1-el megnövelheted majd Támadóerődet. Nyersz 1 SZERENCSE pontot.
             </text>
-            <initially>
-                <execute>
-                    <itemRequired name="Gyűrű" max="0"/>
-                    <changeOption id="1" text="Felveszem a gyűrűt"/>
-                </execute>
-                <execute>
-                    <itemRequired name="Lebegés köppenye" max="0"/>
-                    <changeOption id="2" text="Felveszem a köppenyt"/>
-                </execute>
-            </initially>
-            <option>
-                <text>Felveszem a gyűrűt</text>
-                <execute>
-                    <itemRequired name="Gyűrű" max="0"/>
-                    <changeItem name="Italeffect" amount="1" group="Felszerelés"/>
-                    <changePage id="119"/>
-                </execute>
-                <execute>
-                    <alert text="Már rajtad van."/>
-                </execute>
-            </option>
-            <option>
-                <text>Megnézem a köppenyt</text>
-                <execute>
-                    <itemRequired name="Lebegés köppenye" max="0"/>
-
-                    <changeItem name="Italeffect" amount="1" group="Felszerelés"/>
-                    <changePage id="71"/>
-                </execute>
-                <execute>
-                    <alert text="Már rajtad van."/>
-                </execute>
-            </option>
-            <option>
-                <text>Folytatom az utamat</text>
-                <execute>
-                    <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
-                    <changePage id="80"/>
-                </execute>
-                
-            </option>
+            <options>
+                <option>
+                    <text>Felveszem a gyűrűt</text>
+                    <execute>
+                        <itemRequired name="Gyűrű" max="0"/>
+                        <changeItem name="Italeffect" amount="1" group="Felszerelés"/>
+                        <changePage id="119"/>
+                    </execute>
+                    <execute>
+                        <alert text="Már rajtad van."/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Megnézem a köppenyt</text>
+                    <execute>
+                        <itemRequired name="Lebegés köppenye" max="0"/>
+                        <changeItem name="Italeffect" amount="1" group="Felszerelés"/>
+                        <changePage id="71"/>
+                    </execute>
+                    <execute>
+                        <alert text="Már rajtad van."/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Folytatom az utamat</text>
+                    <execute>
+                        <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
+                        <changePage id="80"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="72">
             <text>
                 Az ajtó egy újabb alagútba nyílik, mely kelet-nyugati irányba halad. Tudod, hogy neked északra kellene továbbmenned, de most kénytelen vagy ezek közül választani és reménykedni, hogy jó helyen bukkansz majd ki. Nyugatra indulsz, és megkönnyebbülsz, mikor egy elágazáshoz érsz. Északra fordulsz, és sokkal nyugodtabban folytatod az utad. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="195"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="195"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="73">
             <text>
                 Továbbra is nyugati irányba haladva észreveszed, hogy a járat egy kisebb sziklahalomban ér véget. Csákány és ásó nélkül itt esélyed sem lenne átjutni. Ahogy megfordulsz, hogy visszatérj az előző elágazáshoz, egy sötétebb folt egy újabb észak felé vezető alagút jelenlétét árulja el. Úgy döntesz, erre mész tovább.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="174"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="174"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="74">
             <text>
                 Átlépsz a két Iszapsárkány tetemén és a szükségesnél óvatlanabbul végigsietsz a keskeny úton. Egy rémisztő pillanatra megbillensz az egyik medence irányába, mikor lábad megcsúszik egy ködarabon, de végül némi kapálózás segítségével sikerül egy újabb lépést tenned, és valamivel stabilabb talajt érned. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="63"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="63"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="75">
             <text>
                 Túl nehéz vagy az ingatag építménynek. ami összetörik a lábad alatt. Egyenesen a vízbe zuhansz, és kénytelen vagy kiúszni belőle, hogy meg ne fulladj. Az áramlat azonban nagyon erős.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="148"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="148"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="76">
             <text>
@@ -1256,19 +1376,27 @@
             <options>
                 <option>
                     <text>Észak felé mennék</text>
-                    <changePage id="87"/>
+                    <execute>
+                        <changePage id="87"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Nyugatra mennék</text>
-                    <changePage id="6"/>
+                    <execute>
+                        <changePage id="6"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Keletre néznék el</text>
-                    <changePage id="111"/>
+                    <execute>
+                        <changePage id="111"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Átnézném a partot</text>
-                    <changePage id="53"/>
+                    <execute>
+                        <changePage id="53"/>
+                    </execute>
                 </option>
             </options>
         </page>
@@ -1276,12 +1404,6 @@
             <text>
                 Mielőtt lehetőséged lenne elöhúzni a kardodat, az öreg férfi felemeli jobb kezét. Mosolya eltűnik arcáról, hangja pedig, mely hirtelen felerősödik, megszólal a fejedben, ám ajkai közben nem mozognak. Ne próbálj meg ártani nekem. Eröm hatalmas, és bármikor olyan tömör sziklává változtathatlak mint egy oszlop a Nagyteremben. 
             </text>
-            <initially>
-                <execute>
-                    <itemRequired name="Szobor"/>
-                    <changeOption id="1" text="Meg mondom, hogy nálam van"/>
-                </execute>
-            </initially>
             <option>
                 <text>Meg mondom, hogy nálam van</text>
                 <execute>
