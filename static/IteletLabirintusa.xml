@@ -1202,6 +1202,95 @@
                 <changePage id="148"/>
             </option>
         </page>
+        <page id="76">
+            <text>
+                Homokos parton találod magad, melynek félhold alakja van. Az elötted lévő sziklafal egy kis alkóvot alkot, és három ajtót foglal magában. Ezek közül választhatsz majd, mikor eljön a távozás ideje, előtte azonban még el kell döntened, át akarod-e kutatni a folyópartot ékkövek vagy aranyérmék után.
+            </text>
+            <options>
+                <option>
+                    <text>Észak felé mennék</text>
+                    <changePage id="87"/>
+                </option>
+                <option>
+                    <text>Nyugatra mennék</text>
+                    <changePage id="6"/>
+                </option>
+                <option>
+                    <text>Keletre néznék el</text>
+                    <changePage id="111"/>
+                </option>
+                <option>
+                    <text>Átnézném a partot</text>
+                    <changePage id="53"/>
+                </option>
+            </options>
+        </page>
+        <page id="77">
+            <text>
+                Mielőtt lehetőséged lenne elöhúzni a kardodat, az öreg férfi felemeli jobb kezét. Mosolya eltűnik arcáról, hangja pedig, mely hirtelen felerősödik, megszólal a fejedben, ám ajkai közben nem mozognak. Ne próbálj meg ártani nekem. Eröm hatalmas, és bármikor olyan tömör sziklává változtathatlak mint egy oszlop a Nagyteremben. 
+            </text>
+            <initially>
+                <execute>
+                    <itemRequired name="Szobor"/>
+                    <changeOption id="1" text="Meg mondom, hogy nálam van"/>
+                </execute>
+            </initially>
+            <option>
+                <text>Meg mondom, hogy nálam van</text>
+                <execute>
+                    <itemRequired name="Szobor"/>
+                    <changePage id="91"/>
+                </execute>
+                <execute>
+                    <alert text="Nincs nálad."/>
+                </execute>
+            </option>
+            <option>
+                <text>Azt mondom, hogy nincs nálam</text>
+                <changePage id="131"/>
+            </option>
+            <option>
+                <text>Folytatom a támadást</text>
+                <changePage id="135"/>
+            </option>
+        </page>
+        <page id="78">
+            <text>
+                A számszerij nem volt tökéletesen beállítva, így ahelyett, hogy halálos sebet okozott volna fejeden vagy nyakadon, a vesző csupán bal válladba áll bele elég mélyen. Lehetett. volna rosszabb is, de még így is vesztesz 4 ÉLETERŐ pontot. Kirántod a lövedéket, szakitasz ruhádról némi gézt és szorosan bekötöd magad, hogy el ne vérezz. Hangosan átkozódva indulsz ismét észak felé, az egyetlen irányba, amerre még teheted. 
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <execute>
+                    <changeStat id="Életerő" decrease="4"/>
+                    <changePage id="89"/>
+                </execute>
+                
+            </option>
+        </page>
+        <page id="79">
+            <text>
+                A keleti járat elég keskeny és sötét, és újabb leágazásba fut bele, ezúttal a balodon. Ha erre mennél tovább, északi irányba, lapozz a 141-re. Ha egyenesen folytatnád az utadat, lapozz a 122-re.
+            </text>
+            <options>
+                <option>
+                    <text>Tovább mennék Északra</text>
+                    <changePage id="141"/>
+                </option>
+                <option>
+                    <text>Egyenesen mennék</text>
+                    <changePage id="122"/>
+                </option>
+            </options>
+        </page>
+        <page id="80">
+            <text>
+                Észak felé haladsz. Megszenvedsz az úttal, hisz eléggé hepchupás. Hamarosan elérsz egy elágazáshoz. A nyugat felé továbbinduló szakasz még rosszabb állapotúnak tűnik, mint az, ahol most jársz, ezért úgy döntesz. továbbra is tartod az irányt.
+            </text>
+            <option>
+                <text>Menj tovább</text>
+                <changePage id="89"/>
+            </option>
+        </page>
 
 
 
