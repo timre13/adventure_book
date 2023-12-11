@@ -2,26 +2,62 @@ import DOMPurify from "dompurify";
 import { Marked } from "marked";
 import type { OptionAction } from "./OptionAction";
 import type { OptionCheckGroup } from "./OptionCheck";
+import type { Dice } from "./dice";
 
 export class Option {
     public text: string;
     public tooltip: string;
     public disabled: boolean;
-    public actions: Array<OptionAction>;
-    public checks: Array<OptionCheckGroup>;
+    public executes?: NodeListOf<Element>;
+    public dice?: Dice;
 
-    constructor(
-        text: string,
-        tooltip?: string,
-        disabled?: boolean,
-        actions?: Array<OptionAction>,
-        checks?: Array<OptionCheckGroup>
-    ) {
+    constructor(text: string, tooltip?: string, disabled?: boolean, executes?: NodeListOf<Element>, dice?: Dice) {
         this.text = text;
         this.tooltip = tooltip ?? "";
         this.disabled = disabled ?? false;
-        this.actions = actions ?? [];
-        this.checks = checks ?? [];
+        this.executes = executes;
+        this.dice = dice;
+    }
+
+    //returns destination page
+    public async execute(): Promise<string | undefined> {
+        if (!this.executes) return;
+        for (let group of this.executes) {
+            let children = group.children;
+            let success = true;
+            for (let child of children) {
+                let fail = false;
+                // empty cases (case sensitive): changePage, changeItem, changeStat, itemRequired, dice, restart, alert
+                switch (child.tagName) {
+                    case "changePage":
+                        return child.getAttribute("id") ?? undefined;
+                    case "changeItem":
+                        break;
+                    case "changeStat":
+                        break;
+                    case "itemRequired":
+                        break;
+                    case "dice":
+                        if (!this.dice) {
+                            alert("Dice error");
+                            fail = true;
+                            break;
+                        }
+                        let result = this.dice.roll(child.getAttribute("sides") ?? "6");
+                        break;
+                    case "restart":
+                        break;
+                    case "alert":
+                        alert(child.getAttribute("text") ?? "");
+                        break;
+                }
+                if (fail) {
+                    success = false;
+                    break;
+                }
+            }
+            if (success) break;
+        }
     }
 
     getTooltipHtml() {
