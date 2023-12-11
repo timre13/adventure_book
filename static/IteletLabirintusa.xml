@@ -3155,35 +3155,38 @@
             </options>
         </page>
 
-        <page id="">
+        <page id="174">
             <text>
-                
+                Egy óriási barlangba érkezel, melynek falába egy polcot vájtak. Ebben ül egy tyúktojás méretű rubin. Simára csiszolt lapjai csak úgy csillognak a falon sorakozó faklyák fényében. Elötte félkörbe rendezve, mintegy védvonal gyanánt hosszú, hegyes cövekek sorakoznak több sorban. És mozognak a lyukaikban! Az egyik percben még úgy állnak szét, mint egy kerék küllői, mintha a drágaköböl kisugárzó fényt szimbolizálnák, a következőben pedig már körkörös vonalba fordulnak. Nem lesz egyszerű így eljutni a köhöz, mert egyszerre mindig csak egyet léphetsz előre. A covekek nagyon hegyesek, és könnyen súlyos sérülést okozhatnak.
             </text>
             <options>
-
                 <option>
-                    <text></text>
+                    <text>Megpróbálom</text>
                     <execute>
-                        <changePage id=""/>
+                        <changePage id="189"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Visszaforduok</text>
+                    <execute>
+                        <changePage id="184"/>
                     </execute>
                 </option>
 
             </options>
         </page>
 
-        <page id="">
+        <page id="175">
             <text>
-                
+                Elhátrálsz a közeledő kukacok elől, akik közted és az egyetlen kijárat között terülnek el. Az elől lévők felé csapsz. kardoddal, akik borzalmas cuppanás kíséretében robbannak szét. Helyüket azonban egyből átveszik a mögöttük jövök. Ekkor döbbensz rá, hogy esélytelen vagy ellenük. Végső kétségbeesésedben megpróbálsz átugrani a fogyni nem akaró tömegen, hogy igy érd el az ajtót, ám ahogy lábad földet ér és összelapít néhányat az undorító teremtmények közül, megcsúszol nyálkás maradványaikon és kapálódzó karokkal elterülsz a földön. Minden irányból körbe vagy véve, a legközelebb állók pedig már bele is kezdtek az elfogyasztásodba. Száz apró, erős állkapocs tépi le a húst. izmot és inakat csontjaidról. Bemásznak az orrodba, a szádba, és nemsokára elérik agyad lágy szövetét is. Kimondhatatlan szenvedések közepette veszted el életed. Kalandod itt véget ér.
             </text>
             <options>
-
                 <option>
-                    <text></text>
+                    <text>Újrakezdés</text>
                     <execute>
-                        <changePage id=""/>
+                        <restart/>
                     </execute>
                 </option>
-
             </options>
         </page>
 
