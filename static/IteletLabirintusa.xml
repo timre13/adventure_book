@@ -3406,12 +3406,82 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <changePage id ="96"/>
+                        <changePage id ="9"/>
                     </execute>
                 </option>
             </options>
         </page>
+        <page id="189">
+            <text>
+                Ahogy óvatosan áthaladsz a padlón, arra várva, hogy a cövekek mozgás közben utat engedjenek neked, az egyik hegye belekap kabátodba és kibillent az egyensúlyodból. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="162"/>
+                    </execute>
+                    <execute>
+                        <changePage id="183"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="190">
+            <text>
+                Már majdnem eléred a sziklaszirt alját. amikor a kötél elfogy. Innen le kell ugranod. Nagyjából két méterre van alattad a talaj, de elég sziklás. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="27"/>
+                    </execute>
+                    <execute>
+                        <changePage id="54"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="191">
+            <text>
+                A három teremtmény testét átkutatva fejenként 1 Aranytallért találsz. Ezután a kristályhoz lépsz, a belőle áradó, gyönyörüen lüktető fény azonban már halványodni kezdett, és mire felemeled, már csak egy nagy, értéktelen üvegtömböt tartasz a kozedben. Káromkodva vágod a földhöz, ahol darabokra törik. A barlangban ezen kívül csupán egyetlen érdekes dolgot találsz: egy nagyjából egy méter átmérőjű lyukat a falban, több méter magasan. Elé húzod az emelvényt, melyen korábban a kristály állt, ráállsz és betekintesz rajta. Sima csúszdát pillantasz meg, mely enyhén lefelé lejt.
+            </text>
+            <options>
+                <option>
+                    <text>Lemegyek a lukba</text>
+                    <execute>
+                        <changePage id="123"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Az északi alagúton át megyek</text>
+                    <execute>
+                        <changePage id="33"/>
+                    </execute>
+                </option>
 
+            </options>
+        </page>
+
+        <page id="192">
+            <text>
+                Sikerül gond nélkül elérned a túloldalt, majd sietve távozol az északi nyíláson át.
+            </text>
+            <options>
+
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="52"/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+        
 
         <page id="197">
             <text>
