@@ -1011,7 +1011,20 @@
                 <changePage id="95"/>
             </option>
         </page>
-
+    </page>
+    <page id="63">
+        <text>
+            Megbillentél. Vesztesz 1 SZERENCSE pontot. Az északi járaton át folytatod az utad. 
+        </text>
+        <option>
+            <text>Menj tovább</text>
+            <execute>
+                <changeStat id="Szerencse" decrease="1"/>
+                <changePage id="95"/>
+            </execute>
+            
+        </option>
+    </page>
 
 
         <page id="64">
