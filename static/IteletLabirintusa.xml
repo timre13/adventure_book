@@ -3097,51 +3097,61 @@
 
 		<!--MikloSection-->
 
-        <page id="">
+        <page id="171">
             <text>
-                
+                Ahogy a középső pallón sétálsz végig, két oldaladon a sármedencék felszíne bugyborékolni kezd. Óriási gázbuborékok törnek fel belőlük, melyek kidurranva fojtogató, rothadó hússzaggal töltik meg a helyiséget. 
             </text>
             <options>
-
                 <option>
-                    <text></text>
+                    <text>Menj tovább</text>
                     <execute>
-                        <changePage id=""/>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="173"/>
+                    </execute>
+                    <execute>
+                        <changePage id="182"/>
                     </execute>
                 </option>
-
             </options>
         </page>
 
-        <page id="">
+        <page id="172">
             <text>
-                
-            </text>
+                A folyosó gyorsan szélesedik, végül egy kisebb szoba méreteit ölti magára. Nem messze töled ismét összeszűkül, és újra egyszerű járatként folytatja életét. A padló közepén egy sekély aknát látsz. 
+                </text>
             <options>
-
                 <option>
-                    <text></text>
+                    <text>Átgázolok rajta</text>
                     <execute>
-                        <changePage id=""/>
+                        <changePage id="163"/>
                     </execute>
                 </option>
-
+                <option>
+                    <text>Beleugrok</text>
+                    <execute>
+                        <changePage id="185"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Visszamegyek az elágazáshoz, és onnan nyugatra indulok</text>
+                    <execute>
+                        <changePage id="168"/>
+                    </execute>
+                </option>
             </options>
         </page>
 
-        <page id="">
+        <page id="173">
             <text>
-                
+                Gond nélkül sikerül elérned a túloldalra.
             </text>
             <options>
-
                 <option>
-                    <text></text>
+                    <text>Menj tovább</text>
                     <execute>
-                        <changePage id=""/>
+                        <changePage id="52"/>
                     </execute>
                 </option>
-
             </options>
         </page>
 
