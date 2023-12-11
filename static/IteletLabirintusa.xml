@@ -2249,15 +2249,98 @@
                     <text>Menj tovább</text>
                     <execute>
                         <changeStat name="Szerencse" increase="1"/>
-                        <changePage id="35"/>
+                        <changePage id="142"/>
                     </execute>
                 </option>
             </options> 
         </page>
 
 
-        
-
+        <page id="126">
+            <text>
+                Az alagút északi irányba halad, egy idő után azonban kettéágazik. A jobb oldali alagút olyan meredeken ereszkedik lefelé, hogy még durván faragott lépcsőket is látsz benne. 
+            </text>
+            <options>
+                <option>
+                    <text>Jobbra folytatom az utat</text>
+                    <execute>
+                        <changePage id="155"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>A folyosón</text>
+                    <execute>
+                        <changePage id="118"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="127">
+            <text>
+                A járat fokozatosan kiszélesedik, és hamarosan egy sziklapárkányra érsz, ami keletnyugati irányban fut végig egy magas sziklafal közepén. Tiszta szerencse, hogy nem siettél nagyon, különben most egyenesen a szakadékba zuhantál volna. Hasra fekszel a párkányon és letekintesz a szélén. Messze alattad egy kis hidat látsz, ami sebesen folyó patak felett ível át. Elhátrálsz a széléről. Felnézel, de semmit nem látsz, csak a sötétséget. Nem látod, hogyan tudnál leereszkedni a völgy fenekére, a perem pedig nem messze semmivé keskenyedik mindkét oldalon. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <itemRequired name="Lebegés köppenye"/>
+                        <changePage id="23"/>
+                    </execute>
+                    <execute>
+                        <changePage id="62"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="128">
+            <text>
+                Még élsz! Bármennyire is fáradt vagy, kardod markolatával darabokra zúzod a tükröt. Ebből már nem fog újabb kihívó előlépni. Egy keskeny szirten találod magad, egy magas sziklafal kellős közepén. A barlangüreg plafonja áthatolhatatlan sötétségbe burkolózik. Előtted egy folyó halad keletről nyugatra, felette pedig egy hid ivel át. Nem találsz lefelé vezető utat, csak egy vasgyürün akad meg a szemed, amit a falba rögzítettek. Hozzákötöd a köteled, majd elkezdesz lefelé mászni. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <changePage id="48"/>
+                    </execute>
+                    <execute>
+                        <changePage id="93"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="129">
+            <text>
+                Hamarosan egy újabb elágazáshoz érsz. 
+            </text>
+            <options>
+                <option>
+                    <text>Keletre folytatom az utat</text>
+                    <execute>
+                        <changePage id="112"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Észak</text>
+                    <execute>
+                        <changePage id="66"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="130">
+            <text>
+                Minden erödet összeszedve próbálod megemelni a fülénél fogva, azonban meg sem moccan. Kénytelen vagy feladni a dolgot és északi irányban folytatni az utad. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="80"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
 
 
 		<!--MikloSection-->
