@@ -24,7 +24,7 @@
                 <item name="bőrvért"/>
             </group>
             <group name="Bájitalok">
-                <item name="viagra" amount="3"/>
+                <item name="Élelem" amount="5"/>
             </group>
         </inventory>
     </character>
@@ -2746,6 +2746,171 @@
         </page>
 
 
+        <page id="151">
+            <text>
+                Próbálkozásod, hogy biztonságba juss, teljes mértékben hiábavalónak bizonyult. Egy szikladarabon állsz, melynek tetején harmincméternyit zuhantál lefelé. Miközben azon töprengsz, hogyan juthatnál ki, rájössz, hogy a kút alját, ahol állsz. finom, félig folyékony homok kezdi betölteni. Először lábfejedet temeti be, majd térded, és mire eléri a mellkasodat, karjaidat már nem tudod megemelni. A körülötted feszülő nyomás összezúz, öt perc múlva pedig már teljesen elborít a homok. Kalandod itt véget ér.
+            </text>
+            <options>
+                <option>
+                    <text>Újrakezdés</text>
+                    <execute>
+                        <restart/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="152">
+            <text>
+                A járat, melyen most haladsz, elég keskeny, de még át tudod magad préselni a falak között. Balodon egy alagút fut be a folyosóba, te azonban eltökélten mész tovább egyenesen. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="99"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
+        <page id="153">
+            <text>
+                A járat szélesedni kezd, repedések és hasadékok jelennek meg a falakon. Zörgö hang szűrődik ki valahonnan, és az egyik lyukból két különös teremtmény ugrik elő. Az egyértelműen látszik, hogy az alvilág lakói, mivel bőrük teljesen fehér, vad szemeik pedig rózsaszínűek. Fejüktől a farkukig hosszú, veszedelmes tüskék borítják hátukat, melyek járás közben jobbra-balra inganak. A lények hátat fordítanak neked, és már kezdesz megörülni, hogy megijedtek tőled és elmenekülnek. Mekkorát tévedtél! Ezek mérges Sündisznók, és épp arra készülnek, hogy halálos tüskéiket beléd löjék. Egymás után küzdj meg velük.
+            </text>
+            <enemies>
+                <enemy name="Első süni" health="5" skill="7" />
+                <enemy name="Második süni" health="5" skill="8" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                         <changePage id ="42"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="154">
+            <text>
+                Bezárod magad mögött az ajtót és tovább mész kelet felé. 
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="16"/>
+                    </execute>
+                </option>
+            </options> 
+        </page>
+        <page id="155">
+            <text>
+                A lejtő elég meredek, és már régóta mész, mikor a lépcsők megszűnnek, a járat pedig élesen balra kanyarodik. Fárasztó volt idáig az út, ezért lankad a figyelmed, mikor egy mocskos, dagadt Hobgoblin ugrik eléd. Bandzsa szemeivel az egyik bíbor, a másik zöld &#8211; méreget téged. Ruhái ugyanolyan koszosak, mint ő maga, ráadásul eléggé szakadtak is, a kezében lévő kard azonban borotvaéles, és látszik, hogy gondosan karban tartja. Előre nyújtott fegyverrel közeledik feléd.
+            </text>
+            <enemies fleeTo="143">
+                <enemy name="Hobgoblin" health="8" skill="7" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                         <changePage id ="50"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
+        <page id="156">
+            <text>
+                A férfi hűvösen mér végig. &#8211; Hazudsz! mondja. És a hazugok büntetést érdemelnek. Elsétál melletted a folyosón. Nyugtalanul töprengsz azon, vajon hogy is érthette, amit mondott. Hamarosan megtudod. A története ugyan igaz volt, azt azonban nem mondta el, mi volt a foglalkozása a fenti világban, hogy miért került ide: zsebtolvaj volt! 2 adag élelmedet nyúlta le a fickó. Vesztesz 1 SZERENCSE pontot. Ezután folytatod utadat kelet felé.
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeItem name="Élelem" amount="-2" group="Bájital"/>
+                        <changeStat name="Szerencse" decrease="1"/>
+                        <changePage id ="57"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="157">
+            <text>
+                Az ajtó egy kicsi, szellősen berendezett szobába nyílik. Hangos horkolás hangját hallod, melynek forrása, úgy tűnik, egy szék, mely háttal áll neked: ritka, szürke színü hajtincset vélsz látni felette. Óvatosan megkerülöd az elötted álló asztalt és megvizsgálod az alvó férfit. Egy idős férfi az, aki összefont kézzel alszik a kényelmetlen ülőalkalmatosságon. Az északi falon egy újabb ajtót látsz.
+            </text>
+            <options>
+                <option>
+                    <text>Kinyitom az ajtót</text>
+                    <execute>
+                        <changePage id="180"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Kimegyek a folyosóra</text>
+                    <execute>
+                        <changePage id="125"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Szétnézek</text>
+                    <execute>
+                        <changePage id="166"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="158">
+            <text>
+                Az ajtó becsapódik, te pedig végre felfedezed a füttyszerű sóhajok és susogások forrását. Előtted, a padlón guggolva megpillantod a Galont, a Madárembert. Börszárnyai két oldalt széttárva állnak, kezének éles karmai feléd mutatnak. Azonnal felismered zöldes bőrét, és tudod, hogy izmos karjaival és hatalmas szárnyaival megpróbál majd megfullasztani. Előhúzod kardodat, melynek látványára ellenfeled azonnal örjöngeni kezd, hiszen éhsége kielégíthetetlen. Ez a harc lesz az egyik legnehezebb, amit meg kell itt vívnod.
+            </text>
+            <enemies>
+                <enemy name="Galon" health="8" skill="12" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                         <changePage id ="61"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="159">
+            <text>
+                Elfordítod a kulcsot a vasrács zárjában. A szárnyak nem nyílnak ki, ahogy arra számitani lehetne, és erősen kell tolnod, hogy megmozdítsd. Végül a nagy nekifeszüléstől felpattan, te pedig a lendülettől hajtva beesel rajta. Legnagyobb rémületedre azonban a helyiségnek, melybe bejutottál, nincsen padlója!
+            </text>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <itemRequired name="Lebegés köppenye"/>
+                        <changePage id="43"/>
+                    </execute>
+                    <execute>
+                        <changePage id="115"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+        <page id="160">
+            <text>
+                Lenézel ellenfeleid elernyedt tetemeire. Holtukban még ocsmányabbak, mert a vicsorgás gonosz pofájukra fagyott. A törmelékek között első ránézésre nem sok érdekes dolgot találsz.
+            </text>
+            <options>
+                <option>
+                    <text>Északra folytatmám az utat</text>
+                    <execute>
+                        <changePage id="80"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Szétnézek</text>
+                    <execute>
+                        <changePage id="37"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
 
 		<!--MikloSection-->
 
