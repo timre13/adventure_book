@@ -3344,22 +3344,74 @@
 
             </options>
         </page>
-
-        <page id="196">
+        <page id="185">
             <text>
-                
+                Leugrasz a verembe, miután meggyözödtél róla, hogy ki fogsz tudni belőle mászni, ha ez szükségesnek bizonyulna. Mikor körbenézel, egy alacsony bejáratra bukkansz az egyik kinyúló szikladarab alatt. Szinte négykézlábra kell leereszkedned, hogy be tudj kukkantani rajta. 
             </text>
             <options>
-
                 <option>
-                    <text></text>
+                    <text>Körbenézek bent</text>
                     <execute>
-                        <changePage id=""/>
+                        <changePage id="178"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Visszamegyek a szobába</text>
+                    <execute>
+                        <changePage id="172"/>
                     </execute>
                 </option>
 
             </options>
         </page>
+        <page id="186">
+            <text>
+                Keményen érsz földet és csúnyán kificamítod a bokádat. Sántikálva indulsz el észak felé.
+            </text>
+            <options>
+
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changeStat name="Életerő" decrease="3"/>
+                        <changePage id="126"/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+        <page id="187">
+            <text>
+                Elmondod a fickónak, merről jöttél, aki erre elmosolyodik. Köszönöm &#8211; mondja. Segítettél rajtam, így én is segítek terajtad. Csak annyit mondok, nem mind arany, ami fénylik. Sok alakja van annak, amit keresel: ne hagyd, hogy hamis Szobrok félrevezessenek. Azzal elmegy melletted és eltűnik a távolban. A mondottakon töprengve folytatod az utad kelet felé.             
+            </text>
+            <options>
+
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="57"/>
+                    </execute>
+                </option>
+
+            </options>
+        </page>
+        <page id="188">
+            <text>
+                A sár felszíne emelkedni kezd, és tompa pukkanás kíséretében egy óriási gázbuborék emelkedik ki belőle. Ahogy a felszín kisimulna, apró, zöld színü, cikázó fények jelennek meg rajta. A foltocskák kiemelkednek, aljukból csápok nőnek ki, melyek percről percre hosszabbodnak. Végül egy Iszapsárkány óriási feje bukkan elő félig a nyálkás folyadék mélyéből! Most már látod, hogy a zöld fények, amiket korábban láttál, valójában a lény fejéből kinövő csápok, melyek egészen addig szabadon lengeni látszanak, míg hirtelen mindegyik rád nem szegeződik. A hatalmas száj kinyilik, förtelmes szagú gáz tör elő belöle, ezután ellenfeled duzzadni kezd, ahogy levegővel szívja meg magát. Rájössz, hogy meg kell küzdenod vele.
+            </text>
+            <enemies>
+                <enemy name="Iszapsárkány" health="5" skill="9" />
+            </enemies>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id ="96"/>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
 
         <page id="197">
             <text>
