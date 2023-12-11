@@ -404,7 +404,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="92"/>
                     </execute>
                     <execute>
@@ -466,7 +466,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="176"/>
                     </execute>
                     <execute>
@@ -747,7 +747,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="199"/>
                     </execute>
                     <execute>
@@ -764,7 +764,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="144"/>
                     </execute>
                     <execute>
@@ -800,7 +800,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="60"/>
                     </execute>
                     <execute>
@@ -1116,7 +1116,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="176"/>
                     </execute>
                     <execute>
@@ -1172,7 +1172,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="109"/>
                     </execute>
                     <execute>
@@ -1216,7 +1216,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="117"/>
                     </execute>
                     <execute>
@@ -1522,7 +1522,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="97"/>
                     </execute>
                     <execute>
@@ -1614,7 +1614,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="109"/>
                     </execute>
                     <execute>
@@ -1810,7 +1810,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="44"/>
                     </execute>
                     <execute>
@@ -2037,7 +2037,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="20"/>
                     </execute>
                     <execute>
@@ -2321,7 +2321,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="48"/>
                     </execute>
                     <execute>
@@ -2673,7 +2673,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Ügyesség" type="2d6" relationSD="=>"/>
+                        <dice stat="Ügyesség" type="2d6" />
                         <changePage id="103"/>
                     </execute>
                     <execute>
@@ -3105,7 +3105,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="173"/>
                     </execute>
                     <execute>
@@ -3214,7 +3214,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="78"/>
                     </execute>
                     <execute>
@@ -3279,7 +3279,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="192"/>
                     </execute>
                     <execute>
@@ -3314,7 +3314,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="194"/>
                     </execute>
                     <execute>
@@ -3419,7 +3419,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="162"/>
                     </execute>
                     <execute>
@@ -3436,7 +3436,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="27"/>
                     </execute>
                     <execute>
@@ -3489,7 +3489,7 @@
                 <option>
                     <text>Menj tovább</text>
                     <execute>
-                        <dice stat="Szerencse" type="2d6" relationSD="=>"/>
+                        <dice stat="Szerencse" type="2d6" />
                         <changePage id="25"/>
                     </execute>
                     <execute>
@@ -3538,7 +3538,7 @@
                 <option>
                     <text>Megpróbálom</text>
                     <execute>
-                        <dice stat="4" type="1d6" relationSD="=>"/>
+                        <dice stat="4" type="1d6" />
                         <changePage id="158"/>
                     </execute>
                     <execute>
