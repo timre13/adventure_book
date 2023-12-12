@@ -1,9 +1,6 @@
 <script lang="ts">
-    import type { Inventory } from "$lib/Inventory";
-    import type { Stat } from "$lib/status";
-
-    export let stats: Array<Stat>;
-    export let inventory: Inventory;
+    import { stats, inventory } from "$lib/stores/gamestate";
+    import { get } from "svelte/store";
 </script>
 
 <!-- svelte-ignore a11y-missing-attribute -->
@@ -12,7 +9,7 @@
     <div class="content">
         <div id="stat-display">
             <p><b>Státusz</b></p>
-            {#each stats as stat}
+            {#each $stats as stat}
                 {#if stat.isSeparator}
                     <hr />
                 {:else if stat.maxValue}
@@ -27,7 +24,7 @@
         <hr id="notepad-separator" />
         <div id="inventory-display">
             <p><b>Tárgyak</b></p>
-            {#each inventory.groups as group}
+            {#each $inventory.groups as group}
                 <p class="group-name">{group.name}</p>
                 <div class="group-content">
                     {#each Object.entries(group.items) as [item, cnt]}
