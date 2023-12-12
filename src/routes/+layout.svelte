@@ -30,9 +30,7 @@
     }
 </script>
 
-<div id="main-container">
-    <slot />
-</div>
+
 {#await promise}
     <div id="form-container" class={showForm ? "show" : ""}>
         <form action="">
@@ -40,6 +38,10 @@
             <input type="file" name="config" id="config" bind:files />
             <span>*Csak a megfelelő XML fájl elfogadott</span>
         </form>
+    </div>
+{:then _}
+    <div id="main-container">
+        <slot />
     </div>
 {/await}
 
