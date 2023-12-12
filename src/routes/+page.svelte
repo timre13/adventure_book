@@ -8,14 +8,13 @@
     import { file } from "$lib/stores/file";
     import { get } from "svelte/store";
     import { Inventory, InventoryGroup } from "$lib/Inventory";
+    import { inventory, stats } from "$lib/stores/gamestate";
 
     let diceHandler: Dice;
 
     conditionHandler("vars['B'] = 'A'"); // létrehozok egy B változót A értékkel
     conditionHandler("vars['B'] == 'A'"); // True értéket ad vissza
 
-    let stats: Array<Stat> = [];
-    let inventory: Inventory = new Inventory();
     let pages: Record<string, Page> = {};
 
     let pageHistory: Array<Page> = Array(5);
@@ -77,10 +76,11 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                 }
             });
             return stats_;
-        })().then(x => (stats = x));
+        })().then(x => stats.set(x));
 
         // Inventory betöltés
         {
+            let inventory_: Inventory = new Inventory();
             let groupNodes = xmlDoc.querySelectorAll("game > character > inventory > group");
             let groups: Array<InventoryGroup> = [];
             groupNodes.forEach(groupNode => {
@@ -96,9 +96,9 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
 
                 groups.push(group);
             });
-            inventory.groups = groups;
-            inventory = inventory;
-            console.log(inventory);
+            inventory_.groups = groups;
+            console.log(inventory_);
+            inventory.set(inventory_);
         }
 
         // Oldal betöltés
@@ -110,7 +110,6 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                 let pageId = pageNode.getAttribute("id")!;
                 let pageText = pageNode.querySelector("text")?.innerHTML ?? "";
                 pageText = pageText.replaceAll(/^ +/gm, "");
-                console.log(pageText);
 
                 let options: Array<Option> = [];
                 let optionNodes = pageNode.querySelectorAll("options > option");
@@ -221,7 +220,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
         </div>
     </div>
     <div id="right-panel">
-        <StatusNotepad {stats} {inventory} />
+        <StatusNotepad />
     </div>
 </main>
 
