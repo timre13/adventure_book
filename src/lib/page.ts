@@ -32,9 +32,10 @@ export class Option {
                 let fail = false;
                 // empty cases (case sensitive): changePage, changeItem, changeStat, itemRequired, dice, restart, alert
                 switch (child.tagName) {
-                    case "changePage":
+                    case "changePage": {
                         return child.getAttribute("id") ?? undefined;
-                    case "changeItem":
+                    }
+                    case "changeItem": {
                         let inv = get(inventory);
                         for (let group of inv.groups) {
                             let added = false;
@@ -59,9 +60,47 @@ export class Option {
                         }
                         inventory.set(inv);
                         break;
-                    case "changeStat":
+                    }
+                    case "changeStat": {
+                        let statList = get(stats);
+                        let statName = child.getAttribute("name") ?? "";
+                        let isMax = false;
+                        if (statName.includes(".max")) {
+                            statName = statName.replace(".max", "");
+                            isMax = true;
+                        }
+                        const statIndex = statList.findIndex(stat => stat.name == statName);
+                        if (!statIndex) {
+                            alert("Stat error");
+                            fail = true;
+                            break;
+                        }
+                        let increaseValue = child.getAttribute("increase") ?? "0";
+                        let decreaseValue = child.getAttribute("decrease") ?? "0";
+                        if (increaseValue.startsWith("~")) {
+                            const [_, ...increase] = increaseValue;
+                            let diceMin = parseInt(increaseValue.split("d")[0]);
+                            let diceMax = diceMin * parseInt(increaseValue.split("d")[1]);
+                            increaseValue = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin).toString();
+                        }
+                        if (decreaseValue.startsWith("~")) {
+                            const [_, ...decrease] = decreaseValue;
+                            let diceMin = parseInt(decreaseValue.split("d")[0]);
+                            let diceMax = diceMin * parseInt(decreaseValue.split("d")[1]);
+                            decreaseValue = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin).toString();
+                        }
+
+                        if (isMax) {
+                            statList[statIndex].maxValue += parseInt(increaseValue);
+                            statList[statIndex].maxValue -= parseInt(decreaseValue);
+                        } else {
+                            statList[statIndex].value += parseInt(increaseValue);
+                            statList[statIndex].value -= parseInt(decreaseValue);
+                        }
+
                         break;
-                    case "itemRequired":
+                    }
+                    case "itemRequired": {
                         const inventoryGroups = get(inventory).groups;
                         let found = false;
                         for (let group of inventoryGroups) {
@@ -77,7 +116,8 @@ export class Option {
                             fail = true;
                         }
                         break;
-                    case "dice":
+                    }
+                    case "dice": {
                         if (!this.dice) {
                             alert("Dice error");
                             fail = true;
@@ -94,12 +134,15 @@ export class Option {
                             fail = true;
                         }
                         break;
-                    case "restart":
+                    }
+                    case "restart": {
                         document.location.reload();
                         break;
-                    case "alert":
+                    }
+                    case "alert": {
                         alert(child.getAttribute("text") ?? "");
                         break;
+                    }
                 }
                 if (fail) {
                     success = false;

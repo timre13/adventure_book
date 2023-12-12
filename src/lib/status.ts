@@ -3,9 +3,9 @@ export class Stat {
     name: string;
     value: number;
     minValue: number;
-    maxValue: number | undefined = undefined;
+    maxValue: number;
 
-    constructor(name: string, value: number, minValue: number, maxValue?: number) {
+    constructor(name: string, value: number, minValue: number, maxValue: number) {
         this.name = name;
         this.value = value;
         this.minValue = minValue;
@@ -15,7 +15,7 @@ export class Stat {
 
 export class StatSeparator extends Stat {
     constructor() {
-        super("", 0, 0);
+        super("", 0, 0, 0);
         this.isSeparator = true;
     }
 }
