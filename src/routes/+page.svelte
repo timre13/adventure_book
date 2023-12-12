@@ -36,101 +36,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
 
     let xmlDoc: Document;
     file.subscribe(x => {
-        console.log("File has been loaded:");
-        let content = get(file);
-        if (!content) {
-            console.log("File is empty, ignoring");
-            return;
-        }
-        let parser = new DOMParser();
-        xmlDoc = parser.parseFromString(content, "text/xml");
-        console.log("File has been parsed:", xmlDoc);
-
-        // Stats betöltés
-        (async () => {
-            let stats_: Array<Stat> = [];
-            let statNodes = xmlDoc.querySelectorAll("game > character > stats *");
-            statNodes.forEach(async node => {
-                if (node.nodeName == "stat") {
-                    let name = node.getAttribute("name") || "";
-                    let value = 0;
-                    if (node.hasAttribute("value")) {
-                        value = parseInt(node.getAttribute("value")!) || 0;
-                    } else if (node.hasAttribute("dice")) {
-                        let diceVal = node.getAttribute("dice")?.split(" ")[0] ?? "";
-                        // FIXME
-                        //value = await diceHandler.roll(diceVal);
-                        // --- Workaround kezdete ---
-                        let diceMin = parseInt(diceVal.split("d")[0]);
-                        let diceMax = diceMin * parseInt(diceVal.split("d")[1]);
-                        value = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin);
-                        // --- Workaround vége ---
-                    }
-                    // Nyilván nem lehet konzisztens az elnevezés (min / minValue)
-                    let min = parseInt(node.getAttribute("min") || node.getAttribute("minValue") || "0") || 0;
-                    let maxStr = node.getAttribute("max") || node.getAttribute("maxValue");
-                    let max = maxStr == "value" || !maxStr ? value : parseInt(maxStr ?? "0") ?? 0;
-                    stats_.push(new Stat(name, value, min, max));
-                } else {
-                    stats_.push(new StatSeparator());
-                }
-            });
-            return stats_;
-        })().then(x => stats.set(x));
-
-        // Inventory betöltés
-        {
-            let inventory_: Inventory = new Inventory();
-            let groupNodes = xmlDoc.querySelectorAll("game > character > inventory > group");
-            let groups: Array<InventoryGroup> = [];
-            groupNodes.forEach(groupNode => {
-                let groupName = groupNode.getAttribute("name") || "";
-                let group = new InventoryGroup(groupName);
-
-                let itemNodes = groupNode.querySelectorAll("item");
-                itemNodes.forEach(item => {
-                    let itemName = item.getAttribute("name") ?? "???";
-                    let itemCount = Math.max(parseInt(item.getAttribute("amount") ?? "1"), 1);
-                    group.items[itemName] = itemCount;
-                });
-
-                groups.push(group);
-            });
-            inventory_.groups = groups;
-            console.log(inventory_);
-            inventory.set(inventory_);
-        }
-
-        // Oldal betöltés
-        {
-            pages = {};
-
-            let pageNodes = xmlDoc.querySelectorAll("game > pages page");
-            pageNodes.forEach(pageNode => {
-                let pageId = pageNode.getAttribute("id")!;
-                let pageText = pageNode.querySelector("text")?.innerHTML ?? "";
-                pageText = pageText.replaceAll(/^ +/gm, "");
-
-                let options: Array<Option> = [];
-                let optionNodes = pageNode.querySelectorAll("options > option");
-                optionNodes.forEach(optionNode => {
-                    let optionText = optionNode.querySelector("text")?.innerHTML ?? "";
-                    // TODO: Execute betöltése
-                    options.push(new Option(optionText, undefined, undefined, []));
-                });
-
-                let page = new Page(pageText, options);
-                pages[pageId] = page;
-            });
-
-            pages = pages;
-            console.log(pages);
-
-            // Teszt
-            console.log(pages["init"]);
-            pageHistory.push(pages["init"]);
-            pageHistory = pageHistory;
-        }
+        
     });
 
     async function getPageTexts(): Promise<Array<String>> {
@@ -171,11 +77,127 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
 
     onMount(async () => {
         diceHandler = await createDice("#dice-box");
-    });
+
+        {
+            console.log("File has been loaded:");
+            let content = get(file);
+            if (!content) {
+                console.log("File is empty, ignoring");
+                return;
+            }
+            let parser = new DOMParser();
+            xmlDoc = parser.parseFromString(content, "text/xml");
+            console.log("File has been parsed:", xmlDoc);
+
+            // Stats betöltés
+            (async () => {
+                let stats_: Array<Stat> = [];
+                let statNodes = xmlDoc.querySelectorAll("game > character > stats *");
+                statNodes.forEach(async node => {
+                    if (node.nodeName == "stat") {
+                        let name = node.getAttribute("name") || "";
+                        let value = 0;
+                        if (node.hasAttribute("value")) {
+                            value = parseInt(node.getAttribute("value")!) || 0;
+                        } else if (node.hasAttribute("dice")) {
+                            let diceVal = node.getAttribute("dice")?.split(" ")[0] ?? "";
+                            // FIXME
+                            //value = await diceHandler.roll(diceVal);
+                            // --- Workaround kezdete ---
+                            let diceMin = parseInt(diceVal.split("d")[0]);
+                            let diceMax = diceMin * parseInt(diceVal.split("d")[1]);
+                            value = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin);
+                            // --- Workaround vége ---
+                        }
+                        // Nyilván nem lehet konzisztens az elnevezés (min / minValue)
+                        let min = parseInt(node.getAttribute("min") || node.getAttribute("minValue") || "0") || 0;
+                        let maxStr = node.getAttribute("max") || node.getAttribute("maxValue");
+                        let max = maxStr == "value" || !maxStr ? value : parseInt(maxStr ?? "0") ?? 0;
+                        stats_.push(new Stat(name, value, min, max));
+                    } else {
+                        stats_.push(new StatSeparator());
+                    }
+                });
+                return stats_;
+            })().then(x => stats.set(x));
+
+            // Inventory betöltés
+            {
+                let inventory_: Inventory = new Inventory();
+                let groupNodes = xmlDoc.querySelectorAll("game > character > inventory > group");
+                let groups: Array<InventoryGroup> = [];
+                groupNodes.forEach(groupNode => {
+                    let groupName = groupNode.getAttribute("name") || "";
+                    let group = new InventoryGroup(groupName);
+
+                    let itemNodes = groupNode.querySelectorAll("item");
+                    itemNodes.forEach(item => {
+                        let itemName = item.getAttribute("name") ?? "???";
+                        let itemCount = Math.max(parseInt(item.getAttribute("amount") ?? "1"), 1);
+                        group.items[itemName] = itemCount;
+                    });
+
+                    groups.push(group);
+                });
+                inventory_.groups = groups;
+                console.log(inventory_);
+                inventory.set(inventory_);
+            }
+
+            // Oldal betöltés
+            {
+                pages = {};
+
+                let pageNodes = xmlDoc.querySelectorAll("game > pages page");
+                pageNodes.forEach(pageNode => {
+                    let pageId = pageNode.getAttribute("id")!;
+                    let pageText = pageNode.querySelector("text")?.innerHTML ?? "";
+                    pageText = pageText.replaceAll(/^ +/gm, "");
+
+                    let options: Array<Option> = [];
+                    let optionNodes = pageNode.querySelectorAll("options > option");
+                    optionNodes.forEach(optionNode => {
+                        let optionText = optionNode.querySelector("text")?.innerHTML ?? "";
+                        // TODO: Execute betöltése
+                        options.push(
+                            new Option(
+                                optionText,
+                                undefined,
+                                undefined,
+                                optionNode.querySelectorAll("execute"),
+                                diceHandler
+                            )
+                        );
+                    });
+
+                    let page = new Page(pageText, options);
+                    pages[pageId] = page;
+                });
+
+                pages = pages;
+                console.log(pages);
+
+                // Teszt
+                console.log(pages["init"]);
+                pageHistory.push(pages["init"]);
+                pageHistory = pageHistory;
+            }
+        }
+    })
+
     function TestRoll() {
         diceHandler.roll("2d6").then(res => {
             console.log(res);
         });
+    }
+
+    async function buttonClick(page: Page, optionIndex: number) {
+        let destination = await page.buttons[optionIndex].execute();
+        if (!destination) return;
+        console.log(pages[destination]);
+        let history = [...pageHistory]
+        history.push(pages[destination]);
+        pageHistory = history;
     }
 </script>
 
@@ -198,6 +220,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                                         disabled={button.disabled}
                                         on:mousemove={tooltipHover}
                                         on:mouseenter={buttonEnter}
+                                        on:click={() => buttonClick(page, i)}
                                         data-index={i}
                                         >{button.text}
                                         {#await tooltip then tooltipVal}
