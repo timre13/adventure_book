@@ -58,6 +58,7 @@ export class Option {
                         }
                         break;
                     case "restart":
+                        document.location.reload();
                         break;
                     case "alert":
                         alert(child.getAttribute("text") ?? "");
