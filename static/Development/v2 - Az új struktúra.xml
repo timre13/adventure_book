@@ -47,6 +47,9 @@
                         <itemRequired name="alma" min="2"/> <!-- equals / min, max-->
                         <itemRequired name="körte" min="2" group="gyümölcsök"/>
                         <statRequired name="szerencse" min="1"/> <!-- equals / min, max-->
+                        <fight canflee="false"><!-- a canflee vagy false vagy a menekülés oldal idje-->
+							<enemy name="" health="" skill="" />
+						 </fight>
                         
                         <dice stat="szerencse" type="2d6" relationSD="="/>  <!-- relation lehet: {=, !=, >, <, >=, <=} -->
                         <!-- Azért SD, hogy jelezze, milyen sorrendben értelmezendő a két szám.
@@ -56,8 +59,9 @@
                         <!-- orField és andField (az execute eredendően andFieldként értelmezendő)-->
 
                         <!--To-do-->
-                        <changeItem name="körte" amount="1"/> <!-- amount, decrease, increase -->
+                        <changeItem name="körte" amount="1" group="Felszerelés"/> <!-- amount, decrease, increase -->
                         <changeStat name="Életerő" decrease="1"/> <!-- value, decrease, increase -->
+                        <changeStat name="Életerő.max" increase="1"/>
                         <changePage id="2"/>
                     </execute>
                     <execute>
@@ -76,6 +80,8 @@
                                             -->
                     
                     <!-- A játék újrakezdése: <restart/> -->
+
+                    <!-- Az optionöknek lehet egy disabled tagja is a hidden mellett. A disabled értéke már egyből maga a hibaüzenet, amit rámutatáskor kiír. -->
                 </option>
             </options>
         </page>
