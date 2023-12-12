@@ -24,7 +24,7 @@ export class Option {
     //returns destination page
     public async execute(): Promise<string | undefined> {
         if (!this.executes) return;
-        console.log(get(stats));
+        console.log(get(inventory));
         for (let group of this.executes) {
             let children = group.children;
             let success = true;
@@ -39,6 +39,20 @@ export class Option {
                     case "changeStat":
                         break;
                     case "itemRequired":
+                        const inventoryGroups = get(inventory).groups;
+                        let found = false;
+                        for (let group of inventoryGroups) {
+                            for (let key in group.items) {
+                                if (key == child.getAttribute("name")) {
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            if (found) break;
+                        }
+                        if (!found) {
+                            fail = true;
+                        }
                         break;
                     case "dice":
                         if (!this.dice) {
@@ -46,8 +60,8 @@ export class Option {
                             fail = true;
                             break;
                         }
-                        let result = await this.dice.roll(child.getAttribute("type") ?? "1d6");
-                        let stat = get(stats).find(stat => stat.name == child.getAttribute("stat"));
+                        const result = await this.dice.roll(child.getAttribute("type") ?? "1d6");
+                        const stat = get(stats).find(stat => stat.name == child.getAttribute("stat"));
                         if (!stat) {
                             alert("Dice error");
                             fail = true;
