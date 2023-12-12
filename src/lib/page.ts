@@ -3,6 +3,8 @@ import { Marked } from "marked";
 import type { OptionAction } from "./OptionAction";
 import type { OptionCheckGroup } from "./OptionCheck";
 import type { Dice } from "./dice";
+import { get } from "svelte/store";
+import { inventory, stats } from "$lib/stores/gamestate";
 
 export class Option {
     public text: string;
@@ -22,6 +24,7 @@ export class Option {
     //returns destination page
     public async execute(): Promise<string | undefined> {
         if (!this.executes) return;
+        console.log(get(stats));
         for (let group of this.executes) {
             let children = group.children;
             let success = true;
@@ -44,6 +47,15 @@ export class Option {
                             break;
                         }
                         let result = await this.dice.roll(child.getAttribute("type") ?? "1d6");
+                        let stat = get(stats).find(stat => stat.name == child.getAttribute("stat"));
+                        if (!stat) {
+                            alert("Dice error");
+                            fail = true;
+                            break;
+                        }
+                        if (stat.value < result) {
+                            fail = true;
+                        }
                         break;
                     case "restart":
                         break;
