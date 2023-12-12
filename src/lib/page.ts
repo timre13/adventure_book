@@ -118,20 +118,34 @@ export class Option {
                         break;
                     }
                     case "dice": {
+                        const statAttr = child.getAttribute("stat");
+                        if (!statAttr) {
+                            alert("Dice error, no stat");
+                            fail = true;
+                            break;
+                        }
                         if (!this.dice) {
-                            alert("Dice error");
+                            alert("Dice error, no dice");
                             fail = true;
                             break;
                         }
                         const result = await this.dice.roll(child.getAttribute("type") ?? "1d6");
-                        const stat = get(stats).find(stat => stat.name == child.getAttribute("stat"));
-                        if (!stat) {
-                            alert("Dice error");
-                            fail = true;
-                            break;
-                        }
-                        if (stat.value < result) {
-                            fail = true;
+                        const stat = get(stats).find(stat => stat.name == statAttr);
+
+                        if (!isNaN(statAttr as any)) {
+                            const value = parseInt(statAttr);
+                            if (value < result) {
+                                fail = true;
+                            }
+                        } else {
+                            if (!stat) {
+                                alert("Dice error, no such stat as " + statAttr ?? "");
+                                fail = true;
+                                break;
+                            }
+                            if (stat.value < result) {
+                                fail = true;
+                            }
                         }
                         break;
                     }
