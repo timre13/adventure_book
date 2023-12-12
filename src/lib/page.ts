@@ -35,6 +35,29 @@ export class Option {
                     case "changePage":
                         return child.getAttribute("id") ?? undefined;
                     case "changeItem":
+                        let inv = get(inventory);
+                        for (let group of inv.groups) {
+                            let added = false;
+                            if (group.name == child.getAttribute("group")) {
+                                let itemName = child.getAttribute("name");
+                                if (!itemName) {
+                                    alert("Item error");
+                                    fail = true;
+                                    break;
+                                }
+                                if (group.items[itemName]) {
+                                    group.items[itemName] += parseInt(child.getAttribute("amount") ?? "0");
+                                } else {
+                                    group.items[itemName] = parseInt(child.getAttribute("amount") ?? "0");
+                                }
+                                for (let key in group.items) {
+                                    if (group.items[key] == 0) delete group.items[key];
+                                }
+                                added = true;
+                            }
+                            if (added) break;
+                        }
+                        inventory.set(inv);
                         break;
                     case "changeStat":
                         break;
