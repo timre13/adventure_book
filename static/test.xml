@@ -61,6 +61,12 @@
             <alert text="Boo"/>
           </execute>
         </option>
+        <option>
+          <text>Restart</text>
+          <execute>
+            <restart/>
+          </execute>
+        </option>
       </options>
     </page>
     <page id="success">
