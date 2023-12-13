@@ -55,6 +55,12 @@
             <changePage id="fail"/>
           </execute>
         </option>
+        <option>
+          <text>Alert</text>
+          <execute>
+            <alert text="Boo"/>
+          </execute>
+        </option>
       </options>
     </page>
     <page id="success">
