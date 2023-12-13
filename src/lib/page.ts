@@ -125,18 +125,29 @@ export class Option {
                     }
                     case "itemRequired": {
                         const inventoryGroups = get(inventory).groups;
+                        const itemName = child.getAttribute("name");
+                        let foundCount = 0;
                         let found = false;
                         for (let group of inventoryGroups) {
                             for (let key in group.items) {
-                                if (key == child.getAttribute("name")) {
+                                if (key == itemName) {
                                     found = true;
+                                    foundCount = group.items[key];
                                     break;
                                 }
                             }
                             if (found) break;
                         }
-                        if (!found) {
-                            fail = true;
+                        if (!child.hasAttribute("max")) {
+                            // Van item?
+                            if (!found) {
+                                fail = true;
+                            }
+                        } else {
+                            // Az item darabja maximum "max"?
+                            if (foundCount > parseInt(child.getAttribute("max")!) ?? 1) {
+                                fail = true;
+                            }
                         }
                         break;
                     }
