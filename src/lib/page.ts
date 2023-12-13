@@ -48,9 +48,9 @@ export class Option {
                                     break;
                                 }
                                 if (group.items[itemName]) {
-                                    group.items[itemName] += parseInt(child.getAttribute("amount") ?? "0");
+                                    group.items[itemName] += parseInt(child.getAttribute("amount") ?? "1");
                                 } else {
-                                    group.items[itemName] = parseInt(child.getAttribute("amount") ?? "0");
+                                    group.items[itemName] = parseInt(child.getAttribute("amount") ?? "1");
                                 }
                                 for (let key in group.items) {
                                     if (group.items[key] <= 0) delete group.items[key];
