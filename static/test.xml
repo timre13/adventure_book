@@ -35,6 +35,26 @@
             <changePage id="fail"/>
           </execute>
         </option>
+        <option>
+          <text>Test if you have item(s)</text>
+          <execute>
+            <itemRequired name="item"/>
+            <changePage id="success"/>
+          </execute>
+          <execute>
+            <changePage id="fail"/>
+          </execute>
+        </option>
+        <option>
+          <text>Test if you lack items</text>
+          <execute>
+            <itemRequired name="item" max="0"/>
+            <changePage id="success"/>
+          </execute>
+          <execute>
+            <changePage id="fail"/>
+          </execute>
+        </option>
       </options>
     </page>
     <page id="success">
@@ -78,6 +98,24 @@
           <text>Get a stat of 10</text>
           <execute>
             <changeStat name="stat" value="10"/>
+          </execute>
+        </option>
+        <option>
+          <text>Get an item</text>
+          <execute>
+            <changeItem name="item" group="itemGroup"/>
+          </execute>
+        </option>
+        <option>
+          <text>Lose an item</text>
+          <execute>
+            <changeItem name="item" amount="-1" group="itemGroup"/>
+          </execute>
+        </option>
+        <option>
+          <text>Get 5 items</text>
+          <execute>
+            <changeItem name="item" amount="5" group="itemGroup"/>
           </execute>
         </option>
       </options>
