@@ -24,6 +24,7 @@ export class Option {
     //returns destination page
     public async execute(): Promise<string | undefined> {
         if (!this.executes) return;
+        console.log("Executing:", this.executes);
         console.log(get(inventory));
         for (let group of this.executes) {
             let children = group.children;
@@ -52,7 +53,7 @@ export class Option {
                                     group.items[itemName] = parseInt(child.getAttribute("amount") ?? "0");
                                 }
                                 for (let key in group.items) {
-                                    if (group.items[key] == 0) delete group.items[key];
+                                    if (group.items[key] <= 0) delete group.items[key];
                                 }
                                 added = true;
                             }
