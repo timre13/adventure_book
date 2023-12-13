@@ -65,8 +65,6 @@ export class Option {
                     case "changeStat": {
                         let statList = get(stats);
                         let statName = child.getAttribute("name") ?? "";
-                        console.log("Changing stat:", statName);
-                        console.log("Stats:", statList);
                         let isMax = false;
                         if (statName.includes(".max")) {
                             statName = statName.replace(".max", "");
@@ -80,6 +78,7 @@ export class Option {
                         }
                         let increaseValue = child.getAttribute("increase") ?? "0";
                         let decreaseValue = child.getAttribute("decrease") ?? "0";
+                        let valueValue = child.getAttribute("value") ?? "0";
                         if (increaseValue.startsWith("~")) {
                             const [_, ...increase] = increaseValue;
                             let diceMin = parseInt(increaseValue.split("d")[0]);
@@ -92,13 +91,36 @@ export class Option {
                             let diceMax = diceMin * parseInt(decreaseValue.split("d")[1]);
                             decreaseValue = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin).toString();
                         }
+                        if (valueValue.startsWith("~")) {
+                            const [_, ...decrease] = valueValue;
+                            let diceMin = parseInt(valueValue.split("d")[0]);
+                            let diceMax = diceMin * parseInt(valueValue.split("d")[1]);
+                            valueValue = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin).toString();
+                        }
 
                         if (isMax) {
                             statList[statIndex].maxValue += parseInt(increaseValue);
                             statList[statIndex].maxValue -= parseInt(decreaseValue);
+                            if (parseInt(valueValue) != 0) {
+                                statList[statIndex].maxValue = parseInt(valueValue);
+                            }
+                            if (statList[statIndex].maxValue <= 0) {
+                                statList[statIndex].maxValue = 1;
+                            }
                         } else {
                             statList[statIndex].value += parseInt(increaseValue);
                             statList[statIndex].value -= parseInt(decreaseValue);
+                            statList[statIndex].value = parseInt(valueValue);
+                            if (parseInt(valueValue) != 0) {
+                                statList[statIndex].value = parseInt(valueValue);
+                            }
+
+                            if (statList[statIndex].value > statList[statIndex].maxValue) {
+                                statList[statIndex].value = statList[statIndex].maxValue;
+                            }
+                            if (statList[statIndex].value > statList[statIndex].minValue) {
+                                statList[statIndex].value = statList[statIndex].minValue;
+                            }
                         }
 
                         stats.set(statList);
