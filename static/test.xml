@@ -28,7 +28,7 @@
         <option>
           <text>Test with 2 d6 dice against stat</text>
           <execute>
-            <dice stat="Szerencse" type="2d6" />
+            <dice stat="stat" type="2d6" />
             <changePage id="success"/>
           </execute>
           <execute>
