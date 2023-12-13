@@ -148,6 +148,12 @@
             <changeItem name="item" amount="5" group="itemGroup" />
           </execute>
         </option>
+        <option>
+          <text>Back to main menu</text>
+          <execute>
+            <changePage id="start" />
+          </execute>
+        </option>
       </options>
     </page>
   </pages>
