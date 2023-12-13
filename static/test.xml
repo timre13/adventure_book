@@ -1,11 +1,11 @@
 <game>
   <gameConditions>
-      <statRequired name="stat" min="0"/>
+      <statRequired name="stat" min="1"/>
   </gameConditions>
 
   <character>
     <stats>
-      <stat name="Életerő" value="2" min="0" max="200"/>
+      <stat name="stat" dice="2d6" min="0" max="200"/>
     </stats>
     <inventory>
       <group name="itemGroup">
@@ -14,6 +14,73 @@
     </inventory>
   </character>
   <pages>
-    
+    <page id="start">
+      <text>
+        This is the begining of the test file
+      </text>
+      <options>
+        <option>
+          <text>Get or lose stat or item</text>
+          <execute>
+            <changePage id="statOrItemConfig"/>
+          </execute>
+        </option>
+        <option>
+          <text>Test with 2 d6 dice against stat</text>
+          <execute>
+            <dice stat="Szerencse" type="2d6" />
+            <changePage id="success"/>
+          </execute>
+          <execute>
+            <changePage id="fail"/>
+          </execute>
+        </option>
+      </options>
+    </page>
+    <page id="success">
+      <text>Successfull</text>
+      <options>
+        <option>
+          <text>Back to main menu</text>
+          <execute>
+            <changePage id="start"/>
+          </execute>
+        </option>
+      </options>
+    </page>
+    <page id="fail">
+      <text>Failed</text>
+      <options>
+        <option>
+          <text>Back to main menu</text>
+          <execute>
+            <changePage id="start"/>
+          </execute>
+        </option>
+      </options>
+    </page>
+    <page id="statOrItemConfig">
+      <text>You can change the stat and item values here</text>
+      <options>
+        <option>
+          <text>Get a bigger stat</text>
+          <execute>
+            <changeStat name="stat" increase="1"/>
+          </execute>
+        </option>
+        <option>
+          <text>Get a smaller stat</text>
+          <execute>
+            <changeStat name="stat" decrease="1"/>
+          </execute>
+        </option>
+        <option>
+          <text>Get a stat of 10</text>
+          <execute>
+            <changeStat name="stat" value="10"/>
+          </execute>
+        </option>
+      </options>
+    </page>
   </pages>
 </game>
