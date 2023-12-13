@@ -12,15 +12,8 @@
 
     let diceHandler: Dice;
 
-    conditionHandler("vars['B'] = 'A'"); // létrehozok egy B változót A értékkel
-    conditionHandler("vars['B'] == 'A'"); // True értéket ad vissza
-
     let pages: Record<string, Page> = {};
-
     let pageHistory: Array<Page> = [];
-
-    let xmlDoc: Document;
-    file.subscribe(x => {});
 
     async function getPageTexts(): Promise<Array<String>> {
         let pageTexts: Array<String> = [];
@@ -45,10 +38,8 @@
     }
 
     function buttonEnter(x: MouseEvent) {
-        console.log("Enter");
         let btnI = parseInt((x.currentTarget! as HTMLElement).dataset.index || "0");
         tooltip = pageHistory[pageHistory.length - 1].buttons[btnI].getTooltipHtml();
-        console.log(tooltip.then(x => console.log(x)));
     }
 
     function tooltipHover(x: MouseEvent) {
@@ -56,7 +47,6 @@
         if (!elem) return;
         elem.style.left = x.offsetX + "px";
         elem.style.top = x.offsetY + "px";
-        //console.log(x.clientX, x.clientY);
     }
 
     onMount(async () => {
@@ -70,11 +60,12 @@
                 return;
             }
             let parser = new DOMParser();
-            xmlDoc = parser.parseFromString(content, "text/xml");
+
+            let xmlDoc = parser.parseFromString(content, "text/xml");
             console.log("File has been parsed:", xmlDoc);
 
             // Stats betöltés
-            (async () => {
+            {
                 let stats_: Array<Stat> = [];
                 let statNodes = xmlDoc.querySelectorAll("game > character > stats *");
                 statNodes.forEach(async node => {
@@ -84,16 +75,11 @@
                         if (node.hasAttribute("value")) {
                             value = parseInt(node.getAttribute("value")!) || 0;
                         } else if (node.hasAttribute("dice")) {
-                            let diceVal = node.getAttribute("dice")?.split(" ")[0] ?? "";
-                            // FIXME
-                            //value = await diceHandler.roll(diceVal);
-                            // --- Workaround kezdete ---
-                            let diceMin = parseInt(diceVal.split("d")[0]);
-                            let diceMax = diceMin * parseInt(diceVal.split("d")[1]);
+                            const diceVal = node.getAttribute("dice")?.split(" ")[0] ?? "";
+                            const diceMin = parseInt(diceVal.split("d")[0]);
+                            const diceMax = diceMin * parseInt(diceVal.split("d")[1]);
                             value = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin);
-                            // --- Workaround vége ---
                         }
-                        // Nyilván nem lehet konzisztens az elnevezés (min / minValue)
                         let min = parseInt(node.getAttribute("min") || node.getAttribute("minValue") || "0") || 0;
                         let maxStr = node.getAttribute("max") || node.getAttribute("maxValue");
                         let max = maxStr == "value" || !maxStr ? value : parseInt(maxStr ?? "0") ?? 0;
@@ -102,8 +88,8 @@
                         stats_.push(new StatSeparator());
                     }
                 });
-                return stats_;
-            })().then(x => stats.set(x));
+                stats.set(stats_);
+            }
 
             // Inventory betöltés
             {
