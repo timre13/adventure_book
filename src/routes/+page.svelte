@@ -13,6 +13,7 @@
     let diceHandler: Dice;
 
     let pages: Record<string, Page> = {};
+    let itemUseDefs: Record<string, NodeListOf<Element>> = {};
     let pageHistory: Array<Page> = [];
 
     async function getPageTexts(): Promise<Array<String>> {
@@ -114,6 +115,16 @@
                 inventory.set(inventory_);
             }
 
+            // Item use def betöltés
+            {
+                let itemUseDefNodes = xmlDoc.querySelectorAll("itemUseDefinitions itemUseDefinition");
+                console.log(itemUseDefNodes);
+                itemUseDefNodes.forEach(node => {
+                    let itemName = node.getAttribute("item") ?? "";
+                    itemUseDefs[itemName] = node.querySelectorAll("*");
+                });
+            }
+
             // Oldal betöltés
             {
                 pages = {};
@@ -210,7 +221,7 @@
         </div>
     </div>
     <div id="right-panel">
-        <StatusNotepad />
+        <StatusNotepad {itemUseDefs} />
     </div>
 </main>
 

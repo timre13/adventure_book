@@ -1,9 +1,26 @@
 <script lang="ts">
     import { stats, inventory } from "$lib/stores/gamestate";
-    import { get } from "svelte/store";
+    import { Option } from "$lib/page";
+    import { invalidate } from "$app/navigation";
+
+    export let itemUseDefs: Record<string, NodeListOf<Element>>;
+
+    function onItemClick(e: MouseEvent) {
+        const itemName = (e.currentTarget as HTMLElement).dataset.itemname ?? "";
+        const callbacks = itemUseDefs[itemName];
+        if (!callbacks) return;
+        console.log(callbacks);
+
+        let opt = new Option("", "", false, callbacks);
+        opt.execute();
+
+        itemUseDefs = itemUseDefs;
+    }
 </script>
 
 <!-- svelte-ignore a11y-missing-attribute -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <div class="status-notepad">
     <img src="/notepad.png" />
     <div class="content">
@@ -28,7 +45,14 @@
                 <p class="group-name">{group.name}</p>
                 <div class="group-content">
                     {#each Object.entries(group.items) as [item, cnt]}
-                        <p>{item}: {cnt} db</p>
+                        <p
+                            class:consumable-item={Object.keys(itemUseDefs).includes(item)}
+                            data-itemname={item}
+                            title={Object.keys(itemUseDefs).includes(item) ? "Tárgy használata" : null}
+                            on:click={onItemClick}
+                        >
+                            {item}: {cnt} db
+                        </p>
                     {/each}
                 </div>
             {/each}
@@ -91,6 +115,11 @@
                     p::first-letter {
                         text-transform: uppercase;
                     }
+                }
+
+                .consumable-item {
+                    color: blue;
+                    cursor: pointer;
                 }
             }
         }

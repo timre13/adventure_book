@@ -3,6 +3,36 @@
         <statRequired name="életerő" min="1"/>
     </gameConditions>
 
+    <itemUseDefinitions>
+        <itemUseDefinition item="Élelem">
+            <execute>
+                <changeStat name="Életerő" increase="1"/>
+                <changeItem name="Élelem" amount="-1" group="Bájitalok"/>
+            </execute>
+        </itemUseDefinition>
+        <itemUseDefinition item="Ügyesség Itala">
+            <execute>
+                <changeStat name="Ügyesség.max" increase="5"/>
+                <changeStat name="Ügyesség" increase="5"/>
+                <changeItem name="Ügyesség Itala" amount="-1" group="Bájitalok"/>
+            </execute>
+        </itemUseDefinition>
+        <itemUseDefinition item="Életerő Itala">
+            <execute>
+                <changeStat name="Életerő.max" increase="5"/>
+                <changeStat name="Életerő" increase="5"/>
+                <changeItem name="Életerő Itala" amount="-1" group="Bájitalok"/>
+            </execute>
+        </itemUseDefinition>
+        <itemUseDefinition item="Szerencse Itala">
+            <execute>
+                <changeStat name="Szerencse.max" increase="5"/>
+                <changeStat name="Szerencse" increase="5"/>
+                <changeItem name="Szerencse Itala" amount="-1" group="Bájitalok"/>
+            </execute>
+        </itemUseDefinition>
+    </itemUseDefinitions>
+
     <character>
         <stats>
             <stat name="Életerő" dice="2d6 value" min="0" max="value"/>
