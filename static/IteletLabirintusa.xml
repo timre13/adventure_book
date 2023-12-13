@@ -31,7 +31,7 @@
 
 
     <pages>
-        <page id="init">
+        <page id="start">
             <text>
                 # Hogyan küzdj meg a Labirintus teremtményeivel?
 
@@ -343,57 +343,63 @@
             <text>
                 A válladra csapod a köpenyt, de legnagyobb meglepetésedre semmi nem történik. Mivel egy kicsit azért hűvös van, nem dobod le. Bár nem tudod, de ez a Lebegés Köpenye.
             </text>
-            <option>
-                <text>Felveszem a gyűrűt</text>
-                <execute>
-                    <itemRequired name="Gyűrű" max="0"/>
-                    <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
-                    <changePage id="119"/>
-                </execute>
-                <execute>
-                    <alert text="Már rajtad van."/>
-                </execute>
-            </option>
-            <option>
-                <text>Megkóstolom a folyadékot</text>
-                <execute>
-                    <itemRequired name="Italeffect" max="0"/>
-                    <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
-                    <changePage id="71"/>
-                </execute>
-                <execute>
-                    <alert text="Már üres."/>
-                </execute>
-            </option>
-            <option>
-                <text>Folytatom az utamat</text>
-                <execute>
-                    <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
-                    <changePage id="80"/>
-                </execute>
-            </option>
+            <options>
+                <option>
+                    <text>Felveszem a gyűrűt</text>
+                    <execute>
+                        <itemRequired name="Gyűrű" max="0"/>
+                        <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
+                        <changePage id="119"/>
+                    </execute>
+                    <execute>
+                        <alert text="Már rajtad van."/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Megkóstolom a folyadékot</text>
+                    <execute>
+                        <itemRequired name="Italeffect" max="0"/>
+                        <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
+                        <changePage id="71"/>
+                    </execute>
+                    <execute>
+                        <alert text="Már üres."/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Folytatom az utamat</text>
+                    <execute>
+                        <changeItem name="Lebegés köppenye" amount="1" group="Felszerelés"/>
+                        <changePage id="80"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="13">
             <text>
                 A zárba helyezed a kulcsot, de az sajnos nem illik bele, így nincs más választásod, minthogy megpróbáld betörni.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <changePage id="196"/>
-                </execute>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="196"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="14">
             <text>
                 Ahogy észak felé haladsz nyugatról egy alagutat látsz befutni. Úgy döntesz, inkább egyenesen mész tovább.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <changePage id="67"/>
-                </execute>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="67"/>
+                    </execute>
+                </option>
+            </options> 
         </page>
         <page id="15">
             <text>
@@ -666,12 +672,14 @@
             <text>
                 Úgy döntesz, késlekedés nélkül elhagyod a szobát, így bezárod magad mögött az ajtót és keletnek indulsz.
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <execute>
-                    <changePage id="16"/>
-                </execute>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="16"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="33">
             <text>
@@ -776,20 +784,22 @@
             <text>
                 A szobába belépve az eddig látott legcivilizáltabb teremben találod magad. A falakat fa burkolólapok borítják, fáklyák helyett itt egy lágy fényt árasztó gömb biztosítja a világítást, mely a szoba közepén álló asztal felett lebeg. E mellett egy férfi görnyedt alakját veszed észre. Miközben becsukod magad mögött az ajtót, az öregember felemelkedik, és üdvözlően feléd nyújtja mindkét karját. Hangja vékony és remegő, és csak ekkor jössz rá, mennyire vén is lehet. Megtaláltad a Szobrot? kérdezi tőled. 
             </text>
-            <option>
-                <text>Megmondom az igazat</text>
-                <execute>
-                    <itemRequired name="Szobor"/>
-                    <changePage id="91"/>
-                </execute>
-                <execute>
-                    <changePage id="131"/>
-                </execute>
-            </option>
-            <option>
-                <text>Megtámadom</text>
-                <changePage id="77"/>
-            </option>
+            <options>
+                <option>
+                    <text>Megmondom az igazat</text>
+                    <execute>
+                        <itemRequired name="Szobor"/>
+                        <changePage id="91"/>
+                    </execute>
+                    <execute>
+                        <changePage id="131"/>
+                    </execute>
+                </option>
+                <option>
+                    <text>Megtámadom</text>
+                    <changePage id="77"/>
+                </option>
+            </options>
         </page>
         <page id="40">
             <text>
@@ -993,32 +1003,41 @@
             <text>
                 A járat élesen keletre fordul, és végül egy ajtóba torkollik. 
             </text>
-            <option>
-                <text>Menj tovább</text>
-                <changePage id="45"/>
-            </option>
+            <options>
+                <option>
+                    <text>Menj tovább</text>
+                    <execute>
+                        <changePage id="45"/>
+                    </execute>
+                </option>
+            </options>
         </page>
         <page id="53">
             <text>
                 A part teljesen kihaltnak tűnik, te pedig eléggé óvatlanul járkálsz, így a homokban bujkáló apró, bíbor rák minden gond nélkül csíp bele a lábadba. A három ajtó bármelyiken át távozhatsz.
             </text>
-            <initially>
-                <execute>
-                    <changeStat  name="Életerő" decrease="2"/>
-                </execute>
-            </initially>
+
             <options>
                 <option>
                     <text>Észak</text>
-                    <changePage id="87"/>
+                    <execute>
+                        <changePage id="87"/>
+                        <changeStat  name="Életerő" decrease="2"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Kelet</text>
-                    <changePage id="6"/>
+                    <execute>
+                        <changePage id="6"/>
+                        <changeStat  name="Életerő" decrease="2"/>
+                    </execute>
                 </option>
                 <option>
                     <text>Nyugat</text>
-                    <changePage id="111"/>
+                    <execute>
+                        <changePage id="111"/>
+                        <changeStat  name="Életerő" decrease="2"/>
+                    </execute>
                 </option>
             </options>
         </page>
