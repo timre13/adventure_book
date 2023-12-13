@@ -175,7 +175,6 @@
         <button on:click={TestRoll}>Testroll</button>
     </div>
     <div id="center-panel">
-        <div id="center-panel-overlay" />
         <div id="pages">
             {#await pageTexts then pageTextsVal}
                 {#each pageHistory as page, pageI}
