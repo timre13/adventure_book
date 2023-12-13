@@ -17,30 +17,14 @@
 
     let pages: Record<string, Page> = {};
 
-    let pageHistory: Array<Page> = Array(5);
-    pageHistory.fill(
-        new Page(
-            "Lorem ipsum dolor sit, *amet consectetur* adipisicing elit. **Voluptate, maxime?** Officiis pariatur laborum cum aut totam quam tempore earum sequi non? Magni iure atque blanditiis impedit voluptatibus sunt quia distinctio!\n\n\
-Iure eligendi reprehenderit enim cum debitis vitae ullam quo quis sunt accusamus ducimus et, consequuntur soluta suscipit est, architecto aperiam nostrum quasi. Officiis possimus facere laudantium ad enim eos illo.\n\n\
-Tempore debitis odit beatae. Animi, autem rem voluptatibus modi corrupti enim iusto illo necessitatibus. Unde vitae dolor sed architecto, ex assumenda soluta natus iste cum culpa illum sequi magni modi.\n\n\
-Praesentium facere tempore harum quos quis voluptatum? Adipisci exercitationem sint perspiciatis, nisi est rem vel nulla deserunt asperiores quas nihil beatae accusamus dolorum enim facilis obcaecati ipsum modi deleniti aut.\n\n\
-At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt suscipit eos ipsum maxime. Consequatur saepe cupiditate repellat omnis quaerat accusantium a, quidem, dolore vel enim ab eos tenetur?",
-            [
-                new Option("Első", "Ez az **első** gomb"),
-                new Option("Második"),
-                new Option("Harmadik", "Ez a harmadik gomb", true),
-                new Option("Negyedik", "Ez a negyedik gomb")
-            ]
-        )
-    );
+    let pageHistory: Array<Page> = [];
 
     let xmlDoc: Document;
-    file.subscribe(x => {
-        
-    });
+    file.subscribe(x => {});
 
     async function getPageTexts(): Promise<Array<String>> {
         let pageTexts: Array<String> = [];
+        console.log("Page history len:", pageHistory.length);
         for (let i = 0; i < pageHistory.length; ++i) {
             let result = await pageHistory[i].getTextAsHtml();
             pageTexts.push(result);
@@ -147,6 +131,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
             // Oldal betöltés
             {
                 pages = {};
+                let firstPage: Page | undefined = undefined;
 
                 let pageNodes = xmlDoc.querySelectorAll("game > pages page");
                 pageNodes.forEach(pageNode => {
@@ -158,7 +143,6 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                     let optionNodes = pageNode.querySelectorAll("options > option");
                     optionNodes.forEach(optionNode => {
                         let optionText = optionNode.querySelector("text")?.innerHTML ?? "";
-                        // TODO: Execute betöltése
                         options.push(
                             new Option(
                                 optionText,
@@ -171,19 +155,17 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
                     });
 
                     let page = new Page(pageText, options);
+                    if (!firstPage) {
+                        firstPage = page;
+                    }
                     pages[pageId] = page;
                 });
 
                 pages = pages;
-                console.log(pages);
-
-                // Teszt
-                console.log(pages["init"]);
-                pageHistory.push(pages["init"]);
-                pageHistory = pageHistory;
+                pageHistory = [firstPage!];
             }
         }
-    })
+    });
 
     function TestRoll() {
         diceHandler.roll("2d6").then(res => {
@@ -195,7 +177,7 @@ At velit consectetur minima eum similique. Incidunt natus vitae quos nesciunt su
         let destination = await page.buttons[optionIndex].execute();
         if (!destination) return;
         console.log(pages[destination]);
-        let history = [...pageHistory]
+        let history = [...pageHistory];
         history.push(pages[destination]);
         pageHistory = history;
     }
