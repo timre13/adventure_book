@@ -1,0 +1,19 @@
+<game>
+  <gameConditions>
+      <statRequired name="stat" min="0"/>
+  </gameConditions>
+
+  <character>
+    <stats>
+      <stat name="Életerő" value="2" min="0" max="200"/>
+    </stats>
+    <inventory>
+      <group name="itemGroup">
+        
+      </group>
+    </inventory>
+  </character>
+  <pages>
+    
+  </pages>
+</game>
