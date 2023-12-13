@@ -65,13 +65,15 @@ export class Option {
                     case "changeStat": {
                         let statList = get(stats);
                         let statName = child.getAttribute("name") ?? "";
+                        console.log("Changing stat:", statName);
+                        console.log("Stats:", statList);
                         let isMax = false;
                         if (statName.includes(".max")) {
                             statName = statName.replace(".max", "");
                             isMax = true;
                         }
                         const statIndex = statList.findIndex(stat => stat.name == statName);
-                        if (!statIndex) {
+                        if (statIndex == -1) {
                             alert("Stat error");
                             fail = true;
                             break;
@@ -99,6 +101,7 @@ export class Option {
                             statList[statIndex].value -= parseInt(decreaseValue);
                         }
 
+                        stats.set(statList);
                         break;
                     }
                     case "itemRequired": {
