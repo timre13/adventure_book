@@ -1,15 +1,15 @@
 <game>
   <gameConditions>
-      <statRequired name="stat" min="1"/>
+    <statRequired name="stat" min="1" />
   </gameConditions>
 
   <character>
     <stats>
-      <stat name="stat" dice="2d6" min="0" max="200"/>
+      <stat name="stat" dice="2d6" min="0" max="15" />
     </stats>
     <inventory>
       <group name="itemGroup">
-        
+
       </group>
     </inventory>
   </character>
@@ -22,49 +22,49 @@
         <option>
           <text>Get or lose stat or item</text>
           <execute>
-            <changePage id="statOrItemConfig"/>
+            <changePage id="statOrItemConfig" />
           </execute>
         </option>
         <option>
           <text>Test with 2 d6 dice against stat</text>
           <execute>
             <dice stat="stat" type="2d6" />
-            <changePage id="success"/>
+            <changePage id="success" />
           </execute>
           <execute>
-            <changePage id="fail"/>
+            <changePage id="fail" />
           </execute>
         </option>
         <option>
           <text>Test if you have item(s)</text>
           <execute>
-            <itemRequired name="item"/>
-            <changePage id="success"/>
+            <itemRequired name="item" />
+            <changePage id="success" />
           </execute>
           <execute>
-            <changePage id="fail"/>
+            <changePage id="fail" />
           </execute>
         </option>
         <option>
           <text>Test if you lack items</text>
           <execute>
-            <itemRequired name="item" max="0"/>
-            <changePage id="success"/>
+            <itemRequired name="item" max="0" />
+            <changePage id="success" />
           </execute>
           <execute>
-            <changePage id="fail"/>
+            <changePage id="fail" />
           </execute>
         </option>
         <option>
           <text>Alert</text>
           <execute>
-            <alert text="Boo"/>
+            <alert text="Boo" />
           </execute>
         </option>
         <option>
           <text>Restart</text>
           <execute>
-            <restart/>
+            <restart />
           </execute>
         </option>
       </options>
@@ -75,7 +75,7 @@
         <option>
           <text>Back to main menu</text>
           <execute>
-            <changePage id="start"/>
+            <changePage id="start" />
           </execute>
         </option>
       </options>
@@ -86,7 +86,7 @@
         <option>
           <text>Back to main menu</text>
           <execute>
-            <changePage id="start"/>
+            <changePage id="start" />
           </execute>
         </option>
       </options>
@@ -97,37 +97,55 @@
         <option>
           <text>Get a bigger stat</text>
           <execute>
-            <changeStat name="stat" increase="1"/>
+            <changeStat name="stat" increase="1" />
+          </execute>
+        </option>
+        <option>
+          <text>Get a bigger stat (dice: 2d6)</text>
+          <execute>
+            <changeStat name="stat" increase="~2d6" />
           </execute>
         </option>
         <option>
           <text>Get a smaller stat</text>
           <execute>
-            <changeStat name="stat" decrease="1"/>
+            <changeStat name="stat" decrease="1" />
+          </execute>
+        </option>
+        <option>
+          <text>Get a smaller stat (dice: 2d6)</text>
+          <execute>
+            <changeStat name="stat" decrease="~2d6" />
           </execute>
         </option>
         <option>
           <text>Get a stat of 10</text>
           <execute>
-            <changeStat name="stat" value="10"/>
+            <changeStat name="stat" value="10" />
+          </execute>
+        </option>
+        <option>
+          <text>Get a random stat (dice: 2d6)</text>
+          <execute>
+            <changeStat name="stat" value="~2d6" />
           </execute>
         </option>
         <option>
           <text>Get an item</text>
           <execute>
-            <changeItem name="item" group="itemGroup"/>
+            <changeItem name="item" group="itemGroup" />
           </execute>
         </option>
         <option>
           <text>Lose an item</text>
           <execute>
-            <changeItem name="item" amount="-1" group="itemGroup"/>
+            <changeItem name="item" amount="-1" group="itemGroup" />
           </execute>
         </option>
         <option>
           <text>Get 5 items</text>
           <execute>
-            <changeItem name="item" amount="5" group="itemGroup"/>
+            <changeItem name="item" amount="5" group="itemGroup" />
           </execute>
         </option>
       </options>

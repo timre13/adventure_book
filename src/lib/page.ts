@@ -6,6 +6,13 @@ import type { Dice } from "./dice";
 import { get } from "svelte/store";
 import { inventory, stats } from "$lib/stores/gamestate";
 
+function randomFromDiceNotation(notation: string): number {
+    let diceMin = parseInt(notation.split("d")[0]);
+    let diceMax = diceMin * parseInt(notation.split("d")[1]);
+    let result = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin);
+    return result;
+}
+
 export class Option {
     public text: string;
     public tooltip: string;
@@ -76,49 +83,39 @@ export class Option {
                             fail = true;
                             break;
                         }
-                        let increaseValue = child.getAttribute("increase") ?? "0";
-                        let decreaseValue = child.getAttribute("decrease") ?? "0";
-                        let valueValue = child.getAttribute("value") ?? "0";
-                        if (increaseValue.startsWith("~")) {
-                            const [_, ...increase] = increaseValue;
-                            let diceMin = parseInt(increaseValue.split("d")[0]);
-                            let diceMax = diceMin * parseInt(increaseValue.split("d")[1]);
-                            increaseValue = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin).toString();
-                        }
-                        if (decreaseValue.startsWith("~")) {
-                            const [_, ...decrease] = decreaseValue;
-                            let diceMin = parseInt(decreaseValue.split("d")[0]);
-                            let diceMax = diceMin * parseInt(decreaseValue.split("d")[1]);
-                            decreaseValue = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin).toString();
-                        }
-                        if (valueValue.startsWith("~")) {
-                            const [_, ...decrease] = valueValue;
-                            let diceMin = parseInt(valueValue.split("d")[0]);
-                            let diceMax = diceMin * parseInt(valueValue.split("d")[1]);
-                            valueValue = Math.floor(Math.random() * (diceMax - diceMin + 1) + diceMin).toString();
+                        let value = isMax ? statList[statIndex].maxValue : statList[statIndex].value;
+                        if (child.hasAttribute("value")) {
+                            const valueStr = child.getAttribute("value") ?? "0";
+                            if (valueStr.startsWith("~")) {
+                                value = randomFromDiceNotation(valueStr.substring(1));
+                            } else {
+                                value = parseInt(valueStr);
+                            }
+                        } else if (child.hasAttribute("increase") || child.hasAttribute("decrease")) {
+                            const changeStr = child.getAttribute("increase") ?? child.getAttribute("decrease") ?? "1";
+                            const isDecrease = child.hasAttribute("decrease");
+                            if (changeStr.startsWith("~")) {
+                                value += randomFromDiceNotation(changeStr.substring(1)) * (isDecrease ? -1 : 1);
+                            } else {
+                                value += parseInt(changeStr) * (isDecrease ? -1 : 1);
+                            }
                         }
 
                         if (isMax) {
-                            statList[statIndex].maxValue += parseInt(increaseValue);
-                            statList[statIndex].maxValue -= parseInt(decreaseValue);
-                            if (parseInt(valueValue) != 0) {
-                                statList[statIndex].maxValue = parseInt(valueValue);
-                            }
+                            statList[statIndex].maxValue = value;
                             if (statList[statIndex].maxValue <= 0) {
                                 statList[statIndex].maxValue = 1;
                             }
-                        } else {
-                            statList[statIndex].value += parseInt(increaseValue);
-                            statList[statIndex].value -= parseInt(decreaseValue);
-                            statList[statIndex].value = parseInt(valueValue);
-                            if (parseInt(valueValue) != 0) {
-                                statList[statIndex].value = parseInt(valueValue);
-                            }
-
                             if (statList[statIndex].value > statList[statIndex].maxValue) {
                                 statList[statIndex].value = statList[statIndex].maxValue;
                             }
-                            if (statList[statIndex].value > statList[statIndex].minValue) {
+                        } else {
+                            statList[statIndex].value = value;
+                            if (statList[statIndex].value > statList[statIndex].maxValue) {
+                                statList[statIndex].value = statList[statIndex].maxValue;
+                            }
+
+                            if (statList[statIndex].value < statList[statIndex].minValue) {
                                 statList[statIndex].value = statList[statIndex].minValue;
                             }
                         }
