@@ -186,7 +186,7 @@
         <div id="dice-box" />
         <button on:click={TestRoll}>Testroll</button>
     </div>
-    <div id="center-panel">
+    <div id="center-panel" style="background-image: url('{base}/tiled-paper.webp');">
         <div id="pages" style="background-image: url('{base}/tiled-paper.webp');">
             {#await pageTexts then pageTextsVal}
                 {#each pageHistory as page, pageI}
