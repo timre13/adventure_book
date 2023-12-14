@@ -267,17 +267,6 @@
                 background: #71593c;
             }
 
-            #center-panel-overlay {
-                height: 200px;
-                width: 50%;
-                background-image: linear-gradient($main-bg-color, transparent);
-                mask-image: linear-gradient(black, transparent);
-                -webkit-mask-image: linear-gradient(black, transparent);
-                backdrop-filter: blur(5px);
-                position: absolute;
-                pointer-events: none;
-            }
-
             .page {
                 scroll-snap-align: end;
                 margin-left: 5rem;
