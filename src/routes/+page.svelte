@@ -9,6 +9,7 @@
     import { get } from "svelte/store";
     import { Inventory, InventoryGroup } from "$lib/Inventory";
     import { inventory, stats } from "$lib/stores/gamestate";
+    import { base } from "$app/paths";
 
     let diceHandler: Dice;
 
@@ -181,12 +182,12 @@
 </script>
 
 <main>
-    <div id="left-panel">
+    <div id="left-panel" style="background-image: url('{base}/wood-texture-bg.jpg')">
         <div id="dice-box" />
         <button on:click={TestRoll}>Testroll</button>
     </div>
     <div id="center-panel">
-        <div id="pages">
+        <div id="pages" style="background-image: url('{base}/tiled-paper.webp');">
             {#await pageTexts then pageTextsVal}
                 {#each pageHistory as page, pageI}
                     <div class="page" use:scrollTo>
@@ -196,6 +197,7 @@
                                 {#each page.buttons as button, i}
                                     <button
                                         disabled={button.disabled}
+                                        style=" background-image: url('{base}/button-texture.jpg');"
                                         on:mousemove={tooltipHover}
                                         on:mouseenter={buttonEnter}
                                         on:click={() => buttonClick(page, i)}
@@ -220,7 +222,7 @@
             {/await}
         </div>
     </div>
-    <div id="right-panel">
+    <div id="right-panel" style="background-image: url('{base}/wood-texture-bg.jpg');">
         <StatusNotepad {itemUseDefs} />
     </div>
 </main>
@@ -237,7 +239,6 @@
         position: relative;
 
         #left-panel {
-            background-image: url("wood-texture-bg.jpg");
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -254,7 +255,6 @@
             //scroll-snap-stop: always;
 
             #pages {
-                background-image: url("tiled-paper.webp");
                 background-repeat: repeat;
             }
 
@@ -304,7 +304,7 @@
                         padding: 1rem;
                         cursor: pointer;
                         border-radius: 15px;
-                        background-image: url("button-texture.jpg");
+
                         background-repeat: repeat;
                         background-size: cover;
                         position: relative;
@@ -376,6 +376,7 @@
                         font-size: 2rem;
                         font-weight: normal;
                         margin-bottom: 1rem;
+                        text-align: left;
                     }
                 }
             }
@@ -388,7 +389,6 @@
         }
 
         #right-panel {
-            background-image: url("wood-texture-bg.jpg");
             background-repeat: no-repeat;
             background-position-x: right;
             background-size: cover;
