@@ -352,7 +352,6 @@
                     flex: 1;
                     font-size: 1.4rem;
                     font-weight: 500;
-                    line-height: 120%;
                     text-align: justify;
                     color: #422104;
 
