@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { conditionHandler, vars } from "$lib/index";
     import StatusNotepad from "../components/StatusNotepad.svelte";
     import { Stat, StatSeparator } from "$lib/status";
     import { Option, Page } from "$lib/page";
