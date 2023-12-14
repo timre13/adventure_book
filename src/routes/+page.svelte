@@ -373,10 +373,10 @@
                     }
 
                     :global(h1) {
-                        font-size: 2rem;
+                        font-size: 3rem;
                         font-weight: normal;
                         margin-bottom: 1rem;
-                        text-align: left;
+                        text-align: center;
                     }
                 }
             }
