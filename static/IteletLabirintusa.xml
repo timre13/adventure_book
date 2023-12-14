@@ -6,28 +6,26 @@
     <itemUseDefinitions>
         <itemUseDefinition item="Élelem">
             <execute>
-                <changeStat name="Életerő" increase="1"/>
+                <changeStat name="Életerő" increase="5"/>
                 <changeItem name="Élelem" amount="-1" group="Bájitalok"/>
             </execute>
         </itemUseDefinition>
         <itemUseDefinition item="Ügyesség Itala">
             <execute>
-                <changeStat name="Ügyesség.max" increase="5"/>
-                <changeStat name="Ügyesség" increase="5"/>
+                <changeStat name="Ügyesség" increase="12"/>
                 <changeItem name="Ügyesség Itala" amount="-1" group="Bájitalok"/>
             </execute>
         </itemUseDefinition>
         <itemUseDefinition item="Életerő Itala">
             <execute>
-                <changeStat name="Életerő.max" increase="5"/>
-                <changeStat name="Életerő" increase="5"/>
+                <changeStat name="Életerő" increase="12"/>
                 <changeItem name="Életerő Itala" amount="-1" group="Bájitalok"/>
             </execute>
         </itemUseDefinition>
         <itemUseDefinition item="Szerencse Itala">
             <execute>
-                <changeStat name="Szerencse.max" increase="5"/>
-                <changeStat name="Szerencse" increase="5"/>
+                <changeStat name="Szerencse.max" increase="1"/>
+                <changeStat name="Szerencse" increase="12"/>
                 <changeItem name="Szerencse Itala" amount="-1" group="Bájitalok"/>
             </execute>
         </itemUseDefinition>
@@ -63,7 +61,7 @@
     <pages>
         <page id="start">
             <text>
-                #Az ítélet labitintusa
+                # Az ítélet labirintusa
                 ## Hogyan küzdj meg a Labirintus teremtményeivel?
 
                 Mielőtt belevágnál ebbe a kalandba, fel kell mérned mennyire vagy erős, illetve gyenge. Van egy kardod, egy pajzsod és egy hátizsákod étellel, itallal az útra. Felkészültél a feladatra, megtanultál a karddal bánni, és keményen edzettél, hogy erős légy.
@@ -89,28 +87,7 @@
                 a fantasztikus birodalomban, amelybe most
                 behatolsz.
 
-                ## A CSATA
-                Sürün találsz majd olyan oldalakat, ahol azt az utasítást kapod, hogy küzdjél meg valamilyen teremtménnyel. Lehet, hogy lesz választási lehetőséged, de ha nem, vagy ha úgy döntesz, hogy vállalod a harcot, azt a következő módon kell megvívnod:
-                Először is jegyezd fel a teremtmény ÜGYESSÉGÉT ÉS ÉLETEREJÉT a Kalandlapod elsö üres Harc Szörnyekkel feliratot viselö rovatába. A teremtmények pontszámait minden alkalommal megadja a könyv, amikor összecsapsz valamelyikükkel.
-
-                ## A harc menete
                 
-
-                1.Dobj két dobókockával a teremtmény nevében. A kapott számot add az ő ÜGYESSEG pontjaihoz. Az összeg az Ő TÁMADÓEREJE.
-                2.Dobj két kockával most a magad nevében, és add az eredményt saját jelenlegi ÜGYESSÉG pontjaidhoz. Ez a te TÁMADÓERŐD.
-                3.Ha a te TÁMADÓEROD nagyobb, mint a teremtményé, akivel küzdesz, megsebezted. Lépj tovább a 4. lépésre. Ha a teremtmény TÁMADÓEREJE nagyobb, ö sebzett meg téged, és haladj az 5. lépésre. Ha a két TAMADÓERŐ egyforma, kivédtétek egymás csapását, és a következő Fordulót az 1. lépéstől elölről kezditek.
-                4.Megsebezted a teremtményt, ezért vonjál le 2 pontot ÉLETEREJÉBŐL. Felhasználhatod SZERENCSÉDET is, hogy további sebeket
-                ejts rajta (lásd odébb).
-                5.A teremtmény sebzett meg téged, ezért vonjál le 2 pontot saját ÉLETERÖDBŎL. De ilyenkor is lehet SZERENCSÉD (lásd odébb).
-                6. Végezd el a szükséges módosításokat mind saját, mind pedig ellenfeled ÉLETEREJÉBEN (és SZERENCSÉJÉBEN, amennyiben ez szükséges).
-                7.Kezdd el a következő fordulót meglévő UGYESSÉG pontjaid alapján, azaz ismételd meg a lépéseket 1-6-ig. Addig játszhatsz, amíg vagy a te, vagy a teremtmény ÉLETERŐ pontjai nem fogynak el (halál).
-
-                ### MENEKÜLÉS
-                Bizonyos pontoknál lehetőséget kapsz rá, hogy elmenekülj a csatából, ha a dolgok rosszra fordulnának. Ha azonban elmenekülsz, ellenfeled automatikusan megsebez téged (vesztesz 2 ÉLETERŐ pontot), ahogy hátat fordítasz neki. Ne feledd, hogy ilyenkor is használhatod a SZERENCSÉDET, hogy csökkentsd az így elszenvedett sebesülést. Csak akkor menekülhetsz el, ha ezt az adott fejezetpont kifejezetten megengedi.
-
-                ### CSATA EGYNÉL TÖBB TEREMTMÉNNYEL
-                Ha egynél több lénnyel kerülnél egyszerre összeütközésbe, mindig közöljük veled a harcra vonatkozó utasítást az adott pont alatt. Néha egyszerre kell velük megküzdened, néha meg mindegyikkel különkülön.
-
                 ### SZERENCSE
                 Kalandjaid során, akár csatában, akár olyan helyzetekben, amikor a SZERENCSE dönthet sorsod alakulásában (az erre vonatkozó utasítást az adott fejezetpontok alatt megkapod), a SZERENCSÉDRE is számíthatsz, hogy az események kimenetele számodra kedvező legyen. De vigyázz! A SZERENCSÉRE számítani kockázatos, és ha balszerencsés vagy, az eredmény végzetes lehet.
                 SZERENCSÉDET a következő módon teheted próbára. Dobj két kockával. Ha a kapott szám nem nagyobb, mint a jelenlegi SzERENCSE pontszámod, az eredmény kedvező. Ha magasabb számot dobsz, mint a jelenlegi SZERENCSE pontszámod, balszerencséd volt, és vállalnod kell a következményeit.
@@ -140,9 +117,9 @@
                 Kalandodat a legszükségesebb tárgyakkal kezded, ám utad során lehetőséged lesz új tárgyakat találni vagy vásárolni. Van egy kardod és egy bőrvérted. Hátizsákodban tartod élelmedet és azokat a kincseket, melyeket utad során szerezhetsz. Kezdetben 20 Aranytallérod van.
                 Ezen kívül magaddal vihetsz egyet az alábbi Varázsitalokból, hogy azok kalandod során támogassanak. Egyet választhatsz:
 
-                Az Ügyesség Itala &#8211; visszaállítja UGYESSÉG pontjaidat
-                Az Életerő Itala &#8211; visszaállítja ÉLETERÖ pontjaidat
-                A Szerencse Itala &#8211; visszaállítja SZERENCSE pontjaidat, és 1-el megnöveli Kezdeti SZERENCSÉDET.
+                #### Az Ügyesség Itala &#8211; visszaállítja UGYESSÉG pontjaidat
+                #### Az Életerő Itala &#8211; visszaállítja ÉLETERÖ pontjaidat
+                #### A Szerencse Itala &#8211; visszaállítja SZERENCSE pontjaidat, és 1-el megnöveli Kezdeti SZERENCSÉDET.
                 Ezeket az Italokat bármikor felhajthatod kalandod során. Minden üveg kétadagnyi folyadékot tartalmaz, azaz kalandod során kétszer állíthatod vissza velük a megfelelő képességet a kezdeti értékére. Valahányszor így teszel, azt jegyezd fel, és arról se feledkezz meg, hogy a három Italból csupán egyet vihetsz magaddal az útra, úgyhogy válassz megfontoltan!
 
                 # TANÁCSOK A JÁTÉKHOZ
