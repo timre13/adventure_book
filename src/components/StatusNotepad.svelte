@@ -119,7 +119,7 @@
                 }
 
                 .consumable-item {
-                    color: blue;
+                    color: rgb(0, 0, 190);
                     cursor: pointer;
                 }
             }
