@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/adventure_book/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+		<link rel="modulepreload" href="/adventure_book/_app/immutable/entry/start.59c1be80.js">
+		<link rel="modulepreload" href="/adventure_book/_app/immutable/chunks/scheduler.ba624956.js">
+		<link rel="modulepreload" href="/adventure_book/_app/immutable/chunks/singletons.505a3c9c.js">
+		<link rel="modulepreload" href="/adventure_book/_app/immutable/chunks/index.5e2977b4.js">
+		<link rel="modulepreload" href="/adventure_book/_app/immutable/chunks/paths.55ab9035.js">
+		<link rel="modulepreload" href="/adventure_book/_app/immutable/entry/app.3a9c06c9.js">
+		<link rel="modulepreload" href="/adventure_book/_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="/adventure_book/_app/immutable/chunks/index.4dc0cf36.js">
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <div style="display: contents">
+			<script>
+				{
+					__sveltekit_rfqeu = {
+						assets: "/adventure_book",
+						base: "/adventure_book",
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/adventure_book/_app/immutable/entry/start.59c1be80.js"),
+						import("/adventure_book/_app/immutable/entry/app.3a9c06c9.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+    </body>
+</html>
