@@ -1,0 +1,90 @@
+<game>
+    <gameConditions>
+        <statRequired name="életerő" min="1"/>
+        <itemRequired name="kulcs" min="1"/>
+        <!--Csak addig fut a játék, amíg legalább egy életerőd van és legalább egy db kulcs van nálad-->
+        <!--Ha ez a feltétel nem teljesül, akkor: game over -->
+    </gameConditions>
+
+    <character>
+        <stats>
+            <stat name="Életerő" minValue="" maxValue="" value=""/>
+            <stat name="Ügyesség" minValue="" maxValue="" value=""/>
+            <stat name="Szerencse" minValue="" maxValue="" value=""/> <!-- Adhatsz neki display nevet is, ha pl van benne szóköz -->
+            <!-- maxValue és value statikus leírása helyett adhatsz neki dice="2d6 minValue maxValue" tulajdonságot is -->
+            <separator/>
+
+            <stat name="Arany" minValue="" maxValue="" value=""/>
+            <stat name="Drágakövek" minValue="" maxValue="" value=""/>
+
+            <stat name="rejtett" minValue="" maxValue="" value="" hidden="true"/>
+        </stats>
+        <inventory title="Inventárium:">
+            <item name="alma" amount="12"/>
+            <item name="kulcs" amount="3"/>
+            <item name="kard"/>
+            <item name="rejtett" amount="2" hidden="true"/>
+            <!-- Szükség esetén csoportorítható: <group name=""></group> címkék közé zárva, és akkor az inventorynak nem lesz címe-->
+            <!-- A groupok is lehetnek (az összes elemükre vonatkozóan) hidden="true" -->
+        </inventory>
+    </character>
+
+    <pages>
+        <page id="init">
+            <!--Kezdőoldal-->
+        </page>
+
+        <page id="1">
+            <text>A Lorem Ipsum egy egyszerű szövegrészlete, szövegutánzata a betűszedő és nyomdaiparnak.</text>
+            <initially>
+                <changeOption id="1" text="new-text" hidden="true/false" disabled="true"/>
+            </initially>
+            <options>
+                <option id="1"  hidden="true" disabled="false">
+                    <text>Első opció (Kapsz egy körtét és vesztesz egy életerőt, ha van nálad alma és szerencse)</text>
+                    <execute>
+                        <!--Conditions (ÉS kapcsolat van közöttük)-->
+                        <itemRequired name="alma" min="2"/> <!-- equals / min, max-->
+                        <itemRequired name="körte" min="2" group="gyümölcsök"/>
+                        <statRequired name="szerencse" min="1"/> <!-- equals / min, max-->
+                        <fight canflee="false"><!-- a canflee vagy false vagy a menekülés oldal idje-->
+							<enemy name="" health="" skill="" />
+						 </fight>
+                        
+                        <dice stat="szerencse" type="2d6" relationSD="="/>  <!-- relation lehet: {=, !=, >, <, >=, <=} -->
+                        <!-- Azért SD, hogy jelezze, milyen sorrendben értelmezendő a két szám.
+                            Nem mindegy, hogy (Stat >= Dice) vagy (Dice >= Stat)
+                        -->
+                        
+                        <!-- orField és andField (az execute eredendően andFieldként értelmezendő)-->
+
+                        <!--To-do-->
+                        <changeItem name="körte" amount="1" group="Felszerelés"/> <!-- amount, decrease, increase -->
+                        <changeStat name="Életerő" decrease="1"/> <!-- value, decrease, increase -->
+                        <changeStat name="Életerő.max" increase="1"/>
+                        <changePage id="2"/>
+                    </execute>
+                    <execute>
+                        <alert text="Nincs elég almád vagy szerencséd a folytatáshoz"/>
+                        <!--Az alertek lényege: leokézhatod és ugyanott vagy, nem mozogsz sehova (csak egy javaslat)-->
+                    </execute>
+                </option>
+                <option>
+                    <text>Második opció</text>
+                    <execute>
+                        <changePage id="3"/>
+                    </execute>
+                    <!-- Rövidítési lehetőség: • az execute mezők elhagyhatók, ha a parancs nincs feltételhez kötve
+                                               • ha mindegyik opció minden esetben ugyanarra az oldalra visz, írhatsz egy changPage="" tulajdonságot az options címkébe ahelyett, hogy mindenhova leírnád
+                                               • ha az opciónak mindegyik execute-ja ugyanarra a page-re repítene, vagy nincs egy execute sem az opcióban, akkor az opciónak is megadhatod a changePage tulajdonságot    
+                                            -->
+                    
+                    <!-- A játék újrakezdése: <restart/> -->
+
+                    <!-- Az optionöknek lehet egy disabled tagja is a hidden mellett. A disabled értéke már egyből maga a hibaüzenet, amit rámutatáskor kiír. -->
+                </option>
+            </options>
+        </page>
+    </pages>
+
+</game>

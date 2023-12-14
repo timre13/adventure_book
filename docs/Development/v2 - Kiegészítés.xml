@@ -1,0 +1,49 @@
+<game>
+    <gameConditions/>
+    <character/>
+    <pages/>
+</game>
+
+<option>
+    <text>Első opció (Kapsz egy körtét és vesztesz egy életerőt, ha van nálad alma és szerencse)</text>
+    <execute>
+        <!--Conditions (ÉS kapcsolat van közöttük)-->
+        <orGroup>
+            <andGroup>
+                <itemRequired name="kard" min="1"/>
+                <statRequired name="kenyér" min="1"/>
+            </andGroup>
+            <andGroup>
+                <itemRequired name="tőr" min="1"/>
+                <statRequired name="zsemle" min="1"/>
+            </andGroup>
+        </orGroup>
+        
+        <!--To-do-->
+        <changeItem name="körte" amount="1"/>
+        <changeStat name="Életerő" decrease="1"/>
+        <changePage id="2"/>
+    </execute>
+    <execute>
+        <alert text="Nincs elég almád vagy szerencséd a folytatáshoz"/>
+        <!--Az alertek lényege: leokézhatod és ugyanott vagy, nem mozogsz sehova (csak egy javaslat)-->
+    </execute>
+</option>
+
+
+
+
+<inventory>
+    <group name="Felszerelés">
+        <item name="alma" amount="12"/>
+        <item name="kulcs" amount="3"/>
+        <item name="kard"/>
+        <item name="rejtett" amount="2" hidden="true"/>
+    </group>
+    <group name="Bájitalok">
+        <item name="viagra" amount="3"/>
+    </group>
+
+    <!-- Szükség esetén csoportorítható: <group name=""></group> címkék közé zárva, és akkor az inventorynak nem lesz címe-->
+    <!-- A groupok is lehetnek (az összes elemükre vonatkozóan) hidden="true" -->
+</inventory>

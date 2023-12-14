@@ -30,7 +30,6 @@
     }
 </script>
 
-
 {#await promise}
     <div id="form-container" class={showForm ? "show" : ""}>
         <form action="">

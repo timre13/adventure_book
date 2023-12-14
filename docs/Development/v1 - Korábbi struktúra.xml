@@ -1,0 +1,79 @@
+<game>
+    <title>Az ítélet labirintusa</title>
+
+    <bar>
+        <range name="Életerő" min="0" max="$char.maxHealth" value="$char.health"/>
+        <range name="Ügyesség" min="0" max="$char.maxSkill" value="$char.skill"/>
+        <range name="Szerencse" min="0" max="$char.maxLuck" value="$char.luck"/>
+        <value name="Arany" value="$char.gold"/>
+        <value name="Ékkövek" value="$char.gems"/> <!--A value címkénél is lehet "max" tulajdonság-->
+        <field name="Felszerelés" value="$char.inventory" grouped="false"/>
+        <field name="Bájitalok" value="$char.potions" grouped="true"/>
+        <!--Grouped: ha egy elemből több van, akkor nem kétszer írja ki, hanem odaírja elé/mögé, hogy kettő van belőle -->
+    </bar>
+
+    <variables>
+        <group name="char">
+            <var name="health" type="number" value=""/>
+            <var name="skill" type="number" value=""/>
+            <var name="luck" type="number" value=""/>
+            <var name="gold" type="number" value=""/>
+            <var name="gems" type="number" value=""/>
+            <var name="maxHealth" type="number" value=""/>
+            <var name="maxSkill" type="number" value=""/>
+            <var name="maxLuck" type="number" value=""/>
+
+            <var name="inventory" type="hashSet" value=""/>
+            <var name="potions" type="list" value=""/>
+        </group>
+
+    </variables>
+
+    <pages>
+        <page id="0">
+            <text>Prológus teljes szövege</text>
+
+            <options>
+                <option next="1">  <!--A next az opcióba is beírható, ha nincs neki semmi feltétele-->
+                    Játék indítása
+                </option>
+            </options>
+        </page>
+
+        <page id="1">
+            <text>Lorem ipsum dolor sit amet.</text>
+
+            <fights>
+                <fight>
+                    <enemy name="Első denevér" health="5" skill="6"/>
+                    <fleeCodition con="fight.round.number >= 1 &amp;&amp; fight.round.LastWin = false"/>
+                </fight>
+
+                <fight>
+                    <enemy name="Második denevér" health="6" skill="5"/>
+                </fight>
+            </fights>
+
+            <options>
+                <option>
+                    Első opció
+                    <execute>
+                        <next id="2" condition="fight(6,6)">
+                            kard += 1
+                        </next>
+                    </execute>
+                </option>
+                <option>
+                    Második opció
+                    <execute>
+                        <next id="2" condition="fight(6,6)">
+                            kard += 1
+                        </next>
+                    </execute>
+                </option>
+            </options>
+        </page>
+
+
+    </pages>
+</game>

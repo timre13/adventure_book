@@ -2,6 +2,7 @@
     import { stats, inventory } from "$lib/stores/gamestate";
     import { Option } from "$lib/page";
     import { invalidate } from "$app/navigation";
+    import { base } from "$app/paths";
 
     export let itemUseDefs: Record<string, NodeListOf<Element>>;
 
@@ -22,7 +23,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <div class="status-notepad">
-    <img src="/notepad.png" />
+    <img src="{base}/notepad.png" />
     <div class="content">
         <div id="stat-display">
             <p><b>Státusz</b></p>

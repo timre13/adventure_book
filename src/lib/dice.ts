@@ -1,3 +1,4 @@
+import { base } from "$app/paths";
 import DiceBox from "@3d-dice/dice-box";
 
 export class Dice {
@@ -60,7 +61,7 @@ export class Dice {
 
 export async function createDice(selector: string) {
     const diceBox = new DiceBox(selector, {
-        assetPath: "/assets/",
+        assetPath: `${base}/assets/`,
         scale: 6,
         // theme: "wooden",
         mass: 3,

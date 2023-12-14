@@ -1,0 +1,160 @@
+<game>
+  <gameConditions>
+    <statRequired name="stat" min="1" />
+  </gameConditions>
+
+  <character>
+    <stats>
+      <stat name="stat" dice="2d6" min="0" max="15" />
+    </stats>
+    <inventory>
+      <group name="itemGroup">
+
+      </group>
+    </inventory>
+  </character>
+  <pages>
+    <page id="start">
+      <text>
+        This is the begining of the test file
+      </text>
+      <options>
+        <option>
+          <text>Get or lose stat or item</text>
+          <execute>
+            <changePage id="statOrItemConfig" />
+          </execute>
+        </option>
+        <option>
+          <text>Test with 2 d6 dice against stat</text>
+          <execute>
+            <dice stat="stat" type="2d6" />
+            <changePage id="success" />
+          </execute>
+          <execute>
+            <changePage id="fail" />
+          </execute>
+        </option>
+        <option>
+          <text>Test if you have item(s)</text>
+          <execute>
+            <itemRequired name="item" />
+            <changePage id="success" />
+          </execute>
+          <execute>
+            <changePage id="fail" />
+          </execute>
+        </option>
+        <option>
+          <text>Test if you lack items</text>
+          <execute>
+            <itemRequired name="item" max="0" />
+            <changePage id="success" />
+          </execute>
+          <execute>
+            <changePage id="fail" />
+          </execute>
+        </option>
+        <option>
+          <text>Alert</text>
+          <execute>
+            <alert text="Boo" />
+          </execute>
+        </option>
+        <option>
+          <text>Restart</text>
+          <execute>
+            <restart />
+          </execute>
+        </option>
+      </options>
+    </page>
+    <page id="success">
+      <text>Successfull</text>
+      <options>
+        <option>
+          <text>Back to main menu</text>
+          <execute>
+            <changePage id="start" />
+          </execute>
+        </option>
+      </options>
+    </page>
+    <page id="fail">
+      <text>Failed</text>
+      <options>
+        <option>
+          <text>Back to main menu</text>
+          <execute>
+            <changePage id="start" />
+          </execute>
+        </option>
+      </options>
+    </page>
+    <page id="statOrItemConfig">
+      <text>You can change the stat and item values here</text>
+      <options>
+        <option>
+          <text>Get a bigger stat</text>
+          <execute>
+            <changeStat name="stat" increase="1" />
+          </execute>
+        </option>
+        <option>
+          <text>Get a bigger stat (dice: 2d6)</text>
+          <execute>
+            <changeStat name="stat" increase="~2d6" />
+          </execute>
+        </option>
+        <option>
+          <text>Get a smaller stat</text>
+          <execute>
+            <changeStat name="stat" decrease="1" />
+          </execute>
+        </option>
+        <option>
+          <text>Get a smaller stat (dice: 2d6)</text>
+          <execute>
+            <changeStat name="stat" decrease="~2d6" />
+          </execute>
+        </option>
+        <option>
+          <text>Get a stat of 10</text>
+          <execute>
+            <changeStat name="stat" value="10" />
+          </execute>
+        </option>
+        <option>
+          <text>Get a random stat (dice: 2d6)</text>
+          <execute>
+            <changeStat name="stat" value="~2d6" />
+          </execute>
+        </option>
+        <option>
+          <text>Get an item</text>
+          <execute>
+            <changeItem name="item" group="itemGroup" />
+          </execute>
+        </option>
+        <option>
+          <text>Lose an item</text>
+          <execute>
+            <changeItem name="item" amount="-1" group="itemGroup" />
+          </execute>
+        </option>
+        <option>
+          <text>Get 5 items</text>
+          <execute>
+            <changeItem name="item" amount="5" group="itemGroup" />
+          </execute>
+        </option>
+        <option>
+          <text>Back to main menu</text>
+          <execute>
+            <changePage id="start" />
+          </execute>
+        </option>
+      </options>
+    </page>
+  </pages>
+</game>
