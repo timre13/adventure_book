@@ -2249,7 +2249,7 @@
                     <text>Menj tovább</text>
                     <execute>
                         <changeStat name="Szerencse.max" increase="1" />
-                        <changeStat name="Szerencse" value="Szerencse.max" />
+                        <changeStat name="Szerencse" value="10000000000000" />
                         <changePage id="169" />
                     </execute>
                 </option>
